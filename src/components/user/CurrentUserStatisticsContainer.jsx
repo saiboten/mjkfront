@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentUserStatistics from "./CurrentUserStatistics.jsx";
 
-var CurrentUserStatisticsContainer = React.createClass({
+class CurrentUserStatisticsContainer extends React.Component {
   render() {
     return (
       <div>
@@ -10,6 +10,6 @@ var CurrentUserStatisticsContainer = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default CurrentUserStatisticsContainer;

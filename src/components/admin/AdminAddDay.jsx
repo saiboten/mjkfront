@@ -6,7 +6,7 @@ import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 
-var AdminAddDay = React.createClass({
+class AdminAddDay extends React.Component {
   getInitialState() {
     return {
       description: "",
@@ -17,43 +17,43 @@ var AdminAddDay = React.createClass({
       revealDate: moment(),
       solutionDate: moment()
     };
-  },
+  }
 
-  changeRevealDate: function(date) {
+  changeRevealDate(date) {
     this.setState({
       revealDate: date
     });
     console.log("New date: ", date);
-  },
+  }
 
-  changeSolutionDate: function(date) {
+  changeSolutionDate(date) {
     this.setState({
       solutionDate: date
     });
     console.log("New date: ", date);
-  },
+  }
 
-  changeDescription: function(event) {
+  changeDescription(event) {
     this.setState({ description: event.target.value });
-  },
+  }
 
-  changeSolutionArtist: function(event) {
+  changeSolutionArtist(event) {
     this.setState({ solutionArtist: event.target.value });
-  },
+  }
 
-  changeSolutionSong: function(event) {
+  changeSolutionSong(event) {
     this.setState({ solutionSong: event.target.value });
-  },
+  }
 
-  changeOptionalSolutionVideo: function(event) {
+  changeOptionalSolutionVideo(event) {
     this.setState({ optionalSolutionVideo: event.target.value });
-  },
+  }
 
-  changeLink: function(event) {
+  changeLink(event) {
     this.setState({ link: event.target.value });
-  },
+  }
 
-  addDay: function() {
+  addDay() {
     var saveObject = {
       link: this.state.link,
       description: this.state.description,
@@ -67,7 +67,7 @@ var AdminAddDay = React.createClass({
 
     console.log("Save object: ", saveObject);
     // adminDayAction.addDay(saveObject);
-  },
+  }
 
   render() {
     return (
@@ -114,6 +114,6 @@ var AdminAddDay = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default AdminAddDay;

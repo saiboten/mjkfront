@@ -10,10 +10,10 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
 
-var AdminDay = React.createClass({
+class AdminDay extends React.Component {
   componentDidMount() {
     console.log("this.day", this.props.day);
-  },
+  }
 
   getInitialState() {
     return {
@@ -29,43 +29,43 @@ var AdminDay = React.createClass({
       file: {},
       feedback: ""
     };
-  },
+  }
 
-  changeRevealDate: function(date) {
+  changeRevealDate(date) {
     this.setState({
       revealDate: date
     });
     console.log("New date: ", date);
-  },
+  }
 
-  changeSolutionDate: function(date) {
+  changeSolutionDate(date) {
     this.setState({
       solutionDate: date
     });
     console.log("New date: ", date);
-  },
+  }
 
-  changeDescription: function(event) {
+  changeDescription(event) {
     this.setState({ description: event.target.value });
-  },
+  }
 
-  changeSolutionArtist: function(event) {
+  changeSolutionArtist(event) {
     this.setState({ solutionArtist: event.target.value });
-  },
+  }
 
-  changeSolutionSong: function(event) {
+  changeSolutionSong(event) {
     this.setState({ solutionSong: event.target.value });
-  },
+  }
 
-  changeOptionalSolutionVideo: function(event) {
+  changeOptionalSolutionVideo(event) {
     this.setState({ optionalSolutionVideo: event.target.value });
-  },
+  }
 
-  changeLink: function(event) {
+  changeLink(event) {
     this.setState({ link: event.target.value });
-  },
+  }
 
-  saveChanges: function() {
+  saveChanges() {
     var saveObject = {
       link: this.state.link,
       description: this.state.description,
@@ -79,16 +79,16 @@ var AdminDay = React.createClass({
     };
 
     console.log("Save object: ", saveObject);
-  },
+  }
 
-  addSolutionChange: function(e) {
+  addSolutionChange(e) {
     console.log("Updating state: ", e.target.value);
     this.setState({
       addSolution: e.target.value
     });
-  },
+  }
 
-  addSolution: function(e) {
+  addSolution(e) {
     console.log("Adding solution: ", this.state.addSolution);
     if (this.state.addSolution != "") {
       var solutionObject = {};
@@ -102,12 +102,12 @@ var AdminDay = React.createClass({
         feedback: "Løsning er tom!"
       });
     }
-  },
+  }
 
   createMarkup() {
     console.log("Creating markup", this.state.optionalSolutionVideo);
     return { __html: this.state.optionalSolutionVideo };
-  },
+  }
 
   deleteDay() {
     if (this.state.confirmDelete) {
@@ -117,14 +117,14 @@ var AdminDay = React.createClass({
         confirmDelete: true
       });
     }
-  },
+  }
 
-  onDrop: function(files) {
+  onDrop(files) {
     console.log("Received files: ", files);
     this.setState({
       file: files[0]
     });
-  },
+  }
 
   upload() {
     var req = request.post(
@@ -148,13 +148,13 @@ var AdminDay = React.createClass({
         file: {}
       });
     });
-  },
+  }
 
   abortUpload() {
     this.setState({
       file: {}
     });
-  },
+  }
 
   render() {
     var day = "";
@@ -309,6 +309,6 @@ var AdminDay = React.createClass({
       </Block>
     );
   }
-});
+}
 
 export default AdminDay;

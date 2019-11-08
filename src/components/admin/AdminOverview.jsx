@@ -4,10 +4,10 @@ import React from "react";
 import AdminDay from "./AdminDay";
 import AdminAddDay from "./AdminAddDay";
 
-var AdminOverview = React.createClass({
+class AdminOverview extends React.Component {
   componentDidMount() {
     console.log("Day! Woho");
-  },
+  }
 
   render() {
     console.log("this.props.days: ", this.props.days);
@@ -27,6 +27,6 @@ var AdminOverview = React.createClass({
       </Flex>
     );
   }
-});
+}
 
 export default AdminOverview;

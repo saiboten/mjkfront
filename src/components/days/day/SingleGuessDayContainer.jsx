@@ -3,9 +3,7 @@ import React from "react";
 import Days from "./../Days";
 import SingleGuessDay from "./SingleGuessDay";
 
-var SingleGuessDayContainer = React.createClass({
-  componentDidMount() {},
-
+class SingleGuessDayContainer extends React.Component {
   render() {
     return (
       <Block
@@ -19,6 +17,6 @@ var SingleGuessDayContainer = React.createClass({
       </Block>
     );
   }
-});
+}
 
 export default SingleGuessDayContainer;

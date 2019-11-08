@@ -1,9 +1,14 @@
-var React = require('react');
+var React = require("react");
 
-var HighScoreElement = React.createClass({
-    render() {
-        return (<li>{this.props.topListUser.user}: <strong>{this.props.topListUser.score}</strong></li>);
-    }
-});
+class HighScoreElement extends React.Component {
+  render() {
+    return (
+      <li>
+        {this.props.topListUser.user}:{" "}
+        <strong>{this.props.topListUser.score}</strong>
+      </li>
+    );
+  }
+}
 
 export default HighScoreElement;

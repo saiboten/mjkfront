@@ -2,10 +2,10 @@ import React from "react";
 import moment from "moment";
 import GuessDay from "./GuessDay";
 
-var Days = React.createClass({
+class Days extends React.Component {
   componentDidMount() {
     console.log("SingleGuessDay props");
-  },
+  }
 
   render() {
     console.log("Props: ", this.props);
@@ -39,6 +39,6 @@ var Days = React.createClass({
       </span>
     );
   }
-});
+}
 
 export default Days;

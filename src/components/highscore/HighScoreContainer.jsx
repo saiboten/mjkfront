@@ -1,7 +1,7 @@
 import React from "react";
 var HighScoreList = require("./HighScoreList.jsx");
 
-var HighScoreContainer = React.createClass({
+class HighScoreContainer extends React.Component {
   render() {
     return (
       <div>
@@ -10,6 +10,6 @@ var HighScoreContainer = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default HighScoreContainer;

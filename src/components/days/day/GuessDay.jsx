@@ -3,21 +3,21 @@ import { Block, Inline } from "jsxstyle";
 import React from "react";
 import SongAudio from "./SongAudio";
 
-var GuessDay = React.createClass({
+class GuessDay extends React.Component {
   submit(e) {
     e.preventDefault();
     console.log("Submit!", this.state.guess);
-  },
+  }
 
-  handleChange: function(event) {
+  handleChange(event) {
     this.setState({ guess: event.target.value });
-  },
+  }
 
   getDescription(description) {
     return {
       __html: description
     };
-  },
+  }
 
   render() {
     console.log("Props: ", this.props);
@@ -94,6 +94,6 @@ var GuessDay = React.createClass({
       </span>
     );
   }
-});
+}
 
 export default GuessDay;

@@ -1,12 +1,11 @@
-import ReactAudioPlayer from 'react-audio-player';
-import { Block } from 'jsxstyle';
+import ReactAudioPlayer from "react-audio-player";
+import { Block } from "jsxstyle";
 
-import React from 'react';
+import React from "react";
 
-var SongAudio = React.createClass({
-
-    render: function() {
-        /* var audioProps = {
+class SongAudio extends React.Component {
+  render() {
+    /* var audioProps = {
             src: this.props.link,
             preload: "none",
             controls: "yes"
@@ -16,14 +15,14 @@ var SongAudio = React.createClass({
         <a href={this.props.link}>Last ned låt</a>
         </Block> */
 
-        return (
-            <ReactAudioPlayer
-            src={this.props.link}
-            controls
-            className="audio-element"
-          />
-        );
-    }
-});
+    return (
+      <ReactAudioPlayer
+        src={this.props.link}
+        controls
+        className="audio-element"
+      />
+    );
+  }
+}
 
 export default SongAudio;
