@@ -1,20 +1,15 @@
-import React from 'react';
-import AltContainer from 'alt-container';
-import CurrentUserStatistics from './CurrentUserStatistics.jsx';
-import DayStore from '../../stores/DayStore';
+import React from "react";
+import CurrentUserStatistics from "./CurrentUserStatistics.jsx";
 
 var CurrentUserStatisticsContainer = React.createClass({
-    render() {
-        return (
-          <div>
-            <h1>Dine resultater</h1>
-          <AltContainer store={DayStore}>
-                 <CurrentUserStatistics />
-          </AltContainer>
-        </div>
-
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h1>Dine resultater</h1>
+        <CurrentUserStatistics />
+      </div>
+    );
+  }
 });
 
 export default CurrentUserStatisticsContainer;

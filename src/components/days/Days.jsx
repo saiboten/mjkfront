@@ -1,27 +1,11 @@
 import { Block, Flex } from 'jsxstyle';
-var React = require('react');
-var DaySelector = require('./day/DaySelector')
-var GuessDay = require('./day/GuessDay');
-var GuessStore = require('../../stores/GuessStore');
-var DayStore = require('../../stores/DayStore');
+import React from 'react';
+import DaySelector from './day/DaySelector';
 
 export let Days = React.createClass({
-    getInitialState() {
-        return DayStore.getState();
-    },
-
-    componentDidMount() {
-        DayStore.listen(this.onChange);
-    },
-
-    componentWillUnmount() {
-        DayStore.unlisten(this.onChange);
-    },
-
     onChange(state) {
         this.setState(state);
     },
-
     render() {
         console.log("Days props: ", this.props);
 
