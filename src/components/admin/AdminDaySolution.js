@@ -1,16 +1,16 @@
 import React from "react";
 
-let AdminDaySolution = React.createClass({
+class AdminDaySolution extends React.Component {
   componentDidMount() {
     console.log("AdminDaySolution did mount", this.props.solution);
-  },
+  }
 
   delete() {
     // AdminDayAction.deleteSolution({
     //   id: this.props.dayId,
     //   solution: this.props.solution.solution
     // });
-  },
+  }
 
   render() {
     return (
@@ -20,6 +20,6 @@ let AdminDaySolution = React.createClass({
       </li>
     );
   }
-});
+}
 
 export default AdminDaySolution;
