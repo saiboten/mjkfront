@@ -1,4 +1,4 @@
-import { Block, Flex } from "jsxstyle";
+import { Block } from "jsxstyle";
 
 import React from "react";
 import GuessDay from "./GuessDay";

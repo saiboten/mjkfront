@@ -1,4 +1,4 @@
-import { Block, Inline } from "jsxstyle";
+import { Inline } from "jsxstyle";
 
 import React from "react";
 import SongAudio from "./SongAudio";

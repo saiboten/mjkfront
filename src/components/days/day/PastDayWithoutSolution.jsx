@@ -1,4 +1,4 @@
-import { Block, Flex, Inline } from "jsxstyle";
+import { Block } from "jsxstyle";
 
 /**
  * Created by Tobias on 16.10.2016.

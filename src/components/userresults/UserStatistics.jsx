@@ -20,6 +20,8 @@ class UserStatistics extends React.Component {
                 userResult={this.props.userResult}
               />
             );
+          } else {
+            return null;
           }
         })}
       </div>

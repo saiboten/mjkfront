@@ -1,6 +1,5 @@
 import { Block } from "jsxstyle";
 import React from "react";
-import Days from "./../Days";
 import SingleGuessDay from "./SingleGuessDay";
 
 class SingleGuessDayContainer extends React.Component {

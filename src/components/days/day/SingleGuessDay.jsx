@@ -11,7 +11,7 @@ class Days extends React.Component {
     console.log("Props: ", this.props);
     return (
       <span>
-        {this.props.days.map((day, i) => {
+        {this.props.days.forEach((day, i) => {
           console.log(
             "Reveal day as string + this.props.date: ",
             day.revealDateAsString,

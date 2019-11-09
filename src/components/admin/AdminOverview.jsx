@@ -1,4 +1,4 @@
-import { Block, Flex } from "jsxstyle";
+import { Flex } from "jsxstyle";
 
 import React from "react";
 import AdminDay from "./AdminDay";
@@ -21,6 +21,8 @@ class AdminOverview extends React.Component {
         {this.props.days.map((day, i) => {
           if (day.realDate !== new Date(this.props.date).getDate().toString()) {
             return <AdminDay key={day.revealDate} day={day} />;
+          } else {
+            return null;
           }
         })}
         <AdminAddDay />

@@ -19,6 +19,8 @@ class CurrentUserStatistics extends React.Component {
             answers={this.props.answers}
           />
         );
+      } else {
+        return null;
       }
     });
 

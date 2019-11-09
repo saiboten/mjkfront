@@ -1,16 +1,10 @@
 import { Block } from "jsxstyle";
 import React from "react";
-import { Facebook } from "./facebook/Facebook";
-
-import SingleGuessDayContainer from "./days/day/SingleGuessDayContainer";
-import UserStatisticsContainer from "./userresults/UserStatisticsContainer";
-import CurrentUserStatisticsContainer from "./user/CurrentUserStatisticsContainer";
-import HighScoreContainer from "./highscore/HighScoreContainer";
 import { Days } from "./days/Days";
 
 export class Main extends React.Component {
   render() {
-    var imgStyle = { width: "100%" };
+    // var imgStyle = { width: "100%" };
     var imgAttributes = {
       src: "/static/images/santas.png",
       alt: "Julenisse"

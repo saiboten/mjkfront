@@ -90,7 +90,7 @@ class AdminDay extends React.Component {
 
   addSolution(e) {
     console.log("Adding solution: ", this.state.addSolution);
-    if (this.state.addSolution != "") {
+    if (this.state.addSolution !== "") {
       var solutionObject = {};
       solutionObject.solution = this.state.addSolution;
       solutionObject.id = this.props.day.id;
@@ -133,7 +133,6 @@ class AdminDay extends React.Component {
     req.query({ filename: this.state.file.name });
     req.attach("file", this.state.file);
 
-    var songname = this.state.file.name;
     var that = this;
 
     req.end(function(err, res) {
@@ -157,7 +156,7 @@ class AdminDay extends React.Component {
   }
 
   render() {
-    var day = "";
+    // var day = "";
     var fileupload = (
       <p>
         Fil som blir lastet opp: {this.state.file.name}

@@ -29,22 +29,6 @@ export class Menu extends React.Component {
           Logg inn
         </a>
       );
-    var openMenuContent = (
-      <ul className="header__menu-dropdown-list">
-        <li
-          className="header__menu-dropdown-list-element"
-          onClick={this.frontPage}
-        >
-          Forsiden
-        </li>
-        <li
-          className="header__menu-dropdown-list-element"
-          onClick={this.logInOrOut}
-        >
-          {this.props.loggedIn === "true" ? "Logg ut" : "Logg inn"}
-        </li>
-      </ul>
-    );
 
     return (
       <nav className="header">
