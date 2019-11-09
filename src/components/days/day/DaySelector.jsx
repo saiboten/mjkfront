@@ -7,10 +7,13 @@ import PastDayWithSolution from "./PastDayWithSolution";
 import PastDayWithoutSolution from "./PastDayWithoutSolution";
 
 class DaySelector extends React.Component {
-  getInitialState() {
-    return {
-      showSolution: false
-    };
+  state = {
+    showSolution: false
+  };
+
+  constructor(props) {
+    super(props);
+    this.showSolution = this.showSolution.bind(this);
   }
 
   showSolution() {
@@ -26,11 +29,11 @@ class DaySelector extends React.Component {
   }
 
   render() {
-    var day = "";
-
-    console.log("Day.props", this.props);
-
-    if (this.state.showSolution && this.props.day.solutionArtist) {
+    let day = "";
+    if (
+      this.state.showSolution &&
+      this.props.day.solutionArtist !== undefined
+    ) {
       day = <PastDayWithSolution day={this.props.day} />;
     } else if (this.props.day.revealDateAsString === this.props.date) {
       day = (
@@ -42,7 +45,7 @@ class DaySelector extends React.Component {
           user={this.props.user}
         />
       );
-    } else if (this.props.day.description) {
+    } else if (this.props.day.description !== undefined) {
       day = (
         <PastDayWithoutSolution
           day={this.props.day}

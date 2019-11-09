@@ -4,9 +4,22 @@ import React from "react";
 import SongAudio from "./SongAudio";
 
 class GuessDay extends React.Component {
+  state = {
+    guess: "",
+    feedback: "",
+    correctAnswer: undefined
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   submit(e) {
     e.preventDefault();
     console.log("Submit!", this.state.guess);
+    // TODO call api - check response?
   }
 
   handleChange(event) {
@@ -40,10 +53,7 @@ class GuessDay extends React.Component {
           {answerThisDay.guessedSong}{" "}
         </p>
       );
-    } else if (
-      this.state.guessResponse.guess &&
-      this.state.guessResponse.guess.correct
-    ) {
+    } else if (this.state.guess && this.state.correctAnswer) {
       formOrFeedback = <p>Gratulerer, det var rett!</p>;
     } else {
       formOrFeedback = (
@@ -53,7 +63,7 @@ class GuessDay extends React.Component {
               className="guess-form__input"
               placeholder="Sang"
               onChange={this.handleChange}
-              value={this.state.guess.guess}
+              value={this.state.guess}
             />
             <Inline margin="10px" width="10%">
               <button className="guess-form__submitbutton" type="submit">
@@ -61,11 +71,7 @@ class GuessDay extends React.Component {
               </button>
             </Inline>
           </div>
-          <p>
-            {this.state.guessResponse.guess
-              ? this.state.guessResponse.guess.feedback
-              : ""}{" "}
-          </p>
+          <p>{this.state.status ? this.state.status : ""} </p>
         </form>
       );
     }

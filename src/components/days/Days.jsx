@@ -1,14 +1,22 @@
 import { Block, Flex } from "jsxstyle";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import DaySelector from "./day/DaySelector";
 import { fetchDays } from "../../api/daysApi";
+import { DataContext } from "../../context/DataContext";
 
 export const Days = function() {
-  const [days, setDays] = useState([]);
-  const [date, setDate] = useState(null);
-  const [user, setUser] = useState(null);
-  const [answers, setAnswers] = useState([]);
-  const [today, setToday] = useState(null);
+  const {
+    days,
+    setDays,
+    answers,
+    setAnswers,
+    date,
+    setDate,
+    today,
+    setToday,
+    user,
+    setUser
+  } = useContext(DataContext);
 
   useEffect(() => {
     fetchDays().then(({ days, date, user, answers, today }) => {
@@ -18,7 +26,7 @@ export const Days = function() {
       setAnswers(answers);
       setToday(today);
     });
-  }, []);
+  }, [setAnswers, setDate, setDays, setToday, setUser]);
 
   return (
     <Block>
@@ -36,7 +44,6 @@ export const Days = function() {
               day={day}
             />
           ))}
-        })}
       </Flex>
     </Block>
   );

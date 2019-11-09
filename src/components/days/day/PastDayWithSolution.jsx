@@ -23,13 +23,11 @@ class PastDayWithSolution extends React.Component {
   render() {
     return (
       <div>
-        <p>
-          <div
-            dangerouslySetInnerHTML={this.getDescription(
-              this.props.day.description
-            )}
-          ></div>
-        </p>
+        <div
+          dangerouslySetInnerHTML={this.getDescription(
+            this.props.day.description
+          )}
+        ></div>
         <p>
           <span>
             {this.props.day.solutionArtist} - {this.props.day.solutionSong}{" "}
