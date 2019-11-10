@@ -1,0 +1,253 @@
+body {
+  background-color: #adc3de;
+  background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
+    url("/static/images/s3.png");
+  z-index: 1;
+  -webkit-animation: snow 10s linear infinite;
+  -moz-animation: snow 10s linear infinite;
+  -ms-animation: snow 10s linear infinite;
+  animation: snow 10s linear infinite;
+  font-family: "Rubik", sans-serif;
+}
+
+.main-wrapper {
+  max-width: 980px;
+}
+
+.admin__container {
+  max-width: 980px;
+}
+
+.smallspace {
+  margin: 5px;
+  padding: 5px;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 1.4em;
+}
+
+h3 {
+  margin: 10px;
+}
+
+nav.header {
+  max-width: 980px;
+  margin: 10px auto;
+}
+
+.header__fullscreen {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__menu-item {
+  padding: 10px;
+  min-width: 75px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px black;
+  background-color: white;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 450px) {
+  .header__fullscreen {
+    flex-direction: column;
+    height: 100px;
+  }
+
+  .header__menu-item {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.header__menu-item:visited {
+  color: black;
+}
+
+.header__menu-item:link {
+  color: black;
+}
+
+.day__container {
+  padding: 5px;
+  max-width: 450px;
+}
+
+.about__container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.about__text {
+  padding-left: 10px;
+}
+
+.footer-copyright {
+  background-color: white;
+  text-align: center;
+  margin: 10px auto;
+  width: 330px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.guess-day__container {
+  width: 100%;
+}
+
+.admin-day__description-textarea {
+  width: 300px;
+  height: 140px;
+}
+
+.admin-day__input {
+  width: 100%;
+}
+
+.guess-form__input {
+  width: 55%;
+  height: 50px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.difficult {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+.easy {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: green;
+}
+
+.medium {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+}
+
+.guess-form__submitbutton {
+  width: 70px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888888;
+  transition: 0.2s ease-in-out;
+  height: 50px;
+  background-color: #fff;
+}
+
+.guess-form__submitbutton:hover {
+  background-color: rgba(143, 0, 0, 0.822);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.guess-form__submitbutton:checked {
+  background-color: rgba(143, 0, 0, 0.822);
+  color: white;
+  transform: translateY(1px);
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.difficulty-text {
+  margin-right: 5px;
+}
+
+.button {
+  padding: 10px;
+  min-width: 75px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px black;
+  background-color: white;
+  margin-left: 10px;
+  border: 0;
+}
+
+.contributors {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.quiz-description {
+  margin-top: 10px;
+}
+
+.audio-element {
+  width: 100%;
+}
+
+@keyframes snow {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+  }
+  100% {
+    background-position: 500px 1000px, 200px 400px, -100px 300px;
+  }
+}
+
+@-moz-keyframes snow {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+  }
+  100% {
+    background-position: 400px 1000px, 200px 400px, 100px 300px;
+  }
+}
+
+@-webkit-keyframes snow {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+  }
+  100% {
+    background-position: 500px 1000px, 200px 400px, -100px 300px;
+  }
+}
+
+@-ms-keyframes snow {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 500px 500px, 100px 200px, -100px 150px;
+  }
+  100% {
+    background-position: 500px 1000px, 200px 400px, -100px 300px;
+  }
+}

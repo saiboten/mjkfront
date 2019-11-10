@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export class Menu extends React.Component {
   getInitialState() {
@@ -25,7 +26,7 @@ export class Menu extends React.Component {
           Logg ut
         </a>
       ) : (
-        <a className="header__menu-item" href="/secure">
+        <a className="header__menu-item" href="/login/google">
           Logg inn
         </a>
       );
@@ -33,15 +34,12 @@ export class Menu extends React.Component {
     return (
       <nav className="header">
         <div className="header__fullscreen">
-          <a className="header__menu-item" href="/">
-            {" "}
-            Forsiden{" "}
-          </a>
+          <Link to="/" className="header__menu-item">
+            Forsiden
+          </Link>
           {loggedInLink}
         </div>
       </nav>
     );
   }
 }
-
-export default Menu;

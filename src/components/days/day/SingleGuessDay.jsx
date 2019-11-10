@@ -1,44 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import GuessDay from "./GuessDay";
+import { DataContext } from "../../../context/DataContext";
 
-class Days extends React.Component {
-  componentDidMount() {
-    console.log("SingleGuessDay props");
-  }
+const Days = function() {
+  const { days, date, today, answers, user } = useContext(DataContext);
 
-  render() {
-    console.log("Props: ", this.props);
-    return (
-      <span>
-        {this.props.days.forEach((day, i) => {
+  return (
+    <>
+      {days
+        .filter(day => day.revealDateAsString === date)
+        .map((day, i) => {
           console.log(
             "Reveal day as string + this.props.date: ",
             day.revealDateAsString,
-            this.props.date
+            date
           );
-          if (day.revealDateAsString === this.props.date) {
-            return (
-              <>
-                <h1>Dagens oppgave</h1>
-                <div>
-                  <h3>{moment(this.props.date).format("DD. MMMM")}</h3>
-                  <GuessDay
-                    key={day.revealDateAsInt}
-                    today={this.props.today}
-                    date={this.props.date}
-                    day={day}
-                    answers={this.props.answers}
-                    user={this.props.user}
-                  />
-                </div>
-              </>
-            );
-          }
+          return (
+            <>
+              <h1>Dagens oppgave</h1>
+              <div>
+                <h3>{moment(date).format("DD. MMMM")}</h3>
+                <GuessDay
+                  key={day.revealDateAsInt}
+                  today={today}
+                  date={date}
+                  day={day}
+                  answers={answers}
+                  user={user}
+                />
+              </div>
+            </>
+          );
         })}
-      </span>
-    );
-  }
-}
+    </>
+  );
+};
 
 export default Days;

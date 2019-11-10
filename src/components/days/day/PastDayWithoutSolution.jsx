@@ -25,7 +25,9 @@ class PastDayWithoutSolution extends React.Component {
           ></div>
         </Block>
         <p>
-          <button onClick={this.props.showSolutionCallback}>Vis fasit</button>
+          <button class="button" onClick={this.props.showSolutionCallback}>
+            Vis fasit
+          </button>
         </p>
         <SongAudio link={this.props.day.link} />
       </Block>

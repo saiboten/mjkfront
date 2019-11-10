@@ -1,5 +1,5 @@
 export const fetchDays = () => {
-  return fetch("/alldata")
+  return fetch(`${process.env.REACT_APP_API_PATH}/alldata`)
     .then(data => {
       return data.json();
     })

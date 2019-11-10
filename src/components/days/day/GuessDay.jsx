@@ -2,6 +2,7 @@ import { Inline } from "jsxstyle";
 
 import React from "react";
 import SongAudio from "./SongAudio";
+import { answerApi } from "../../../api/answerApi";
 
 class GuessDay extends React.Component {
   state = {
@@ -14,12 +15,25 @@ class GuessDay extends React.Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   submit(e) {
     e.preventDefault();
     console.log("Submit!", this.state.guess);
-    // TODO call api - check response?
+
+    answerApi(this.state.guess).then(({ correct, feedback }) => {
+      if (correct) {
+        this.setState({
+          correctAnswer: true,
+          feedback
+        });
+      } else {
+        this.setState({
+          feedback
+        });
+      }
+    });
   }
 
   handleChange(event) {

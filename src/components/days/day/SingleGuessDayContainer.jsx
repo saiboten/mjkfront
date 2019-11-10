@@ -2,7 +2,7 @@ import { Block } from "jsxstyle";
 import React from "react";
 import SingleGuessDay from "./SingleGuessDay";
 
-class SingleGuessDayContainer extends React.Component {
+export class SingleGuessDayContainer extends React.Component {
   render() {
     return (
       <Block
@@ -17,5 +17,3 @@ class SingleGuessDayContainer extends React.Component {
     );
   }
 }
-
-export default SingleGuessDayContainer;
