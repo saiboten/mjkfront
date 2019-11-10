@@ -15,18 +15,32 @@ export const Days = function() {
     today,
     setToday,
     user,
-    setUser
+    setUser,
+    setUserResult,
+    setTopList
   } = useContext(DataContext);
 
   useEffect(() => {
-    fetchDays().then(({ days, date, user, answers, today }) => {
-      setDays(days);
-      setDate(date);
-      setUser(user);
-      setAnswers(answers);
-      setToday(today);
-    });
-  }, [setAnswers, setDate, setDays, setToday, setUser]);
+    fetchDays().then(
+      ({ days, date, user, answers, today, userResult, topList }) => {
+        setDays(days);
+        setDate(date);
+        setUser(user);
+        setAnswers(answers);
+        setToday(today);
+        setUserResult(userResult);
+        setTopList(topList);
+      }
+    );
+  }, [
+    setAnswers,
+    setDate,
+    setDays,
+    setToday,
+    setUser,
+    setUserResult,
+    setTopList
+  ]);
 
   return (
     <Block>

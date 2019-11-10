@@ -1,15 +1,11 @@
 import React from "react";
-var HighScoreList = require("./HighScoreList.jsx");
+import { HighScoreList } from "./HighScoreList";
 
-class HighScoreContainer extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Toppscorelisten!</h1>
-        <HighScoreList />
-      </div>
-    );
-  }
+export function HighScoreContainer() {
+  return (
+    <div>
+      <h1>Toppscorelisten!</h1>
+      <HighScoreList />
+    </div>
+  );
 }
-
-export default HighScoreContainer;

@@ -1,32 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import UserResultList from "./UserResultList";
+import { DataContext } from "../../context/DataContext";
 
-class UserStatistics extends React.Component {
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
+export function UserStatistics() {
+  const { days, today, userResult } = useContext(DataContext);
 
-  render() {
-    console.log("User statistics props", this.props);
-
-    return (
-      <div>
-        {this.props.days.map((day, i) => {
-          if (day.id === this.props.today) {
-            return (
-              <UserResultList
-                key={day.id}
-                day={day}
-                userResult={this.props.userResult}
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {days.map((day, i) => {
+        if (day.id === today) {
+          return (
+            <UserResultList key={day.id} day={day} userResult={userResult} />
+          );
+        } else {
+          return null;
+        }
+      })}
+    </div>
+  );
 }
-
-export default UserStatistics;

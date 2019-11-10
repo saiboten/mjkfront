@@ -1,32 +1,25 @@
-var React = require("react");
-var HighScoreElement = require("./HighScoreElement");
+import React, { useContext } from "react";
+import HighScoreElement from "./HighScoreElement";
+import { DataContext } from "../../context/DataContext";
 
-class HighScoreList extends React.Component {
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
+export function HighScoreList() {
+  const { topList, user } = useContext(DataContext);
 
-  render() {
-    console.log("toplist", this.props.topList);
-
-    return (
-      <ol>
-        {this.props.topList
-          .filter(function(user) {
-            return user.score > 0;
-          })
-          .map((topListUser, index) => {
-            return (
-              <HighScoreElement
-                key={index}
-                user={this.props.user}
-                topListUser={topListUser}
-              />
-            );
-          })}
-      </ol>
-    );
-  }
+  return (
+    <ol>
+      {topList
+        .filter(function(user) {
+          return user.score > 0;
+        })
+        .map((topListUser, index) => {
+          return (
+            <HighScoreElement
+              key={index}
+              user={user}
+              topListUser={topListUser}
+            />
+          );
+        })}
+    </ol>
+  );
 }
-
-export default HighScoreList;

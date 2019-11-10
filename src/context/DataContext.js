@@ -10,7 +10,11 @@ const initialState = {
   today: null,
   setToday: () => {},
   user: {},
-  setUser: () => {}
+  setUser: () => {},
+  userResult: {},
+  setUserResult: () => {},
+  topList: [],
+  setTopList: () => []
 };
 
 export const DataContext = React.createContext(initialState);

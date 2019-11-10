@@ -7,6 +7,8 @@ export const Providers = ({ children }) => {
   const [date, setDate] = useState("");
   const [today, setToday] = useState(null);
   const [user, setUser] = useState(null);
+  const [userResult, setUserResult] = useState(null);
+  const [topList, setTopList] = useState([]);
 
   const dataContextValue = {
     days,
@@ -18,7 +20,11 @@ export const Providers = ({ children }) => {
     today,
     setToday,
     user,
-    setUser
+    setUser,
+    userResult,
+    setUserResult,
+    topList,
+    setTopList
   };
 
   return (

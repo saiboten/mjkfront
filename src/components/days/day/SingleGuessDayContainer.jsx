@@ -1,4 +1,3 @@
-import { Block } from "jsxstyle";
 import React from "react";
 import SingleGuessDay from "./SingleGuessDay";
 import styled from "styled-components";

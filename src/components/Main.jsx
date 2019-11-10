@@ -5,6 +5,9 @@ import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
 import { SingleGuessDayContainer } from "./days/day/SingleGuessDayContainer";
 import { Wrapper } from "./lib/Wrapper";
+import { UserStatisticsContainer } from "./userresults/UserStatisticsContainer";
+import { HighScoreContainer } from "./highscore/HighScoreContainer";
+import { CurrentUserStatisticsContainer } from "./user/CurrentUserStatisticsContainer";
 
 export class Main extends React.Component {
   render() {
@@ -50,9 +53,9 @@ export class Main extends React.Component {
             <SingleGuessDayContainer />
             <Facebook />
           </Block>
-          {/* <UserStatisticsContainer />
+          <UserStatisticsContainer />
           <HighScoreContainer />
-          <CurrentUserStatisticsContainer /> */}
+          <CurrentUserStatisticsContainer />
           <p className="smallspace">
             Følg oss gjerne på{" "}
             <a href="https://www.facebook.com/musikkjulekalender">facebook!</a>

@@ -1,7 +1,7 @@
 import React from "react";
-import UserStatistics from "./UserStatistics";
+import { UserStatistics } from "./UserStatistics";
 
-class UserStatisticsContainer extends React.Component {
+export class UserStatisticsContainer extends React.Component {
   render() {
     return (
       <div>
@@ -14,5 +14,3 @@ class UserStatisticsContainer extends React.Component {
     );
   }
 }
-
-export default UserStatisticsContainer;
