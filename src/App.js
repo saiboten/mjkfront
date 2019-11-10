@@ -5,6 +5,7 @@ import { Menu } from "./components/menu/Menu";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./components/about/About";
+import { Login } from "./components/login/Login";
 
 export const App = function() {
   return (
@@ -14,6 +15,9 @@ export const App = function() {
         <Switch>
           <Route path="/om">
             <About />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Main />

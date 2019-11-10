@@ -4,6 +4,7 @@ import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
 import { SingleGuessDayContainer } from "./days/day/SingleGuessDayContainer";
+import { Wrapper } from "./lib/Wrapper";
 
 export class Main extends React.Component {
   render() {
@@ -15,12 +16,7 @@ export class Main extends React.Component {
 
     return (
       <>
-        <Block
-          className="main-wrapper"
-          backgroundColor="white"
-          borderRadius="5px"
-          margin="0 auto"
-        >
+        <Wrapper>
           <Block
             mediaQueries={{
               sm: "screen and (max-width: 450px)"
@@ -62,7 +58,7 @@ export class Main extends React.Component {
             <a href="https://www.facebook.com/musikkjulekalender">facebook!</a>
           </p>
           <Days />
-        </Block>
+        </Wrapper>
         <Footer />
       </>
     );

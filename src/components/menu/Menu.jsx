@@ -26,7 +26,7 @@ export class Menu extends React.Component {
           Logg ut
         </a>
       ) : (
-        <a className="header__menu-item" href="/login/google">
+        <a className="header__menu-item" href="/login">
           Logg inn
         </a>
       );
