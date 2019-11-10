@@ -31,7 +31,12 @@ export const Days = function() {
   return (
     <Block>
       <h1>Løsninger</h1>
-      <Flex flexDirection="row" flexWrap="wrap" padding="10px">
+      <Flex
+        flexDirection="row"
+        justifyContent="space-between"
+        flexWrap="wrap"
+        padding="10px"
+      >
         {days
           .filter(day => day.realDate !== new Date(date).getDate().toString())
           .map((day, i) => (

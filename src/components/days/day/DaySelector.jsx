@@ -1,10 +1,19 @@
 import { Block } from "jsxstyle";
+import styled from "styled-components";
 
 import React from "react";
 import GuessDay from "./GuessDay";
 import DateHeader from "./../../DateHeader";
 import PastDayWithSolution from "./PastDayWithSolution";
 import PastDayWithoutSolution from "./PastDayWithoutSolution";
+
+const StyledDayWrapper = styled.div`
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: "white";
+  flex: 1;
+`;
 
 class DaySelector extends React.Component {
   state = {
@@ -57,10 +66,10 @@ class DaySelector extends React.Component {
     }
 
     return (
-      <Block className="day__container">
+      <StyledDayWrapper>
         <DateHeader unixDate={this.props.day.revealDateAsString}></DateHeader>
         {day}
-      </Block>
+      </StyledDayWrapper>
     );
   }
 }

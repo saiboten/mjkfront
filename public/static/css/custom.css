@@ -79,7 +79,6 @@ nav.header {
 
 .day__container {
   padding: 5px;
-  max-width: 450px;
 }
 
 .about__container {
@@ -99,10 +98,6 @@ nav.header {
   width: 330px;
   padding: 10px;
   border-radius: 5px;
-}
-
-.guess-day__container {
-  width: 100%;
 }
 
 .admin-day__description-textarea {
