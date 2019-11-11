@@ -1,0 +1,2 @@
+Remove-Item "C:\utv\workspace-2014\musikkjulekalender\src\main\resources\resources\static\js\*" -Recurse -force
+Copy-Item "./build/*" -Destination "C:\utv\workspace-2014\musikkjulekalender\src\main\resources\resources\static\js" -Recurse -force

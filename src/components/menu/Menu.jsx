@@ -1,45 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../context/DataContext";
 
-export class Menu extends React.Component {
-  getInitialState() {
-    return {
-      menuOpen: false
-    };
-  }
+export function Menu() {
+  const { user } = useContext(DataContext);
 
-  frontPage() {
-    window.location = "/";
-  }
-
-  logInOrOut() {
-    this.props.loggedIn === true
-      ? (window.location = "/logout")
-      : (window.location = "/secure");
-  }
-
-  render() {
-    // Quick note: this.props.loggedIn is a string
-    var loggedInLink =
-      this.props.loggedIn === "true" ? (
-        <a className="header__menu-item" href="/logout">
-          Logg ut
-        </a>
-      ) : (
-        <a className="header__menu-item" href="/login">
-          Logg inn
-        </a>
-      );
-
-    return (
-      <nav className="header">
-        <div className="header__fullscreen">
-          <Link to="/" className="header__menu-item">
-            Forsiden
-          </Link>
-          {loggedInLink}
-        </div>
-      </nav>
+  // Quick note: this.props.loggedIn is a string
+  var loggedInLink =
+    user !== null ? (
+      <a className="header__menu-item" href="/logout">
+        Logg ut
+      </a>
+    ) : (
+      <Link to="/" className="header__menu-item">
+        Logg inn
+      </Link>
     );
-  }
+
+  return (
+    <nav className="header">
+      <div className="header__fullscreen">
+        <Link to="/" className="header__menu-item">
+          Forsiden
+        </Link>
+        {loggedInLink}
+      </div>
+    </nav>
+  );
 }

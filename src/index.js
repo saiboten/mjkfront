@@ -59,8 +59,8 @@ moment.defineLocale("nb", {
 
 moment.locale("nb");
 
-if (document.getElementById("main")) {
-  ReactDOM.render(<App />, document.getElementById("main"));
+if (document.getElementById("root")) {
+  ReactDOM.render(<App />, document.getElementById("root"));
 }
 
 if (document.getElementById("admin")) {

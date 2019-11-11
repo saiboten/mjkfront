@@ -19,9 +19,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build postbuild",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./post_build.ps1"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {
@@ -38,6 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }
