@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { DataContext } from "../context/DataContext";
 import { AdminDataContext } from "../context/AdminDataContext";
 
-export const Providers = ({ children }) => {
+export const AdminProviders = ({ children }) => {
   const [days, setDays] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [date, setDate] = useState("");
@@ -29,8 +28,8 @@ export const Providers = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={dataContextValue}>
+    <AdminDataContext.Provider value={dataContextValue}>
       {children}
-    </DataContext.Provider>
+    </AdminDataContext.Provider>
   );
 };

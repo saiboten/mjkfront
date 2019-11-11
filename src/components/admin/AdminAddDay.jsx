@@ -7,16 +7,28 @@ import moment from "moment";
 import DatePicker from "react-datepicker";
 
 class AdminAddDay extends React.Component {
-  getInitialState() {
-    return {
-      description: "",
-      optionalSolutionVideo: "",
-      solutionArtist: "",
-      solutionSong: "",
-      link: "",
-      revealDate: moment(),
-      solutionDate: moment()
-    };
+  state = {
+    description: "",
+    optionalSolutionVideo: "",
+    solutionArtist: "",
+    solutionSong: "",
+    link: "",
+    revealDate: moment(),
+    solutionDate: moment()
+  };
+
+  constructor(props) {
+    super(props);
+    this.changeRevealDate = this.changeRevealDate.bind(this);
+    this.changeSolutionDate = this.changeSolutionDate.bind(this);
+    this.changeDescription = this.changeDescription.bind(this);
+    this.changeSolutionArtist = this.changeSolutionArtist.bind(this);
+    this.changeSolutionSong = this.changeSolutionSong.bind(this);
+    this.changeLink = this.changeLink.bind(this);
+    this.addDay = this.addDay.bind(this);
+    this.changeOptionalSolutionVideo = this.changeOptionalSolutionVideo.bind(
+      this
+    );
   }
 
   changeRevealDate(date) {

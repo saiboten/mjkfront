@@ -9,24 +9,25 @@ import SongAudio from "../days/day/SongAudio";
 import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
+import { AdminDataContext } from "../../context/AdminDataContext";
 
 class AdminDay extends React.Component {
-  state = {
-    description: this.props.day.description,
-    optionalSolutionVideo: this.props.day.optionalSolutionVideo,
-    solutionArtist: this.props.day.solutionArtist,
-    solutionSong: this.props.day.solutionSong,
-    link: this.props.day.link,
-    revealDate: moment(this.props.day.revealDate),
-    solutionDate: moment(this.props.day.solutionDate),
-    addSolution: "",
-    confirmDelete: false,
-    file: {},
-    feedback: ""
-  };
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      description: this.props.day.description,
+      optionalSolutionVideo: this.props.day.optionalSolutionVideo,
+      solutionArtist: this.props.day.solutionArtist,
+      solutionSong: this.props.day.solutionSong,
+      link: this.props.day.link,
+      revealDate: moment(this.props.day.revealDate).toDate(),
+      solutionDate: moment(this.props.day.solutionDate).toDate(),
+      addSolution: "",
+      confirmDelete: false,
+      file: {},
+      feedback: ""
+    };
 
     this.changeRevealDate = this.changeRevealDate.bind(this);
     this.changeSolutionDate = this.changeSolutionDate.bind(this);
@@ -275,16 +276,17 @@ class AdminDay extends React.Component {
             </tbody>
           </table>
           <ul>
-            {this.props.day.solutions.map(function(solution) {
-              console.log("This props:", this);
-              return (
-                <AdminDaySolution
-                  key={solution.solution}
-                  dayId={this.props.day.id}
-                  solution={solution}
-                ></AdminDaySolution>
-              );
-            }, this)}
+            {this.props.day.solutions &&
+              this.props.day.solutions.map(function(solution) {
+                console.log("This props:", this);
+                return (
+                  <AdminDaySolution
+                    key={solution.solution}
+                    dayId={this.props.day.id}
+                    solution={solution}
+                  ></AdminDaySolution>
+                );
+              }, this)}
           </ul>
           <input
             type="text"

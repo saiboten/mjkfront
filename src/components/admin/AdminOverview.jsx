@@ -1,34 +1,66 @@
 import { Flex } from "jsxstyle";
 
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import AdminDay from "./AdminDay";
 import AdminAddDay from "./AdminAddDay";
+import { AdminDataContext } from "../../context/AdminDataContext";
+import { fetchAdminData } from "../../api/adminApi";
 
-class AdminOverview extends React.Component {
-  componentDidMount() {
-    console.log("Day! Woho");
-  }
+function AdminOverview() {
+  const {
+    days,
+    setDays,
+    answers,
+    setAnswers,
+    date,
+    setDate,
+    today,
+    setToday,
+    user,
+    setUser,
+    setUserResult,
+    setTopList
+  } = useContext(AdminDataContext);
 
-  render() {
-    console.log("this.props.days: ", this.props.days);
-    return (
-      <Flex
-        backgroundColor="white"
-        flexWrap="wrap"
-        margin="5px auto"
-        className="admin__container"
-      >
-        {this.props.days.map((day, i) => {
-          if (day.realDate !== new Date(this.props.date).getDate().toString()) {
-            return <AdminDay key={day.revealDate} day={day} />;
-          } else {
-            return null;
-          }
-        })}
-        <AdminAddDay />
-      </Flex>
+  useEffect(() => {
+    fetchAdminData().then(
+      ({ days, date, user, answers, today, userResult, topList }) => {
+        setDays(days);
+        setDate(date);
+        setUser(user);
+        setAnswers(answers);
+        setToday(today);
+        setUserResult(userResult);
+        setTopList(topList);
+      }
     );
-  }
+  }, [
+    setAnswers,
+    setDate,
+    setDays,
+    setToday,
+    setUser,
+    setUserResult,
+    setTopList
+  ]);
+
+  return (
+    <Flex
+      backgroundColor="white"
+      flexWrap="wrap"
+      margin="5px auto"
+      className="admin__container"
+    >
+      {days.map((day, i) => {
+        if (day.realDate !== new Date(date).getDate().toString()) {
+          return <AdminDay key={day.revealDate} day={day} />;
+        } else {
+          return null;
+        }
+      })}
+      {/* <AdminAddDay /> */}
+    </Flex>
+  );
 }
 
 export default AdminOverview;
