@@ -10,7 +10,7 @@ const StyledDayWrapper = styled.div`
   margin: 0 auto;
   padding: 5px;
   border-radius: 5px;
-  background-color: "white";
+  background-color: #fff;
   flex: 1;
 `;
 

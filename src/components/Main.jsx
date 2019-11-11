@@ -51,16 +51,16 @@ export class Main extends React.Component {
           </Block>
           <Block display="flex" flexWrap="wrap" padding="5px">
             <SingleGuessDayContainer />
-            <Facebook />
           </Block>
           <UserStatisticsContainer />
           <HighScoreContainer />
           <CurrentUserStatisticsContainer />
+          <Days />
           <p className="smallspace">
             Følg oss gjerne på{" "}
             <a href="https://www.facebook.com/musikkjulekalender">facebook!</a>
           </p>
-          <Days />
+          <Facebook />
         </Wrapper>
         <Footer />
       </>

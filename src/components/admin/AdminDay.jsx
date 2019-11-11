@@ -11,24 +11,39 @@ import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
 
 class AdminDay extends React.Component {
-  componentDidMount() {
-    console.log("this.day", this.props.day);
-  }
+  state = {
+    description: this.props.day.description,
+    optionalSolutionVideo: this.props.day.optionalSolutionVideo,
+    solutionArtist: this.props.day.solutionArtist,
+    solutionSong: this.props.day.solutionSong,
+    link: this.props.day.link,
+    revealDate: moment(this.props.day.revealDate),
+    solutionDate: moment(this.props.day.solutionDate),
+    addSolution: "",
+    confirmDelete: false,
+    file: {},
+    feedback: ""
+  };
 
-  getInitialState() {
-    return {
-      description: this.props.day.description,
-      optionalSolutionVideo: this.props.day.optionalSolutionVideo,
-      solutionArtist: this.props.day.solutionArtist,
-      solutionSong: this.props.day.solutionSong,
-      link: this.props.day.link,
-      revealDate: moment(this.props.day.revealDate),
-      solutionDate: moment(this.props.day.solutionDate),
-      addSolution: "",
-      confirmDelete: false,
-      file: {},
-      feedback: ""
-    };
+  constructor(props) {
+    super(props);
+
+    this.changeRevealDate = this.changeRevealDate.bind(this);
+    this.changeSolutionDate = this.changeSolutionDate.bind(this);
+    this.changeDescription = this.changeDescription.bind(this);
+    this.changeSolutionArtist = this.changeSolutionArtist.bind(this);
+    this.changeSolutionSong = this.changeSolutionSong.bind(this);
+    this.changeLink = this.changeLink.bind(this);
+    this.changeOptionalSolutionVideo = this.changeOptionalSolutionVideo.bind(
+      this
+    );
+    this.saveChanges = this.saveChanges.bind(this);
+    this.addSolutionChange = this.addSolutionChange.bind(this);
+    this.addSolution = this.addSolution.bind(this);
+    this.createMarkup = this.createMarkup.bind(this);
+    this.deleteDay = this.deleteDay.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+    this.upload = this.upload.bind(this);
   }
 
   changeRevealDate(date) {
