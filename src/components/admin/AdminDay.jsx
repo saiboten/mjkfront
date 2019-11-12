@@ -10,6 +10,7 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
 import { AdminDataContext } from "../../context/AdminDataContext";
+import { updateDay } from "../../api/adminApi";
 
 class AdminDay extends React.Component {
   constructor(props) {
@@ -82,19 +83,40 @@ class AdminDay extends React.Component {
   }
 
   saveChanges() {
+    const {
+      link,
+      description,
+      optionalSolutionVideo,
+      solutionArtist,
+      solutionSong,
+      revealDate,
+      solutionDate
+    } = this.state;
+
     var saveObject = {
-      link: this.state.link,
-      description: this.state.description,
-      optionalSolutionVideo: this.state.optionalSolutionVideo,
-      solutionArtist: this.state.solutionArtist,
-      solutionSong: this.state.solutionSong,
-      revealDate: this.state.revealDate.valueOf(),
-      solutionDate: this.state.solutionDate.valueOf(),
-      revealDateAsString: this.state.revealDate.format("YYYY-MM-DD"),
+      link: link,
+      description: description,
+      optionalSolutionVideo: optionalSolutionVideo,
+      solutionArtist: solutionArtist,
+      solutionSong: solutionSong,
+      revealDate: revealDate.valueOf(),
+      solutionDate: solutionDate.valueOf(),
+      revealDateAsString: moment(revealDate).format("YYYY-MM-DD"),
       id: this.props.day.id
     };
 
     console.log("Save object: ", saveObject);
+    updateDay(saveObject)
+      .then(() => {
+        this.setState({
+          feedback: "Dag oppdatert med hell!"
+        });
+      })
+      .catch(() => {
+        this.setState({
+          feedback: "Noe gikk fryktelig galt under lagring"
+        });
+      });
   }
 
   addSolutionChange(e) {
