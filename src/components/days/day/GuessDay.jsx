@@ -1,4 +1,5 @@
 import { Inline } from "jsxstyle";
+import styled from "styled-components";
 
 import React from "react";
 import SongAudio from "./SongAudio";
@@ -63,18 +64,28 @@ class GuessDay extends React.Component {
     if (answerThisDay && answerThisDay.correctSongAnswer) {
       formOrFeedback = (
         <p>
-          Du har allerede svart rett på denne oppgaven! Svaret var:{" "}
-          {answerThisDay.guessedSong}{" "}
+          Du har allerede svart rett på denne oppgaven! Svaret var:
+          {answerThisDay.guessedSong}
         </p>
       );
     } else if (this.state.guess && this.state.correctAnswer) {
       formOrFeedback = <p>Gratulerer, det var rett!</p>;
     } else {
       formOrFeedback = (
-        <form onSubmit={this.submit}>
+        <form
+          onSubmit={this.submit}
+          styled={{
+            maxWidth: "300px"
+          }}
+        >
           <div>
             <input
-              className="guess-form__input"
+              style={{
+                width: "405px",
+                height: "50px",
+                textAlign: "center",
+                margin: "10px 0"
+              }}
               placeholder="Sang"
               onChange={this.handleChange}
               value={this.state.guess}
@@ -91,7 +102,11 @@ class GuessDay extends React.Component {
     }
 
     return (
-      <span>
+      <div
+        style={{
+          maxWidth: "500px"
+        }}
+      >
         <p
           dangerouslySetInnerHTML={this.getDescription(
             this.props.day.description
@@ -111,7 +126,7 @@ class GuessDay extends React.Component {
             <p>Logg inn for å besvare (se menyen)</p>
           </div>
         )}
-      </span>
+      </div>
     );
   }
 }

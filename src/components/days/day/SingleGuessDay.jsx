@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import moment from "moment";
 import GuessDay from "./GuessDay";
 import { DataContext } from "../../../context/DataContext";
+import { StyledMainBox } from "../../lib/MainBox";
 
-const Days = function() {
+export function SingleGuessDay() {
   const { days, date, today, answers, user } = useContext(DataContext);
 
   return (
-    <>
+    <StyledMainBox>
       {days
         .filter(day => day.revealDateAsString === date)
         .map((day, i) => {
@@ -33,8 +34,6 @@ const Days = function() {
             </>
           );
         })}
-    </>
+    </StyledMainBox>
   );
-};
-
-export default Days;
+}

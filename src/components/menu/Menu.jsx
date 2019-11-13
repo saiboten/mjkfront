@@ -12,7 +12,7 @@ export function Menu() {
         Logg ut
       </a>
     ) : (
-      <Link to="/" className="header__menu-item">
+      <Link to="/login" className="header__menu-item">
         Logg inn
       </Link>
     );

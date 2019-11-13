@@ -3,15 +3,20 @@ import React from "react";
 import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
-import { SingleGuessDayContainer } from "./days/day/SingleGuessDayContainer";
+import { SingleGuessDay } from "./days/day/SingleGuessDay";
 import { Wrapper } from "./lib/Wrapper";
-import { UserStatisticsContainer } from "./userresults/UserStatisticsContainer";
-import { HighScoreContainer } from "./highscore/HighScoreContainer";
-import { CurrentUserStatisticsContainer } from "./user/CurrentUserStatisticsContainer";
+import styled from "styled-components";
+import { UserStatistics } from "./userresults/UserStatistics";
+import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
+import { HighScoreList } from "./highscore/HighScoreList";
+
+const StyledTwoColumns = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
 
 export class Main extends React.Component {
   render() {
-    // var imgStyle = { width: "100%" };
     var imgAttributes = {
       src: "/static/images/santas.png",
       alt: "Julenisse"
@@ -49,17 +54,15 @@ export class Main extends React.Component {
               props={imgAttributes}
             />
           </Block>
-          <Block display="flex" flexWrap="wrap" padding="5px">
-            <SingleGuessDayContainer />
-          </Block>
-          <UserStatisticsContainer />
-          <HighScoreContainer />
-          <CurrentUserStatisticsContainer />
+          <StyledTwoColumns>
+            <SingleGuessDay />
+            <CurrentUserStatistics />
+          </StyledTwoColumns>
+          <StyledTwoColumns>
+            <UserStatistics />
+            <HighScoreList />
+          </StyledTwoColumns>
           <Days />
-          <p className="smallspace">
-            Følg oss gjerne på{" "}
-            <a href="https://www.facebook.com/musikkjulekalender">facebook!</a>
-          </p>
           <Facebook />
         </Wrapper>
         <Footer />
