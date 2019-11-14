@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DataContext } from "../context/DataContext";
-import { AdminDataContext } from "../context/AdminDataContext";
 
 export const Providers = ({ children }) => {
   const [days, setDays] = useState([]);

@@ -7,7 +7,6 @@ import SongAudio from "../days/day/SongAudio";
 import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
-import { AdminDataContext } from "../../context/AdminDataContext";
 import { updateDay } from "../../api/adminApi";
 
 class AdminDay extends React.Component {

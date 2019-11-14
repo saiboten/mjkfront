@@ -1,5 +1,3 @@
-import { Flex } from "jsxstyle";
-
 import React, { useContext, useEffect } from "react";
 import AdminDay from "./AdminDay";
 import AdminAddDay from "./AdminAddDay";
@@ -45,11 +43,13 @@ function AdminOverview() {
   ]);
 
   return (
-    <Flex
-      backgroundColor="white"
-      flexWrap="wrap"
-      margin="5px auto"
+    <div
       className="admin__container"
+      style={{
+        backgroundColor: "white",
+        flexWrap: "wrap",
+        margin: "5px auto"
+      }}
     >
       {days.map((day, i) => {
         if (day.realDate !== new Date(date).getDate().toString()) {
@@ -59,7 +59,7 @@ function AdminOverview() {
         }
       })}
       {/* <AdminAddDay /> */}
-    </Flex>
+    </div>
   );
 }
 

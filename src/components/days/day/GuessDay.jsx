@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import React from "react";
 import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";

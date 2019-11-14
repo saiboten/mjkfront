@@ -1,4 +1,3 @@
-import { Flex } from "jsxstyle";
 import React, { useEffect, useContext } from "react";
 import DaySelector from "./day/DaySelector";
 import { fetchDays } from "../../api/daysApi";
