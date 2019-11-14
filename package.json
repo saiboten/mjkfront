@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "5to6-codemod": "^1.8.0",
-    "jsxstyle": "^2.1.6",
     "moment": "^2.24.0",
     "promise": "^7.0.4",
     "react": "^16.11.0",

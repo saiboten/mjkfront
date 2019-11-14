@@ -1,5 +1,3 @@
-import { Block } from "jsxstyle";
-
 /**
  * Created by Tobias on 16.10.2016.
  */
@@ -16,21 +14,26 @@ class PastDayWithoutSolution extends React.Component {
 
   render() {
     return (
-      <Block backgroundColor="white" padding="10px">
-        <Block>
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "10px"
+        }}
+      >
+        <div>
           <div
             dangerouslySetInnerHTML={this.getDescription(
               this.props.day.description
             )}
           ></div>
-        </Block>
+        </div>
         <p>
           <button class="button" onClick={this.props.showSolutionCallback}>
             Vis fasit
           </button>
         </p>
         <SongAudio link={this.props.day.link} />
-      </Block>
+      </div>
     );
   }
 }

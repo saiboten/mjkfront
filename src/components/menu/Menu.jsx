@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { DataContext } from "../../context/DataContext";
+import { StyledLink } from "../lib/Link";
 
 export function Menu() {
   const { user } = useContext(DataContext);
@@ -12,17 +12,17 @@ export function Menu() {
         Logg ut
       </a>
     ) : (
-      <Link to="/login" className="header__menu-item">
+      <StyledLink to="/login" className="header__menu-item">
         Logg inn
-      </Link>
+      </StyledLink>
     );
 
   return (
     <nav className="header">
       <div className="header__fullscreen">
-        <Link to="/" className="header__menu-item">
+        <StyledLink to="/" className="header__menu-item">
           Forsiden
-        </Link>
+        </StyledLink>
         {loggedInLink}
       </div>
     </nav>

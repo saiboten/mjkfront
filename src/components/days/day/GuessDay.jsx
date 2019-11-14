@@ -1,4 +1,3 @@
-import { Inline } from "jsxstyle";
 import styled from "styled-components";
 
 import React from "react";
@@ -90,11 +89,16 @@ class GuessDay extends React.Component {
               onChange={this.handleChange}
               value={this.state.guess}
             />
-            <Inline margin="10px" width="10%">
+            <span
+              style={{
+                margin: "10px",
+                width: "10%"
+              }}
+            >
               <button className="guess-form__submitbutton" type="submit">
                 Gjett!
               </button>
-            </Inline>
+            </span>
           </div>
           <p>{this.state.status ? this.state.status : ""} </p>
         </form>

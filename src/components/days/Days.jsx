@@ -1,4 +1,4 @@
-import { Block, Flex } from "jsxstyle";
+import { Flex } from "jsxstyle";
 import React, { useEffect, useContext } from "react";
 import DaySelector from "./day/DaySelector";
 import { fetchDays } from "../../api/daysApi";
@@ -43,13 +43,15 @@ export const Days = function() {
   ]);
 
   return (
-    <Block>
+    <div>
       <h1>Løsninger</h1>
-      <Flex
-        flexDirection="row"
-        justifyContent="space-between"
-        flexWrap="wrap"
-        padding="10px"
+      <div
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          padding: "10px"
+        }}
       >
         {days
           .filter(day => day.realDate !== new Date(date).getDate().toString())
@@ -63,7 +65,7 @@ export const Days = function() {
               day={day}
             />
           ))}
-      </Flex>
-    </Block>
+      </div>
+    </div>
   );
 };

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
+  font-size: 1.2rem;
   padding: 10px;
   min-width: 75px;
   justify-content: center;

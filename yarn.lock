@@ -2802,10 +2802,6 @@ cssstyle@^1.0.0, cssstyle@^1.1.1:
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.5.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.7.tgz#20b0024c20b6718f4eda3853a1f5a1cce7f5e4a5"
-
 cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
@@ -5290,18 +5286,6 @@ jsx-ast-utils@^2.1.0, jsx-ast-utils@^2.2.1:
   dependencies:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
-
-jsxstyle-utils@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/jsxstyle-utils/-/jsxstyle-utils-2.1.5.tgz#c49990af96ad70e6940e611e64101219051319ef"
-  dependencies:
-    csstype "^2.5.7"
-
-jsxstyle@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/jsxstyle/-/jsxstyle-2.1.6.tgz#aa004f351c5e4ec833befc1234f412c52d2b2182"
-  dependencies:
-    jsxstyle-utils "^2.1.5"
 
 killable@^1.0.0:
   version "1.0.1"

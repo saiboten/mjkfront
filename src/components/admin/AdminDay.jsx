@@ -1,5 +1,3 @@
-import { Block } from "jsxstyle";
-
 import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
@@ -204,12 +202,14 @@ class AdminDay extends React.Component {
     );
 
     return (
-      <Block
-        border="1px solid black"
-        borderRadius="5px"
-        margin="5px"
-        padding="5px"
-        className="admin-day__container"
+      <div
+        style={{
+          border: "1px solid black",
+          borderRadius: "5px",
+          margin: "5px",
+          padding: "5px",
+          className: "admin-day__container"
+        }}
       >
         <DateHeader unixDate={this.props.day.revealDateAsString}></DateHeader>
 
@@ -344,7 +344,7 @@ class AdminDay extends React.Component {
 
           <SongAudio link={this.state.link} />
         </div>
-      </Block>
+      </div>
     );
   }
 }
