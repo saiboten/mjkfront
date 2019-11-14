@@ -26,8 +26,8 @@ export function CurrentUserStatistics() {
   return (
     <StyledMainBox>
       <h1>Dine resultater</h1>
-      <p className="smallspace">{userinfo}</p>
-      <p className="smallspace">{exist}</p>
+      <p>{userinfo}</p>
+      <p>{exist}</p>
     </StyledMainBox>
   );
 }

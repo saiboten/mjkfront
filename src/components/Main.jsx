@@ -1,59 +1,70 @@
-import { Block } from "jsxstyle";
 import React from "react";
 import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
 import { SingleGuessDay } from "./days/day/SingleGuessDay";
 import { Wrapper } from "./lib/Wrapper";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { UserStatistics } from "./userresults/UserStatistics";
 import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
 import { HighScoreList } from "./highscore/HighScoreList";
+import { H1 } from "./lib/Heading";
+
+const moveBackAndForwards = keyframes`
+  from {
+    transform: translateX(-200px);
+  }
+
+  to {
+    transform: translateX(200px);
+  }
+`;
 
 const StyledTwoColumns = styled.div`
   display: flex;
   justify-content: space-around;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+`;
+
+const StyledHeader = styled.div`
+  text-align: center;
+
+  @media screen and (max-width: 450px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+`;
+
+const StyledSanta = styled.img`
+  height: 300px;
+  width: 232px;
+  margin: 0 auto;
+  animation: ${moveBackAndForwards} 30s infinite;
+  animation-direction: alternate;
+
+  @media screen and (max-width: 450px) {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    animation: none;
+  }
 `;
 
 export class Main extends React.Component {
   render() {
-    var imgAttributes = {
-      src: "/static/images/santas.png",
-      alt: "Julenisse"
-    };
-
     return (
       <>
         <Wrapper>
-          <Block
-            mediaQueries={{
-              sm: "screen and (max-width: 450px)"
-            }}
-            display="flex"
-            flexDirection="column"
-            smFlexDirection="row"
-            smJustifyContent="space-between"
-            smAlignItems="center"
-            smPadding="5px"
-          >
-            <Block component="h1" textAlign="center">
-              Musikkjulekalender!
-            </Block>
-            <Block
-              mediaQueries={{
-                sm: "screen and (max-width: 450px)"
-              }}
-              height="300px"
-              width="232px"
-              margin="0 auto"
-              smWidth="50px"
-              smHeight="50px"
-              smMarginRight="10px"
-              smBorderRadius="50%"
-              component="img"
-              props={imgAttributes}
-            />
-          </Block>
+          <StyledHeader>
+            <H1>Musikkjulekalender!</H1>
+            <StyledSanta src="/static/images/santas.png" alt="Julenisse" />
+          </StyledHeader>
           <StyledTwoColumns>
             <SingleGuessDay />
             <CurrentUserStatistics />

@@ -9,9 +9,7 @@ export function UserStatistics() {
   return (
     <StyledMainBox>
       <h1>Dagens beste!</h1>
-      <p className="smallspace">
-        Dette viser klokkeslettet oppgaven ble løst på per bruker
-      </p>
+      <p>Dette viser klokkeslettet oppgaven ble løst på per bruker</p>
       {days.map((day, i) => {
         if (day.id === today) {
           return (
