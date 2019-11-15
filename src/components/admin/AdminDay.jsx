@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import AdminDaySolution from "./AdminDaySolution";
-import DateHeader from "../DateHeader.jsx";
+import { DateHeader } from "../DateHeader";
 import SongAudio from "../days/day/SongAudio";
 import Dropzone from "react-dropzone";
 import request from "superagent";

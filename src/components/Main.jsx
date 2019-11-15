@@ -11,12 +11,20 @@ import { HighScoreList } from "./highscore/HighScoreList";
 import { H1 } from "./lib/Heading";
 
 const moveBackAndForwards = keyframes`
-  from {
-    transform: translateX(-200px);
+  0% {
+    transform: translateX(0);
   }
 
-  to {
+  33% {
     transform: translateX(200px);
+  }
+
+  66% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-200px);
   }
 `;
 
@@ -31,6 +39,7 @@ const StyledTwoColumns = styled.div`
 
 const StyledHeader = styled.div`
   text-align: center;
+  padding-top: 1rem;
 
   @media screen and (max-width: 450px) {
     display: flex;
@@ -44,7 +53,7 @@ const StyledSanta = styled.img`
   height: 300px;
   width: 232px;
   margin: 0 auto;
-  animation: ${moveBackAndForwards} 30s infinite;
+  animation: ${moveBackAndForwards} 180s infinite;
   animation-direction: alternate;
 
   @media screen and (max-width: 450px) {

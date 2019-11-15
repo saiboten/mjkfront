@@ -1,7 +1,15 @@
 import React, { useEffect, useContext } from "react";
+import styled from "styled-components";
 import DaySelector from "./day/DaySelector";
 import { fetchDays } from "../../api/daysApi";
 import { DataContext } from "../../context/DataContext";
+import { H1 } from "../lib/Heading";
+import { StyledMainBox } from "../lib/MainBox";
+
+const StyledDaysContainer = styled(StyledMainBox)`
+  width: 100%;
+  margin: 0;
+`;
 
 export const Days = function() {
   const {
@@ -42,14 +50,13 @@ export const Days = function() {
   ]);
 
   return (
-    <div>
-      <h1>Løsninger</h1>
+    <StyledDaysContainer>
+      <H1>Løsninger</H1>
       <div
         style={{
-          flexDirection: "row",
+          display: "flex",
           justifyContent: "space-between",
-          flexWrap: "wrap",
-          padding: "10px"
+          flexWrap: "wrap"
         }}
       >
         {days
@@ -65,6 +72,6 @@ export const Days = function() {
             />
           ))}
       </div>
-    </div>
+    </StyledDaysContainer>
   );
 };

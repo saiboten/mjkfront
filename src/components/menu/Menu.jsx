@@ -1,6 +1,12 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { StyledLink } from "../lib/Link";
+import styled from "styled-components";
+
+const StyledNav = styled.nav`
+  max-width: 980px;
+  margin: 10px auto;
+`;
 
 export function Menu() {
   const { user } = useContext(DataContext);
@@ -18,13 +24,13 @@ export function Menu() {
     );
 
   return (
-    <nav className="header">
+    <StyledNav>
       <div className="header__fullscreen">
         <StyledLink to="/" className="header__menu-item">
           Forsiden
         </StyledLink>
         {loggedInLink}
       </div>
-    </nav>
+    </StyledNav>
   );
 }

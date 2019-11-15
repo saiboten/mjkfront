@@ -3,6 +3,7 @@ import moment from "moment";
 import GuessDay from "./GuessDay";
 import { DataContext } from "../../../context/DataContext";
 import { StyledMainBox } from "../../lib/MainBox";
+import { H1, H2 } from "../../lib/Heading";
 
 export function SingleGuessDay() {
   const { days, date, today, answers, user } = useContext(DataContext);
@@ -19,9 +20,8 @@ export function SingleGuessDay() {
           );
           return (
             <>
-              <h1>Dagens oppgave</h1>
+              <H1>Dagens oppgave: {moment(date).format("DD. MMMM")}</H1>
               <div>
-                <h3>{moment(date).format("DD. MMMM")}</h3>
                 <GuessDay
                   key={day.revealDateAsInt}
                   today={today}

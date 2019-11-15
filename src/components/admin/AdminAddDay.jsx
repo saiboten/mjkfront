@@ -5,6 +5,7 @@ import React from "react";
 
 import moment from "moment";
 import DatePicker from "react-datepicker";
+import { H1 } from "../lib/Heading";
 
 class AdminAddDay extends React.Component {
   state = {
@@ -84,7 +85,7 @@ class AdminAddDay extends React.Component {
   render() {
     return (
       <div className="col-md-6 pane">
-        <h1>Legg til dag</h1>
+        <H1>Legg til dag</H1>
         <div>
           <table>
             <tbody>

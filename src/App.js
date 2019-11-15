@@ -23,6 +23,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
       box-sizing: border-box;
+      background-color: #adc3de;
+      background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
+        url("/static/images/s3.png");
+      z-index: 1;
+      animation: snow 10s linear infinite;
+      font-family: "Rubik", sans-serif;
   }
 `;
 

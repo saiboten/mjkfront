@@ -1,6 +1,6 @@
 import React from "react";
 import UserResultElement from "./UserResultElement";
-import moment from "moment";
+import { H1 } from "../lib/Heading";
 
 class UserResultList extends React.Component {
   render() {
@@ -10,8 +10,10 @@ class UserResultList extends React.Component {
 
     var maybeempty = "";
     if (userList && userList.users && userList.users.length > 0) {
-      var copy = userList.users;
-      copy.sort(function(a, b) {
+      var userCopy = {
+        ...userList.users
+      };
+      userCopy.sort(function(a, b) {
         if (a.time > b.time) {
           return 1;
         } else {
@@ -21,7 +23,7 @@ class UserResultList extends React.Component {
 
       maybeempty = (
         <ul>
-          {copy.map((user, i) => {
+          {userCopy.map((user, i) => {
             return <UserResultElement user={user} />;
           })}
         </ul>
@@ -31,7 +33,8 @@ class UserResultList extends React.Component {
     }
     return (
       <div>
-        <h3>{moment(this.props.day.revealDateAsString).format("DD. MMMM")}</h3>
+        <H1>Dagens beste: </H1>
+        <p>Dette viser klokkeslettet oppgaven ble løst på per bruker</p>
         {maybeempty}
       </div>
     );

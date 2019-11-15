@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../lib/Wrapper";
 import { StyledButton } from "../lib/Button";
+import { H1 } from "../lib/Heading";
 
 const StyledLoginWrapper = styled.div`
   text-align: center;
@@ -22,7 +23,7 @@ export function Login() {
   return (
     <Wrapper>
       <StyledLoginWrapper>
-        <h1>Innlogging</h1>
+        <H1>Innlogging</H1>
         <StyledButtons>
           <StyledLoginButton
             onClick={() => (window.location = "/login/google")}

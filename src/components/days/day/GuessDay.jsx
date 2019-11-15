@@ -18,7 +18,6 @@ class GuessDay extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    console.log("Submit!", this.state.guess);
 
     answerApi(this.state.guess).then(({ correct, feedback }) => {
       if (correct) {
@@ -45,16 +44,12 @@ class GuessDay extends React.Component {
   }
 
   render() {
-    console.log("Props: ", this.props);
-
     var answerThisDay = undefined;
     if (this.props.answers) {
       answerThisDay = this.props.answers.find(function(el) {
         return el.correctSongAnswer && el.day === this.props.today;
       }, this);
     }
-
-    console.log("Answer this day: ", answerThisDay);
 
     var formOrFeedback = "";
 

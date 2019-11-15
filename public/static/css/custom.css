@@ -1,35 +1,5 @@
-body {
-  background-color: #adc3de;
-  background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
-    url("/static/images/s3.png");
-  z-index: 1;
-  -webkit-animation: snow 10s linear infinite;
-  -moz-animation: snow 10s linear infinite;
-  -ms-animation: snow 10s linear infinite;
-  animation: snow 10s linear infinite;
-  font-family: "Rubik", sans-serif;
-}
-
-.main-wrapper {
-  max-width: 980px;
-}
-
 .admin__container {
   max-width: 980px;
-}
-
-.smallspace {
-  margin: 5px;
-  padding: 5px;
-}
-
-h1 {
-  font-size: 1.4em;
-}
-
-nav.header {
-  max-width: 980px;
-  margin: 10px auto;
 }
 
 .header__fullscreen {

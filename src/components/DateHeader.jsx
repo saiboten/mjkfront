@@ -1,13 +1,7 @@
 import React from "react";
 import moment from "moment";
+import { H2 } from "./lib/Heading";
 
-moment.locale("fr");
-
-class DateHeader extends React.Component {
-  render() {
-    console.log("this.props.unixDate", this.props.unixDate);
-    return <h3>{moment(this.props.unixDate).format("DD. MMMM")}</h3>;
-  }
+export function DateHeader(props) {
+  return <H2>{moment(props.unixDate).format("DD. MMMM")}</H2>;
 }
-
-export default DateHeader;
