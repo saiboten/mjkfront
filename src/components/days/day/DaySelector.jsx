@@ -8,12 +8,13 @@ import { PastDay } from "./PastDay";
 const StyledDayWrapper = styled.div`
   padding: 1rem;
   border: 1px solid black;
-  width: 50%;
+  width: calc(50% - 10px);
+  margin: 5px;
   text-align: center;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 
   @media screen and (max-width: 450px) {
-    width: 100%;
+    width: calc(100% - 10px);
   }
 `;
 

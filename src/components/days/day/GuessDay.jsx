@@ -2,6 +2,13 @@ import React from "react";
 import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";
 
+import styled from "styled-components";
+
+const StyledGuessBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 class GuessDay extends React.Component {
   state = {
     guess: "",
@@ -70,7 +77,7 @@ class GuessDay extends React.Component {
             maxWidth: "300px"
           }}
         >
-          <div>
+          <StyledGuessBox>
             <input
               style={{
                 width: "405px",
@@ -82,17 +89,11 @@ class GuessDay extends React.Component {
               onChange={this.handleChange}
               value={this.state.guess}
             />
-            <span
-              style={{
-                margin: "10px",
-                width: "10%"
-              }}
             >
-              <button className="guess-form__submitbutton" type="submit">
-                Gjett!
-              </button>
-            </span>
-          </div>
+            <button className="guess-form__submitbutton" type="submit">
+              Gjett!
+            </button>
+          </StyledGuessBox>
           <p>{this.state.status ? this.state.status : ""} </p>
         </form>
       );
@@ -105,6 +106,9 @@ class GuessDay extends React.Component {
         }}
       >
         <p
+          style={{
+            marginBottom: "2rem"
+          }}
           dangerouslySetInnerHTML={this.getDescription(
             this.props.day.description
           )}
@@ -114,14 +118,23 @@ class GuessDay extends React.Component {
         {this.props.user ? (
           formOrFeedback
         ) : (
-          <div>
-            <input
-              className="guess-form__input"
-              disabled="true"
-              placeholder="Sang"
-            />
+          <>
+            <StyledGuessBox>
+              <input
+                className="guess-form__input"
+                disabled="true"
+                placeholder="Sang"
+              />
+              <button
+                className="guess-form__submitbutton"
+                type="submit"
+                disabled
+              >
+                Gjett!
+              </button>
+            </StyledGuessBox>
             <p>Logg inn for å besvare (se menyen)</p>
-          </div>
+          </>
         )}
       </div>
     );

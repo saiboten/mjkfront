@@ -7,8 +7,7 @@ import { H1 } from "../lib/Heading";
 import { StyledMainBox } from "../lib/MainBox";
 
 const StyledDaysContainer = styled(StyledMainBox)`
-  width: 100%;
-  margin: 0;
+  width: calc(100% - 10px);
 `;
 
 export const Days = function() {

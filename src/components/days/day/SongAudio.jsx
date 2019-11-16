@@ -18,7 +18,9 @@ class SongAudio extends React.Component {
       <ReactAudioPlayer
         src={this.props.link}
         controls
-        className="audio-element"
+        style={{
+          width: "100%"
+        }}
       />
     );
   }

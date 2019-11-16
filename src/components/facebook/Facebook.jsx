@@ -2,21 +2,25 @@ import React from "react";
 
 export const Facebook = () => (
   <div
-    className="fb-page"
-    data-href="https://www.facebook.com/musikkjulekalender/"
-    data-tabs="timeline"
-    data-small-header="false"
-    data-adapt-container-width="true"
-    data-hide-cover="false"
-    data-show-facepile="true"
+    style={{ textAlign: "center", paddingBottom: "2rem", marginTop: "2rem" }}
   >
-    <blockquote
-      cite="https://www.facebook.com/musikkjulekalender/"
-      className="fb-xfbml-parse-ignore"
+    <div
+      className="fb-page"
+      data-href="https://www.facebook.com/musikkjulekalender/"
+      data-tabs="timeline"
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true"
     >
-      <a href="https://www.facebook.com/musikkjulekalender/">
-        Musikkjulekalender.no
-      </a>
-    </blockquote>
+      <blockquote
+        cite="https://www.facebook.com/musikkjulekalender/"
+        className="fb-xfbml-parse-ignore"
+      >
+        <a href="https://www.facebook.com/musikkjulekalender/">
+          Musikkjulekalender.no
+        </a>
+      </blockquote>
+    </div>
   </div>
 );

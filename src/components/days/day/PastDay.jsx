@@ -26,7 +26,7 @@ export function PastDay(props) {
       {showSolution ? (
         <div
           style={{
-            marginBottom: "1rem"
+            marginBottom: "2rem"
           }}
         >
           {props.day.solutionArtist} - {props.day.solutionSong}
@@ -45,7 +45,7 @@ export function PastDay(props) {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <StyledButton
             style={{
-              marginBottom: "1rem"
+              marginBottom: "2rem"
             }}
             onClick={() => setShowSolution(true)}
           >
