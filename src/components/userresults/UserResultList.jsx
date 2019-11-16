@@ -1,6 +1,5 @@
 import React from "react";
 import UserResultElement from "./UserResultElement";
-import { H1 } from "../lib/Heading";
 
 class UserResultList extends React.Component {
   render() {
@@ -33,7 +32,6 @@ class UserResultList extends React.Component {
     }
     return (
       <div>
-        <H1>Dagens beste: </H1>
         <p>Dette viser klokkeslettet oppgaven ble løst på per bruker</p>
         {maybeempty}
       </div>

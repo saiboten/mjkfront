@@ -122,7 +122,7 @@ class GuessDay extends React.Component {
             <StyledGuessBox>
               <input
                 className="guess-form__input"
-                disabled="true"
+                disabled
                 placeholder="Sang"
               />
               <button

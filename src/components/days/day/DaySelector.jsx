@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import React from "react";
-import GuessDay from "./GuessDay";
 import { DateHeader } from "./../../DateHeader";
 import { PastDay } from "./PastDay";
 
