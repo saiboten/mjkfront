@@ -8,6 +8,16 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
 import { updateDay, deleteDay, fetchAdminData } from "../../api/adminApi";
+import styled from "styled-components";
+
+const StyledTextArea = styled.textarea`
+  width: 300px;
+  height: 140px;
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+`;
 
 class AdminDay extends React.Component {
   constructor(props) {
@@ -199,8 +209,7 @@ class AdminDay extends React.Component {
           border: "1px solid black",
           borderRadius: "5px",
           margin: "5px",
-          padding: "5px",
-          className: "admin-day__container"
+          padding: "5px"
         }}
       >
         <DateHeader unixDate={this.props.day.revealDateAsString}></DateHeader>
@@ -229,8 +238,7 @@ class AdminDay extends React.Component {
               <tr>
                 <td>Beskrivelse</td>
                 <td>
-                  <textarea
-                    className="admin-day__description-textarea"
+                  <StyledTextArea
                     type="text"
                     onChange={this.changeDescription}
                     value={this.state.description}
@@ -240,8 +248,7 @@ class AdminDay extends React.Component {
               <tr>
                 <td>Artist</td>
                 <td>
-                  <input
-                    className="admin-day__input"
+                  <StyledInput
                     type="text"
                     onChange={this.changeSolutionArtist}
                     value={this.state.solutionArtist}
@@ -251,8 +258,7 @@ class AdminDay extends React.Component {
               <tr>
                 <td>Sang</td>
                 <td>
-                  <input
-                    className="admin-day__input"
+                  <StyledInput
                     type="text"
                     onChange={this.changeSolutionSong}
                     value={this.state.solutionSong}
@@ -266,8 +272,7 @@ class AdminDay extends React.Component {
                     Gå inn på youtubevideoen, trykk "share", velg Embed, og lim
                     inn hele sulamitten i feltet under
                   </p>
-                  <input
-                    className="admin-day__input"
+                  <StyledInput
                     type="text"
                     onChange={this.changeOptionalSolutionVideo}
                     value={this.state.optionalSolutionVideo}
@@ -277,8 +282,7 @@ class AdminDay extends React.Component {
               <tr>
                 <td>Link</td>
                 <td>
-                  <input
-                    className="admin-day__input"
+                  <StyledInput
                     readOnly
                     disabled
                     type="text"

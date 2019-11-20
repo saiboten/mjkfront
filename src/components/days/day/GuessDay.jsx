@@ -9,6 +9,35 @@ const StyledGuessBox = styled.div`
   justify-content: space-around;
 `;
 
+const StyledInput = styled.input`
+  height: 5rem;
+  text-align: center;
+  margin: 1rem 0;
+  width: 40rem;
+`;
+
+const StyledSubmitButton = styled.button`
+  width: 70px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888888;
+  transition: 0.2s ease-in-out;
+  height: 50px;
+  background-color: #fff;
+
+  &:hover {
+    background-color: rgba(143, 0, 0, 0.822);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  &:checked {
+    background-color: rgba(143, 0, 0, 0.822);
+    color: white;
+    transform: translateY(1px);
+  }
+`;
+
 class GuessDay extends React.Component {
   state = {
     guess: "",
@@ -80,20 +109,12 @@ class GuessDay extends React.Component {
           }}
         >
           <StyledGuessBox>
-            <input
-              style={{
-                width: "405px",
-                height: "50px",
-                textAlign: "center",
-                margin: "10px 0"
-              }}
+            <StyledInput
               placeholder="Sang"
               onChange={this.handleChange}
               value={this.state.guess}
             />
-            <button className="guess-form__submitbutton" type="submit">
-              Gjett!
-            </button>
+            <StyledSubmitButton type="submit">Gjett!</StyledSubmitButton>
           </StyledGuessBox>
           <p>{this.state.status ? this.state.status : ""} </p>
         </form>
@@ -121,18 +142,10 @@ class GuessDay extends React.Component {
         ) : (
           <>
             <StyledGuessBox>
-              <input
-                className="guess-form__input"
-                disabled
-                placeholder="Sang"
-              />
-              <button
-                className="guess-form__submitbutton"
-                type="submit"
-                disabled
-              >
+              <StyledInput disabled placeholder="Sang" />
+              <StyledSubmitButton type="submit" disabled>
                 Gjett!
-              </button>
+              </StyledSubmitButton>
             </StyledGuessBox>
             <p>Logg inn for å besvare (se menyen)</p>
           </>

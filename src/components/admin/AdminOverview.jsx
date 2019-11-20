@@ -41,11 +41,11 @@ function AdminOverview() {
 
   return (
     <div
-      className="admin__container"
       style={{
         backgroundColor: "white",
         flexWrap: "wrap",
-        margin: "5px auto"
+        margin: "5px auto",
+        maxWidth: "980px"
       }}
     >
       {days.map((day, i) => {
