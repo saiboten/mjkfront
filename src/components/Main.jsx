@@ -5,7 +5,7 @@ import { Facebook } from "./facebook/Facebook";
 import { SingleGuessDay } from "./days/day/SingleGuessDay";
 import { Wrapper } from "./lib/Wrapper";
 import styled, { keyframes } from "styled-components";
-import { UserStatistics } from "./userresults/UserStatistics";
+import { BestDailyUsers } from "./userresults/BestDailyUsers";
 import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
 import { HighScoreList } from "./highscore/HighScoreList";
 import { H1 } from "./lib/Heading";
@@ -79,7 +79,7 @@ export class Main extends React.Component {
             <CurrentUserStatistics />
           </StyledTwoColumns>
           <StyledTwoColumns>
-            <UserStatistics />
+            <BestDailyUsers />
             <HighScoreList />
           </StyledTwoColumns>
           <Days />

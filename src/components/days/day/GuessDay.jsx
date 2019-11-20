@@ -62,10 +62,12 @@ class GuessDay extends React.Component {
 
     if (answerThisDay && answerThisDay.correctSongAnswer) {
       formOrFeedback = (
-        <p>
-          Du har allerede svart rett på denne oppgaven! Svaret var:
-          {answerThisDay.guessedSong}
-        </p>
+        <div>
+          <p style={{ marginBottom: "1rem" }}>
+            Du har allerede svart rett på denne oppgaven!
+          </p>
+          <p>Svaret var:{answerThisDay.guessedSong}</p>
+        </div>
       );
     } else if (this.state.guess && this.state.correctAnswer) {
       formOrFeedback = <p>Gratulerer, det var rett!</p>;
@@ -89,7 +91,6 @@ class GuessDay extends React.Component {
               onChange={this.handleChange}
               value={this.state.guess}
             />
-            >
             <button className="guess-form__submitbutton" type="submit">
               Gjett!
             </button>

@@ -27,7 +27,7 @@ export function CurrentUserStatistics() {
   return (
     <StyledMainBox>
       <H1>Dine resultater</H1>
-      <p>{userinfo}</p>
+      <p style={{ marginBottom: "1rem" }}>{userinfo}</p>
       <p>{exist}</p>
     </StyledMainBox>
   );

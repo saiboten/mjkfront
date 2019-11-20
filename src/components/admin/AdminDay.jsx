@@ -7,7 +7,7 @@ import SongAudio from "../days/day/SongAudio";
 import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateDay } from "../../api/adminApi";
+import { updateDay, deleteDay, fetchAdminData } from "../../api/adminApi";
 
 class AdminDay extends React.Component {
   constructor(props) {
@@ -49,14 +49,12 @@ class AdminDay extends React.Component {
     this.setState({
       revealDate: date
     });
-    console.log("New date: ", date);
   }
 
   changeSolutionDate(date) {
     this.setState({
       solutionDate: date
     });
-    console.log("New date: ", date);
   }
 
   changeDescription(event) {
@@ -102,7 +100,6 @@ class AdminDay extends React.Component {
       id: this.props.day.id
     };
 
-    console.log("Save object: ", saveObject);
     updateDay(saveObject)
       .then(() => {
         this.setState({
@@ -146,7 +143,7 @@ class AdminDay extends React.Component {
 
   deleteDay() {
     if (this.state.confirmDelete) {
-      //   adminDayAction.deleteDay(this.props.day.id);
+      deleteDay(this.props.day.id);
     } else {
       this.setState({
         confirmDelete: true
@@ -171,11 +168,8 @@ class AdminDay extends React.Component {
     var that = this;
 
     req.end(function(err, res) {
-      console.log("err, ", err);
-      console.log("res, ", res);
       if (res) {
-        // Call stuff
-        // adminDayAction.getDays();
+        fetchAdminData();
       }
 
       that.setState({
@@ -191,7 +185,6 @@ class AdminDay extends React.Component {
   }
 
   render() {
-    // var day = "";
     var fileupload = (
       <p>
         Fil som blir lastet opp: {this.state.file.name}

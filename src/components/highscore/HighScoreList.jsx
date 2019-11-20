@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import HighScoreElement from "./HighScoreElement";
+import { HighScoreElement } from "./HighScoreElement";
 import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H1 } from "../lib/Heading";

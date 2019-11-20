@@ -8,13 +8,10 @@ function AdminOverview() {
   const {
     days,
     setDays,
-    answers,
     setAnswers,
     date,
     setDate,
-    today,
     setToday,
-    user,
     setUser,
     setUserResult,
     setTopList
@@ -58,7 +55,7 @@ function AdminOverview() {
           return null;
         }
       })}
-      {/* <AdminAddDay /> */}
+      <AdminAddDay />
     </div>
   );
 }

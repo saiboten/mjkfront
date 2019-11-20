@@ -3,15 +3,10 @@ import moment from "moment";
 
 class CurrentUserResultDay extends React.Component {
   render() {
-    console.log("this.props.user", this.props.user);
-    console.log("this.props.day", this.props.day);
-    console.log("this.props.answers", this.props.answers);
-
     var answerComp = "";
     var answer = this.props.answers.filter(answer => {
       return answer.day === this.props.day.id && answer.correctSongAnswer;
     })[0];
-    console.log("answer", answer);
 
     if (answer) {
       answerComp = (

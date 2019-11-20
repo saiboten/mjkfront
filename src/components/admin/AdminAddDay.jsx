@@ -6,6 +6,7 @@ import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import { H1 } from "../lib/Heading";
+import { addDay } from "../../api/adminApi";
 
 class AdminAddDay extends React.Component {
   state = {
@@ -14,8 +15,8 @@ class AdminAddDay extends React.Component {
     solutionArtist: "",
     solutionSong: "",
     link: "",
-    revealDate: moment(),
-    solutionDate: moment()
+    revealDate: moment().toDate(),
+    solutionDate: moment().toDate()
   };
 
   constructor(props) {
@@ -75,11 +76,11 @@ class AdminAddDay extends React.Component {
       solutionSong: this.state.solutionSong,
       revealDate: this.state.revealDate.valueOf(),
       solutionDate: this.state.solutionDate.valueOf(),
-      revealDateAsString: this.state.revealDate.format("YYYY-MM-DD")
+      revealDateAsString: moment(this.state.revealDate).format("YYYY-MM-DD")
     };
 
     console.log("Save object: ", saveObject);
-    // adminDayAction.addDay(saveObject);
+    addDay(saveObject);
   }
 
   render() {
