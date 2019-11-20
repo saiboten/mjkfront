@@ -9,7 +9,9 @@ export function CurrentUserStatistics() {
 
   var userstat = days.map((day, i) => {
     if (day.solutionArtist || day.revealDateAsString === today) {
-      return <CurrentUserResultDay day={day} user={user} answers={answers} />;
+      return (
+        <CurrentUserResultDay key={i} day={day} user={user} answers={answers} />
+      );
     } else {
       return null;
     }
@@ -28,7 +30,7 @@ export function CurrentUserStatistics() {
     <StyledMainBox>
       <H1>Dine resultater</H1>
       <p style={{ marginBottom: "1rem" }}>{userinfo}</p>
-      <p>{exist}</p>
+      <div>{exist}</div>
     </StyledMainBox>
   );
 }

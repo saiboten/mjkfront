@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { BestDailyUser } from "./BestDailyUser";
 
@@ -26,7 +25,7 @@ function BestDailyUsersList(props) {
     maybeempty = (
       <ul>
         {userCopy.map((user, i) => {
-          return <BestDailyUser user={user} />;
+          return <BestDailyUser key={i} user={user} />;
         })}
       </ul>
     );
@@ -42,13 +41,5 @@ function BestDailyUsersList(props) {
     </div>
   );
 }
-
-BestDailyUsersList.propTypes = {
-  userResult: PropTypes.array
-};
-
-BestDailyUsersList.defaultProps = {
-  userResult: []
-};
 
 export default BestDailyUsersList;

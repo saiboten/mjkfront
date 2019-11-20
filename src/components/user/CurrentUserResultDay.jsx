@@ -10,25 +10,21 @@ class CurrentUserResultDay extends React.Component {
 
     if (answer) {
       answerComp = (
-        <p>
+        <div>
           {moment(this.props.day.revealDate).format("DD. MMMM")}:{" "}
           {answer.guessedSong} var riktig svar!
-        </p>
+        </div>
       );
     } else {
       answerComp = (
-        <p>
+        <div>
           {moment(this.props.day.revealDate).format("DD. MMMM")}: Du fant ikke
           riktig svar.
-        </p>
+        </div>
       );
     }
 
-    return (
-      <div>
-        <p>{answerComp}</p>
-      </div>
-    );
+    return <div>{answerComp}</div>;
   }
 }
 

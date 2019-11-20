@@ -24,13 +24,13 @@
 
 @media screen and (max-width: 450px) {
   .header__fullscreen {
-    flex-direction: column;
-    height: 100px;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    margin-left: 1rem;
   }
 
   .header__menu-item {
     margin-left: 0;
-    margin-bottom: 10px;
   }
 }
 
