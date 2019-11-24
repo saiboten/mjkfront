@@ -112,6 +112,7 @@ class AdminDay extends React.Component {
 
     updateDay(saveObject)
       .then(() => {
+        fetchAdminData();
         this.setState({
           feedback: "Dag oppdatert med hell!"
         });
@@ -170,7 +171,7 @@ class AdminDay extends React.Component {
 
   upload() {
     var req = request.post(
-      "/admin/upload/" + this.props.day.revealDateAsString
+      "/api/admin/upload/" + this.props.day.revealDateAsString
     );
     req.query({ filename: this.state.file.name });
     req.attach("file", this.state.file);

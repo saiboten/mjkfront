@@ -8,7 +8,7 @@
     "promise": "^7.0.4",
     "react": "^16.11.0",
     "react-audio-player": "^0.6.4",
-    "react-datepicker": "^2.9.6",
+    "react-datepicker": "^2.10.1",
     "react-dom": "^16.11.0",
     "react-dropzone": "^3.7.0",
     "react-router-dom": "^5.1.2",
@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "postbuild": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./post_build.ps1"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://mjk.no:8443",
   "eslintConfig": {
     "extends": "react-app"
   },

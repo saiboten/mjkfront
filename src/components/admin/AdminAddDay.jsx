@@ -6,7 +6,7 @@ import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import { H1 } from "../lib/Heading";
-import { addDay } from "../../api/adminApi";
+import { addDay, fetchAdminData } from "../../api/adminApi";
 
 class AdminAddDay extends React.Component {
   state = {
@@ -81,6 +81,7 @@ class AdminAddDay extends React.Component {
 
     console.log("Save object: ", saveObject);
     addDay(saveObject);
+    fetchAdminData();
   }
 
   render() {
