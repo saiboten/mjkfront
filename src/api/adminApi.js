@@ -21,6 +21,40 @@ export const updateDay = data => {
     .then(data => data);
 };
 
+export const addSolution = (day, solution) => {
+  return fetch(
+    `${process.env.REACT_APP_API_PATH}/admin/api/addsolution/${day}/${solution}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    }
+  )
+    .then(data => {
+      return data.json();
+    })
+    .then(data => data);
+};
+
+export const deleteSolution = (day, solution) => {
+  return fetch(
+    `${process.env.REACT_APP_API_PATH}/admin/api/deletesolution/${day}/${solution}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    }
+  )
+    .then(data => {
+      return data.json();
+    })
+    .then(data => data);
+};
+
 export const addDay = data => {
   return fetch(`${process.env.REACT_APP_API_PATH}/admin/day`, {
     method: "POST",

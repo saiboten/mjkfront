@@ -9,6 +9,7 @@ export const AdminProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userResult, setUserResult] = useState(null);
   const [topList, setTopList] = useState([]);
+  const [solutions, setSolutions] = useState([]);
 
   const dataContextValue = {
     days,
@@ -24,7 +25,9 @@ export const AdminProviders = ({ children }) => {
     userResult,
     setUserResult,
     topList,
-    setTopList
+    setTopList,
+    solutions,
+    setSolutions
   };
 
   return (

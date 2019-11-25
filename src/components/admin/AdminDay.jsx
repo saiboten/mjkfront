@@ -1,13 +1,19 @@
 import React from "react";
+import { array } from "prop-types";
 import moment from "moment";
 import DatePicker from "react-datepicker";
-import AdminDaySolution from "./AdminDaySolution";
 import { DateHeader } from "../DateHeader";
 import SongAudio from "../days/day/SongAudio";
 import Dropzone from "react-dropzone";
 import request from "superagent";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateDay, deleteDay, fetchAdminData } from "../../api/adminApi";
+import {
+  updateDay,
+  deleteDay,
+  fetchAdminData,
+  addSolution,
+  deleteSolution
+} from "../../api/adminApi";
 import styled from "styled-components";
 
 const StyledTextArea = styled.textarea`
@@ -34,7 +40,8 @@ class AdminDay extends React.Component {
       addSolution: "",
       confirmDelete: false,
       file: {},
-      feedback: ""
+      feedback: "",
+      solutions: this.props.solutions
     };
 
     this.changeRevealDate = this.changeRevealDate.bind(this);
@@ -53,6 +60,7 @@ class AdminDay extends React.Component {
     this.deleteDay = this.deleteDay.bind(this);
     this.onDrop = this.onDrop.bind(this);
     this.upload = this.upload.bind(this);
+    this.deleteSolution = this.deleteSolution.bind(this);
   }
 
   changeRevealDate(date) {
@@ -125,21 +133,22 @@ class AdminDay extends React.Component {
   }
 
   addSolutionChange(e) {
-    console.log("Updating state: ", e.target.value);
     this.setState({
       addSolution: e.target.value
     });
   }
 
   addSolution(e) {
-    console.log("Adding solution: ", this.state.addSolution);
     if (this.state.addSolution !== "") {
-      var solutionObject = {};
-      solutionObject.solution = this.state.addSolution;
-      solutionObject.id = this.props.day.id;
-      this.setState({
-        addSolution: ""
+      this.setState(state => {
+        var newSolutions = [this.state.addSolution, ...state.solutions];
+        console.log("New soluitions: ", newSolutions);
+        return {
+          addSolution: "",
+          solutions: [this.state.addSolution, ...state.solutions]
+        };
       });
+      addSolution(this.props.day.id, this.state.addSolution);
     } else {
       this.setState({
         feedback: "Løsning er tom!"
@@ -148,8 +157,17 @@ class AdminDay extends React.Component {
   }
 
   createMarkup() {
-    console.log("Creating markup", this.state.optionalSolutionVideo);
     return { __html: this.state.optionalSolutionVideo };
+  }
+
+  deleteSolution(day, solution) {
+    this.setState(state => {
+      return {
+        feedback: "Deleting day",
+        solutions: state.solutions.filter(el => el !== solution)
+      };
+    });
+    deleteSolution(day, solution);
   }
 
   deleteDay() {
@@ -163,7 +181,6 @@ class AdminDay extends React.Component {
   }
 
   onDrop(files) {
-    console.log("Received files: ", files);
     this.setState({
       file: files[0]
     });
@@ -295,17 +312,20 @@ class AdminDay extends React.Component {
             </tbody>
           </table>
           <ul>
-            {this.props.day.solutions &&
-              this.props.day.solutions.map(function(solution) {
-                console.log("This props:", this);
-                return (
-                  <AdminDaySolution
-                    key={solution.solution}
-                    dayId={this.props.day.id}
-                    solution={solution}
-                  ></AdminDaySolution>
-                );
-              }, this)}
+            {this.state.solutions.map(function(solution) {
+              return (
+                <li key={solution}>
+                  Løsning: {solution}
+                  <button
+                    onClick={() =>
+                      this.deleteSolution(this.props.day.id, solution)
+                    }
+                  >
+                    Slett
+                  </button>
+                </li>
+              );
+            }, this)}
           </ul>
           <input
             type="text"
@@ -332,12 +352,12 @@ class AdminDay extends React.Component {
               )}
             </span>
           </p>
-          <p>
+          <div>
             <button onClick={this.saveChanges}>Lagre endringer</button>
             <button onClick={this.deleteDay}>Slett dag</button>
             {this.state.confirmDelete ? "Bekreft" : ""}
-            <p>{this.state.feedback}</p>
-          </p>
+            <div>{this.state.feedback}</div>
+          </div>
 
           <SongAudio link={this.state.link} />
         </div>
@@ -345,5 +365,13 @@ class AdminDay extends React.Component {
     );
   }
 }
+
+AdminDay.propTypes = {
+  solutions: array
+};
+
+AdminDay.defaultProps = {
+  solutions: []
+};
 
 export default AdminDay;

@@ -7,19 +7,29 @@ import { fetchAdminData } from "../../api/adminApi";
 function AdminOverview() {
   const {
     days,
+    solutions,
     setDays,
     setAnswers,
-    date,
     setDate,
     setToday,
     setUser,
     setUserResult,
-    setTopList
+    setTopList,
+    setSolutions
   } = useContext(AdminDataContext);
 
   useEffect(() => {
     fetchAdminData().then(
-      ({ days, date, user, answers, today, userResult, topList }) => {
+      ({
+        days,
+        date,
+        user,
+        answers,
+        today,
+        userResult,
+        topList,
+        solutions
+      }) => {
         setDays(days);
         setDate(date);
         setUser(user);
@@ -27,6 +37,7 @@ function AdminOverview() {
         setToday(today);
         setUserResult(userResult);
         setTopList(topList);
+        setSolutions(solutions);
       }
     );
   }, [
@@ -36,7 +47,8 @@ function AdminOverview() {
     setToday,
     setUser,
     setUserResult,
-    setTopList
+    setTopList,
+    setSolutions
   ]);
 
   return (
@@ -49,11 +61,17 @@ function AdminOverview() {
       }}
     >
       {days.map((day, i) => {
-        if (day.realDate !== new Date(date).getDate().toString()) {
-          return <AdminDay key={day.revealDate} day={day} />;
-        } else {
-          return null;
-        }
+        var solutionsForThisDay = solutions
+          .filter(solution => solution.day === day.id)
+          .map(el => el.solution);
+
+        return (
+          <AdminDay
+            key={day.revealDate + solutionsForThisDay.length}
+            day={day}
+            solutions={solutionsForThisDay}
+          />
+        );
       })}
       <AdminAddDay />
     </div>
