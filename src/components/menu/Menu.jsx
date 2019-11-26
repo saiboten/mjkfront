@@ -60,6 +60,7 @@ export function Menu() {
     <StyledNav>
       <StyledHeaderFullscreen>
         <StyledMenuItemLink to="/">Forsiden</StyledMenuItemLink>
+        <StyledMenuItemLink to="/om">Om</StyledMenuItemLink>
         {loggedInLink}
       </StyledHeaderFullscreen>
     </StyledNav>

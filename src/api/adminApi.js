@@ -23,7 +23,7 @@ export const updateDay = data => {
 
 export const addSolution = (day, solution) => {
   return fetch(
-    `${process.env.REACT_APP_API_PATH}/admin/api/addsolution/${day}/${solution}`,
+    `${process.env.REACT_APP_API_PATH}/admin/addsolution/${day}/${solution}`,
     {
       method: "POST",
       headers: {
@@ -40,7 +40,9 @@ export const addSolution = (day, solution) => {
 
 export const deleteSolution = (day, solution) => {
   return fetch(
-    `${process.env.REACT_APP_API_PATH}/admin/api/deletesolution/${day}/${solution}`,
+    `${
+      process.env.REACT_APP_API_PATH
+    }/admin/deletesolution/${day}/${encodeURIComponent(solution)}`,
     {
       method: "POST",
       headers: {
