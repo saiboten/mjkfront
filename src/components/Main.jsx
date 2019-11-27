@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
@@ -9,6 +9,10 @@ import { BestDailyUsers } from "./userresults/BestDailyUsers";
 import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
 import { HighScoreList } from "./highscore/HighScoreList";
 import { H1 } from "./lib/Heading";
+import { StyledLoader } from "./lib/StyledLoader";
+
+import { DataContext } from "../context/DataContext";
+import { fetchDays } from "../api/daysApi";
 
 const moveBackAndForwards = keyframes`
   0% {
@@ -65,28 +69,63 @@ const StyledSanta = styled.img`
   }
 `;
 
-export class Main extends React.Component {
-  render() {
-    return (
-      <>
-        <Wrapper>
-          <StyledHeader>
-            <H1>Musikkjulekalender!</H1>
-            <StyledSanta src="/static/images/santas.png" alt="Julenisse" />
-          </StyledHeader>
-          <StyledTwoColumns>
-            <SingleGuessDay />
-            <CurrentUserStatistics />
-          </StyledTwoColumns>
-          <StyledTwoColumns>
-            <BestDailyUsers />
-            <HighScoreList />
-          </StyledTwoColumns>
-          <Days />
-          <Facebook />
-        </Wrapper>
-        <Footer />
-      </>
+export function Main() {
+  const {
+    setDays,
+    setAnswers,
+    today,
+    setDate,
+    setToday,
+    setUser,
+    setUserResult,
+    setTopList
+  } = useContext(DataContext);
+
+  useEffect(() => {
+    fetchDays().then(
+      ({ days, date, user, answers, today, userResult, topList }) => {
+        setDays(days);
+        setDate(date);
+        setUser(user);
+        setAnswers(answers);
+        setToday(today);
+        setUserResult(userResult);
+        setTopList(topList);
+      }
     );
+  }, [
+    setAnswers,
+    setDate,
+    setDays,
+    setToday,
+    setUser,
+    setUserResult,
+    setTopList
+  ]);
+
+  if (today === null) {
+    return <StyledLoader />;
   }
+
+  return (
+    <>
+      <Wrapper>
+        <StyledHeader>
+          <H1>Musikkjulekalender!</H1>
+          <StyledSanta src="/static/images/santas.png" alt="Julenisse" />
+        </StyledHeader>
+        <StyledTwoColumns>
+          <SingleGuessDay />
+          <CurrentUserStatistics />
+        </StyledTwoColumns>
+        <StyledTwoColumns>
+          <BestDailyUsers />
+          <HighScoreList />
+        </StyledTwoColumns>
+        <Days />
+        <Facebook />
+      </Wrapper>
+      <Footer />
+    </>
+  );
 }

@@ -95,7 +95,7 @@ class GuessDay extends React.Component {
           <p style={{ marginBottom: "1rem" }}>
             Du har allerede svart rett på denne oppgaven!
           </p>
-          <p>Svaret var:{answerThisDay.guessedSong}</p>
+          <p>Svaret var: <strong>{answerThisDay.guessedSong}</strong></p>
         </div>
       );
     } else if (this.state.guess && this.state.correctAnswer) {

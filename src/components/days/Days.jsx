@@ -1,7 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import DaySelector from "./day/DaySelector";
-import { fetchDays } from "../../api/daysApi";
 import { DataContext } from "../../context/DataContext";
 import { H1 } from "../lib/Heading";
 import { StyledMainBox } from "../lib/MainBox";
@@ -11,42 +10,7 @@ const StyledDaysContainer = styled(StyledMainBox)`
 `;
 
 export const Days = function() {
-  const {
-    days,
-    setDays,
-    answers,
-    setAnswers,
-    date,
-    setDate,
-    today,
-    setToday,
-    user,
-    setUser,
-    setUserResult,
-    setTopList
-  } = useContext(DataContext);
-
-  useEffect(() => {
-    fetchDays().then(
-      ({ days, date, user, answers, today, userResult, topList }) => {
-        setDays(days);
-        setDate(date);
-        setUser(user);
-        setAnswers(answers);
-        setToday(today);
-        setUserResult(userResult);
-        setTopList(topList);
-      }
-    );
-  }, [
-    setAnswers,
-    setDate,
-    setDays,
-    setToday,
-    setUser,
-    setUserResult,
-    setTopList
-  ]);
+  const { days, answers, date, today, user } = useContext(DataContext);
 
   return (
     <StyledDaysContainer>
