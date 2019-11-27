@@ -73,7 +73,7 @@ export function Main() {
   const {
     setDays,
     setAnswers,
-    today,
+    date,
     setDate,
     setToday,
     setUser,
@@ -103,7 +103,7 @@ export function Main() {
     setTopList
   ]);
 
-  if (today === null) {
+  if (date === "") {
     return <StyledLoader />;
   }
 
