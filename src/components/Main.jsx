@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
-import { SingleGuessDay } from "./days/day/SingleGuessDay";
 import { Wrapper } from "./lib/Wrapper";
 import styled, { keyframes } from "styled-components";
 import { BestDailyUsers } from "./userresults/BestDailyUsers";
@@ -20,7 +19,7 @@ const moveBackAndForwards = keyframes`
   }
 
   33% {
-    transform: translateX(200px);
+    transform: translateX(20px);
   }
 
   66% {
@@ -28,13 +27,14 @@ const moveBackAndForwards = keyframes`
   }
 
   100% {
-    transform: translateX(-200px);
+    transform: translateX(-20px);
   }
 `;
 
 const StyledTwoColumns = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 450px) {
     flex-direction: column;
@@ -42,8 +42,10 @@ const StyledTwoColumns = styled.div`
 `;
 
 const StyledHeader = styled.div`
-  text-align: center;
+  text-align: left;
   padding-top: 1rem;
+  color: #fff;
+  display: flex;
 
   @media screen and (max-width: 450px) {
     display: flex;
@@ -55,7 +57,6 @@ const StyledHeader = styled.div`
 
 const StyledSanta = styled.img`
   height: 300px;
-  width: 232px;
   margin: 0 auto;
   animation: ${moveBackAndForwards} 180s infinite;
   animation-direction: alternate;
@@ -112,15 +113,15 @@ export function Main() {
       <Wrapper>
         <StyledHeader>
           <H1>Musikkjulekalender!</H1>
-          <StyledSanta src="/static/images/santas.png" alt="Julenisse" />
+          <StyledSanta
+            src="/static/images/julenissetransparent.png"
+            alt="Julenisse"
+          />
         </StyledHeader>
-        <StyledTwoColumns>
-          <SingleGuessDay />
-          <CurrentUserStatistics />
-        </StyledTwoColumns>
         <StyledTwoColumns>
           <BestDailyUsers />
           <HighScoreList />
+          <CurrentUserStatistics />
         </StyledTwoColumns>
         <Days />
         <Facebook />

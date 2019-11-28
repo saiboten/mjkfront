@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
       box-sizing: border-box;
-      background-color: #adc3de;
+      background-color: #001023;
       background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
         url("/static/images/s3.png");
       z-index: 1;

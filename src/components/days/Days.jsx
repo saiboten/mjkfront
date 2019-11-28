@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import DaySelector from "./day/DaySelector";
 import { DataContext } from "../../context/DataContext";
-import { H1 } from "../lib/Heading";
+import { H2 } from "../lib/Heading";
 import { StyledMainBox } from "../lib/MainBox";
 
 const StyledDaysContainer = styled(StyledMainBox)`
@@ -14,7 +14,7 @@ export const Days = function() {
 
   return (
     <StyledDaysContainer>
-      <H1>Løsninger</H1>
+      <H2>Luker</H2>
       <div
         style={{
           display: "flex",

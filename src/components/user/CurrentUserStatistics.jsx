@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CurrentUserResultDay from "./CurrentUserResultDay.jsx";
 import { DataContext } from "../../context/DataContext.js";
 import { StyledMainBox } from "../lib/MainBox.jsx";
-import { H1 } from "../lib/Heading.jsx";
+import { H2 } from "../lib/Heading.jsx";
 
 export function CurrentUserStatistics() {
   const { days, user, answers, today } = useContext(DataContext);
@@ -28,7 +28,7 @@ export function CurrentUserStatistics() {
 
   return (
     <StyledMainBox>
-      <H1>Dine resultater</H1>
+      <H2>Dine resultater</H2>
       <p style={{ marginBottom: "1rem" }}>{userinfo}</p>
       <div>{exist}</div>
     </StyledMainBox>

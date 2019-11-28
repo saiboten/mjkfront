@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H1 } from "../lib/Heading";
+import { H2 } from "../lib/Heading";
 
 const Wrapper = styled.div`
   background-color: linear-gradient(#e66465, #9198e5);
@@ -24,7 +24,7 @@ export function Profile({ name, image, children }) {
   return (
     <Wrapper>
       <StyledImage src={image} alt={name} />
-      <H1>{name}</H1>
+      <H2>{name}</H2>
       <StyledContent>{children}</StyledContent>
     </Wrapper>
   );

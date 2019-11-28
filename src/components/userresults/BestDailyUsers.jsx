@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import BestDailyUsersList from "./BestDailyUsersList";
 import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
-import { H1 } from "../lib/Heading";
+import { H2 } from "../lib/Heading";
 
 export function BestDailyUsers() {
   const { days, today, userResult } = useContext(DataContext);
@@ -11,7 +11,7 @@ export function BestDailyUsers() {
 
   return (
     <StyledMainBox>
-      <H1>Dagens beste: </H1>
+      <H2>Dagens beste: </H2>
       {theDay.length === 1 ? (
         <BestDailyUsersList
           key={theDay[0].id}

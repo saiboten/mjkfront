@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { HighScoreElement } from "./HighScoreElement";
 import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
-import { H1 } from "../lib/Heading";
+import { H2 } from "../lib/Heading";
 
 export function HighScoreList() {
   const { topList, user } = useContext(DataContext);
 
   return (
     <StyledMainBox>
-      <H1>Toppscorelisten!</H1>
+      <H2>Toppscorelisten!</H2>
       <ol>
         {topList
           .filter(function(user) {

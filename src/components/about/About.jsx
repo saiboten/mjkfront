@@ -9,6 +9,7 @@ import { P } from "../lib/Paragraph";
 const StyledContent = styled.div`
   font-size: 1.5rem;
   padding: 2rem;
+  background-color: #fff;
 `;
 
 const StyledParagraph = styled.p`
@@ -47,7 +48,7 @@ export const About = function() {
             justifyItems: "center"
           }}
         >
-          <Profile image="/static/images/bjarte.png" name="Bjarte">
+          <Profile image="/static/images/bjarte.png" name="Bjarte K. Helland">
             <p style={{ marginBottom: "1rem" }}>
               Bjarte er en ekstremt dyktig og allsidig trommis, som spiller i
               flere band enn de fleste. Han spiller blant annet i/med:
@@ -102,7 +103,8 @@ export const About = function() {
             </P>
           </Profile>
           <Profile image="/static/images/skoyerfanden.png" name="Skøyerfanden">
-            Hvem er denne mystiske skikkelsen? Har du anelse om hvem det kan være? Ikke nøl med å ta kontakt, vi lurer fælt!
+            Hvem er denne mystiske skikkelsen? Har du anelse om hvem det kan
+            være? Ikke nøl med å ta kontakt, vi lurer fælt!
           </Profile>
           <Profile image="/static/images/skoyerfanden.png" name="Kim">
             Kim liker bass!
