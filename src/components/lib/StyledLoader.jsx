@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #adc3de;
+  background-color: #001023;
 `;
 
 const StyledSpinner = styled(Spinner)`

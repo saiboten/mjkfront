@@ -7,7 +7,7 @@ import { SingleGuessDay } from "./SingleGuessDay";
 
 const StyledDayWrapper = styled.div`
   padding: 1rem;
-  border: 1px solid black;
+  box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.5);
   width: calc(50% - 10px);
   min-height: 20rem;
   margin: 5px;
@@ -29,7 +29,7 @@ class DaySelector extends React.Component {
     } else if (this.props.day.solutionArtist !== null) {
       day = <PastDay day={this.props.day} />;
     } else {
-      day = <p>Luke ikke åpnet</p>;
+      day = <p style={{ paddingTop: "5rem" }}>Luke ikke åpnet</p>;
     }
 
     return (

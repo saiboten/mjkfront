@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
@@ -16,7 +15,6 @@ export const Footer = function() {
   return (
     <StyledFooter>
       <p>Laget av Tobias Rusås Olsen.</p>
-      <Link to="/om">Om musikkjulekalenderen</Link>
     </StyledFooter>
   );
 };

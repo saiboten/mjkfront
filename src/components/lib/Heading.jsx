@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const H1 = styled.h1`
   font-size: 5rem;
   margin-bottom: 1rem;
+  color: #fff;
 
   @media screen and (max-width: 450px) {
     font-size: 2.5rem;

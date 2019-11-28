@@ -95,7 +95,9 @@ class GuessDay extends React.Component {
           <p style={{ marginBottom: "1rem" }}>
             Du har allerede svart rett på denne oppgaven!
           </p>
-          <p>Svaret var: <strong>{answerThisDay.guessedSong}</strong></p>
+          <p>
+            Svaret var: <strong>{answerThisDay.guessedSong}</strong>
+          </p>
         </div>
       );
     } else if (this.state.guess && this.state.correctAnswer) {
@@ -113,6 +115,10 @@ class GuessDay extends React.Component {
               placeholder="Sang"
               onChange={this.handleChange}
               value={this.state.guess}
+              style={{
+                marginRight: "1rem",
+                borderRadius: "5px"
+              }}
             />
             <StyledSubmitButton type="submit">Gjett!</StyledSubmitButton>
           </StyledGuessBox>
@@ -129,13 +135,16 @@ class GuessDay extends React.Component {
       >
         <p
           style={{
-            marginBottom: "2rem"
+            marginBottom: "2rem",
+            textAlign: "left"
           }}
           dangerouslySetInnerHTML={this.getDescription(
             this.props.day.description
           )}
         ></p>
-        <SongAudio link={this.props.day.link} />
+        <div style={{ marginBottom: "1rem" }}>
+          <SongAudio link={this.props.day.link} />
+        </div>
 
         {this.props.user ? (
           formOrFeedback

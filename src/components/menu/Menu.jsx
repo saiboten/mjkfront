@@ -20,8 +20,9 @@ const StyledHeaderFullscreen = styled.div`
 `;
 
 const StyledMenuItemLink = styled(StyledLink)`
-  padding: 10px;
-  min-width: 75px;
+  font-size: 1.5rem;
+  padding: 15px;
+  min-width: 100px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -40,6 +41,9 @@ const StyledMenuItemLink = styled(StyledLink)`
 
   @media screen and (max-width: 450px) {
     margin-left: 0;
+    padding: 10px;
+    min-width: 75px;
+    font-size: 1.2rem;
   }
 `;
 
