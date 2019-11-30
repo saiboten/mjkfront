@@ -15,6 +15,8 @@ function AdminOverview() {
     });
   }, [setDays, setSolutions]);
 
+  console.log(solutions);
+
   return (
     <div
       style={{
