@@ -136,10 +136,7 @@ export const About = function() {
               sin Luna, eller gjør helt andre ting.
             </P>
           </Profile>
-          <Profile
-            image="/static/images/skoyerfanden.png"
-            name="Tobias Rusås Olsen"
-          >
+          <Profile image="/static/images/tobias.png" name="Tobias Rusås Olsen">
             <P>
               Tobias er selve mesterhjernen bak musikkjulekalender.no. Siden
               2011 har han stått bak all koding og design av nettsiden, lagt ut
