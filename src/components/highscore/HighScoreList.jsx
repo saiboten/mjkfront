@@ -9,7 +9,7 @@ export function HighScoreList() {
 
   return (
     <StyledMainBox>
-      <H2>Toppscorelisten!</H2>
+      <H2>Toppscorelisten</H2>
       <ol>
         {topList
           .filter(function(user) {

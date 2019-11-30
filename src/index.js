@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { AdminOverviewContainer } from "./components/admin/AdminOverviewContainer";
 
 import moment from "moment";
 import { App } from "./App";
+import AdminOverview from "./components/admin/AdminOverview";
 
 moment.defineLocale("nb", {
   months: "januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember".split(
@@ -64,7 +64,7 @@ if (document.getElementById("root")) {
 }
 
 if (document.getElementById("admin")) {
-  ReactDOM.render(<AdminOverviewContainer />, document.getElementById("admin"));
+  ReactDOM.render(<AdminOverview />, document.getElementById("admin"));
 }
 
 // If you want your app to work offline and load faster, you can change

@@ -106,8 +106,20 @@ export const About = function() {
             Hvem er denne mystiske skikkelsen? Har du anelse om hvem det kan
             være? Ikke nøl med å ta kontakt, vi lurer fælt!
           </Profile>
-          <Profile image="/static/images/skoyerfanden.png" name="Kim">
-            Kim liker bass!
+          <Profile image="/static/images/kim.png" name="Kim">
+            <P>
+              Altmuligmann på trommer, bass og gitar. Kim fant ut i fjor at det
+              var moro å klippe opp musikk til det ugjenkjennelige, så derfor
+              har han valgt å gjøre dette til et fast innslag i julekalenderen.
+            </P>
+            <P>
+              Kim spiller for tiden i Yona Yona (instagram:{" "}
+              <a href="https://www.instagram.com/yonayonaband/">
+                @yonayonaband
+              </a>
+              ), så sjekk det ut, og bor du i Oslo er det konsert 7. desember på
+              Brewgata (Gratis!). Møte opp!
+            </P>
           </Profile>
           <Profile image="/static/images/matt.png" name="Matt Weigand">
             <P>
@@ -122,6 +134,20 @@ export const About = function() {
             <P>
               Når Matt ikke spiller gitar, brygger han deilig øl, klapper hunden
               sin Luna, eller gjør helt andre ting.
+            </P>
+          </Profile>
+          <Profile
+            image="/static/images/skoyerfanden.png"
+            name="Tobias Rusås Olsen"
+          >
+            <P>
+              Tobias er selve mesterhjernen bak musikkjulekalender.no. Siden
+              2011 har han stått bak all koding og design av nettsiden, lagt ut
+              oppgaver, skrevet oppgavetekster og adminstrert facebooksiden.
+            </P>
+            <P>
+              Tobias spiller trommer i bandet{" "}
+              <a href="https://vaerbitt.bandcamp.com/">Værbitt</a>.
             </P>
           </Profile>
         </div>

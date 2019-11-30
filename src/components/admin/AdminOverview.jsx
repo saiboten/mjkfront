@@ -1,55 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import AdminDay from "./AdminDay";
+import React, { useState, useEffect } from "react";
 import AdminAddDay from "./AdminAddDay";
-import { AdminDataContext } from "../../context/AdminDataContext";
+
 import { fetchAdminData } from "../../api/adminApi";
+import { AdminDay } from "./AdminDay";
 
 function AdminOverview() {
-  const {
-    days,
-    solutions,
-    setDays,
-    setAnswers,
-    setDate,
-    setToday,
-    setUser,
-    setUserResult,
-    setTopList,
-    setSolutions
-  } = useContext(AdminDataContext);
+  const [days, setDays] = useState([]);
+  const [solutions, setSolutions] = useState([]);
 
   useEffect(() => {
-    fetchAdminData().then(
-      ({
-        days,
-        date,
-        user,
-        answers,
-        today,
-        userResult,
-        topList,
-        solutions
-      }) => {
-        setDays(days);
-        setDate(date);
-        setUser(user);
-        setAnswers(answers);
-        setToday(today);
-        setUserResult(userResult);
-        setTopList(topList);
-        setSolutions(solutions);
-      }
-    );
-  }, [
-    setAnswers,
-    setDate,
-    setDays,
-    setToday,
-    setUser,
-    setUserResult,
-    setTopList,
-    setSolutions
-  ]);
+    fetchAdminData().then(({ days, solutions }) => {
+      setDays(days);
+      setSolutions(solutions);
+    });
+  }, [setDays, setSolutions]);
 
   return (
     <div
