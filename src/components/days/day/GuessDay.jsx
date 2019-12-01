@@ -59,11 +59,11 @@ class GuessDay extends React.Component {
       if (correct) {
         this.setState({
           correctAnswer: true,
-          feedback
+          status: feedback
         });
       } else {
         this.setState({
-          feedback
+          status: feedback
         });
       }
     });
