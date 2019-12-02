@@ -36,7 +36,7 @@ export function AddNickName() {
       .then(data => {
         if (data.success) {
           setFeedback("Brukernavn oppdatert");
-          setEdit(true);
+          setEdit(false);
           setUser({
             nickName,
             ...user
@@ -82,7 +82,9 @@ export function AddNickName() {
             ></Input>
           </FieldSet>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <StyledButton type="submit">Endre</StyledButton>
+            <StyledButton disabled={nickName.length < 3} type="submit">
+              Endre
+            </StyledButton>
           </div>
         </Form>
       )}
