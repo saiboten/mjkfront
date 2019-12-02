@@ -3,6 +3,7 @@ import CurrentUserResultDay from "./CurrentUserResultDay.jsx";
 import { DataContext } from "../../context/DataContext.js";
 import { StyledMainBox } from "../lib/MainBox.jsx";
 import { H2 } from "../lib/Heading.jsx";
+import { AddNickName } from "./AddNickName.jsx";
 
 export function CurrentUserStatistics() {
   const { days, user, answers, today } = useContext(DataContext);
@@ -17,19 +18,12 @@ export function CurrentUserStatistics() {
     }
   });
 
-  var userinfo = user ? (
-    <span>
-      Du er logget inn som <strong>{user.userName}</strong>
-    </span>
-  ) : (
-    ""
-  );
   var exist = user ? userstat : "Du må være logget inn for å få score";
 
   return (
     <StyledMainBox>
       <H2>Dine resultater</H2>
-      <p style={{ marginBottom: "1rem" }}>{userinfo}</p>
+      <AddNickName user={user} />
       <div>{exist}</div>
     </StyledMainBox>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../lib/Wrapper";
-import { StyledButton } from "../lib/Button";
+import { StyledButton } from "../lib/StyledButton";
 import { H1 } from "../lib/Heading";
 
 const StyledLoginWrapper = styled.div`

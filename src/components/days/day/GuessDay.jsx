@@ -1,12 +1,14 @@
 import React from "react";
 import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";
+import { StyledButton } from "../../lib/StyledButton";
 
 import styled from "styled-components";
 
 const StyledGuessBox = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 
 const StyledInput = styled.input`
@@ -14,28 +16,6 @@ const StyledInput = styled.input`
   text-align: center;
   margin: 1rem 0;
   width: 40rem;
-`;
-
-const StyledSubmitButton = styled.button`
-  width: 70px;
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px #888888;
-  transition: 0.2s ease-in-out;
-  height: 50px;
-  background-color: #fff;
-
-  &:hover {
-    background-color: rgba(143, 0, 0, 0.822);
-    color: white;
-    transform: translateY(-2px);
-  }
-
-  &:checked {
-    background-color: rgba(143, 0, 0, 0.822);
-    color: white;
-    transform: translateY(1px);
-  }
 `;
 
 class GuessDay extends React.Component {
@@ -120,7 +100,7 @@ class GuessDay extends React.Component {
                 borderRadius: "5px"
               }}
             />
-            <StyledSubmitButton type="submit">Gjett!</StyledSubmitButton>
+            <StyledButton type="submit">Svar</StyledButton>
           </StyledGuessBox>
           <p>{this.state.status ? this.state.status : ""} </p>
         </form>
@@ -152,9 +132,9 @@ class GuessDay extends React.Component {
           <>
             <StyledGuessBox>
               <StyledInput disabled placeholder="Sang" />
-              <StyledSubmitButton type="submit" disabled>
-                Gjett!
-              </StyledSubmitButton>
+              <StyledButton type="submit" disabled>
+                Svar
+              </StyledButton>
             </StyledGuessBox>
             <p>Logg inn for å besvare (se menyen)</p>
           </>

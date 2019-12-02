@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 
 import SongAudio from "./SongAudio";
-import { StyledButton } from "../../lib/Button";
+import { StyledButton } from "../../lib/StyledButton";
 
 function createMarkup(text) {
   return { __html: text };
@@ -42,7 +42,13 @@ export function PastDay(props) {
           )}
         </div>
       ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
           <StyledButton
             style={{
               marginBottom: "2rem"
