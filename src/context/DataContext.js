@@ -10,7 +10,9 @@ const initialState = {
   today: null,
   setToday: () => {},
   user: {},
-  setUser: () => {},
+  setUser: () => {
+    console.log("HMM");
+  },
   userResult: {},
   setUserResult: () => {},
   topList: [],

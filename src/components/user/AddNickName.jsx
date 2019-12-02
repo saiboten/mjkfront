@@ -38,8 +38,8 @@ export function AddNickName() {
           setFeedback("Brukernavn oppdatert");
           setEdit(false);
           setUser({
-            nickName,
-            ...user
+            ...user,
+            nickName
           });
         } else {
           setFeedback("Klarte ikke å oppdatere brukernavn. Prøv igjen senere.");
@@ -57,12 +57,8 @@ export function AddNickName() {
       }}
     >
       {isLoggedIn && (
-        <div style={{ position: "relative" }}>
-          <span
-            style={{
-              paddingRight: "3rem"
-            }}
-          >
+        <div style={{ position: "relative", paddingRight: "3rem" }}>
+          <span>
             Du er logget inn som{" "}
             <strong>{user.nickName || user.userName}</strong>
           </span>
@@ -74,7 +70,7 @@ export function AddNickName() {
       {edit && (
         <Form onSubmit={submitNickname}>
           <FieldSet>
-            <InputLabel for="nickname">Endre brukernavn</InputLabel>
+            <InputLabel htmlFor="nickname">Endre brukernavn</InputLabel>
             <Input
               id="nickname"
               onChange={e => setNickName(e.target.value)}
@@ -88,7 +84,13 @@ export function AddNickName() {
           </div>
         </Form>
       )}
-      {feedback}
+      <div
+        style={{
+          marginTop: "1rem"
+        }}
+      >
+        {feedback}
+      </div>
     </div>
   );
 }
