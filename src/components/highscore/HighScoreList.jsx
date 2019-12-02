@@ -43,19 +43,22 @@ export function HighScoreList() {
                 );
               })}
       </ol>
-      {topList && topList.length > 5 && (
-        <div
-          style={{
-            marginTop: "2rem",
-            display: "flex",
-            justifyContent: "center"
-          }}
-        >
-          <StyledButton onClick={() => setShowAll(!showAll)}>
-            {showAll ? "Skjul alle" : "Vis alle"}
-          </StyledButton>
-        </div>
-      )}
+      {topList &&
+        topList.filter(function(user) {
+          return user.score > 0;
+        }).length > 5 && (
+          <div
+            style={{
+              marginTop: "2rem",
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <StyledButton onClick={() => setShowAll(!showAll)}>
+              {showAll ? "Skjul alle" : "Vis alle"}
+            </StyledButton>
+          </div>
+        )}
     </StyledMainBox>
   );
 }
