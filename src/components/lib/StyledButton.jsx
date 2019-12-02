@@ -13,6 +13,5 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   box-shadow: 0px 2px 8px black;
   background-color: white;
-  margin-left: 10px;
   border: 0;
 `;

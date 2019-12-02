@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BestDailyUser } from "./BestDailyUser";
+import { StyledButton } from "../lib/StyledButton";
 
 function BestDailyUsersList(props) {
+  const [showAll, setShowAll] = useState(false);
+
   var userList = props.userResult
     ? props.userResult[props.day.revealDateAsString]
     : undefined;
@@ -23,11 +26,32 @@ function BestDailyUsersList(props) {
     });
 
     maybeempty = (
-      <ul>
-        {userCopy.map((user, i) => {
-          return <BestDailyUser key={i} user={user} />;
-        })}
-      </ul>
+      <>
+        <ul>
+          {showAll
+            ? userCopy.map((user, i) => {
+                return <BestDailyUser key={i} user={user} />;
+              })
+            : userCopy
+                .filter((el, index) => index < 5)
+                .map((user, i) => {
+                  return <BestDailyUser key={i} user={user} />;
+                })}
+        </ul>
+        {userCopy.length > 5 && (
+          <div
+            style={{
+              marginTop: "2rem",
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <StyledButton onClick={() => setShowAll(!showAll)}>
+              {showAll ? "Skjul alle" : "Vis alle"}
+            </StyledButton>
+          </div>
+        )}
+      </>
     );
   } else {
     maybeempty = <div>Ingen riktige svar</div>;

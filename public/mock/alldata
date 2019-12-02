@@ -18,7 +18,30 @@
       },
       "2019-11-21":{
          "users":[
-
+            {
+               "name":"saiboten",
+               "time":1574279377763
+            },
+             {
+               "name":"saiboten",
+               "time":1574279377763
+            },
+             {
+               "name":"saiboten",
+               "time":1574279377763
+            },
+                         {
+               "name":"saiboten",
+               "time":1574279377763
+            },
+                         {
+               "name":"saiboten",
+               "time":1574279377763
+            },
+                        {
+               "name":"saiboten",
+               "time":1574279377763
+            }
          ]
       },
       "2019-11-20":{
@@ -43,22 +66,7 @@
       }
    ],
    "topList":[
-      {
-         "user":"saiboten",
-         "score":1
-      },
-      {
-         "user":"testbruker3",
-         "score":0
-      },
-      {
-         "user":"testuser",
-         "score":0
-      },
-      {
-         "user":"tobias",
-         "score":0
-      }
+     
    ],
    "days":[
       {
