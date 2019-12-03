@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FieldSet = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: none;
   margin-top: 24px;
   margin-bottom: 24px;

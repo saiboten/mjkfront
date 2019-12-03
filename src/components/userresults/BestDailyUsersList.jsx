@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { BestDailyUser } from "./BestDailyUser";
-import { StyledButton } from "../lib/StyledButton";
+import { StyledButtonSecondary } from "../lib/StyledButton";
 
 function BestDailyUsersList(props) {
   const [showAll, setShowAll] = useState(false);
@@ -41,14 +41,14 @@ function BestDailyUsersList(props) {
         {userCopy.length > 5 && (
           <div
             style={{
-              marginTop: "2rem",
+              marginTop: "1rem",
               display: "flex",
               justifyContent: "center"
             }}
           >
-            <StyledButton onClick={() => setShowAll(!showAll)}>
+            <StyledButtonSecondary onClick={() => setShowAll(!showAll)}>
               {showAll ? "Skjul alle" : "Vis alle"}
-            </StyledButton>
+            </StyledButtonSecondary>
           </div>
         )}
       </>

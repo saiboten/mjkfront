@@ -3,20 +3,9 @@ import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";
 import { StyledButton } from "../../lib/StyledButton";
 
-import styled from "styled-components";
-
-const StyledGuessBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const StyledInput = styled.input`
-  height: 5rem;
-  text-align: center;
-  margin: 1rem 0;
-  width: 40rem;
-`;
+import { Form } from "../../lib/Form";
+import { Input } from "../../lib/Input";
+import { FieldSet } from "../../lib/FieldSet";
 
 class GuessDay extends React.Component {
   state = {
@@ -84,14 +73,9 @@ class GuessDay extends React.Component {
       formOrFeedback = <p>Gratulerer, det var rett!</p>;
     } else {
       formOrFeedback = (
-        <form
-          onSubmit={this.submit}
-          styled={{
-            maxWidth: "300px"
-          }}
-        >
-          <StyledGuessBox>
-            <StyledInput
+        <Form onSubmit={this.submit}>
+          <FieldSet>
+            <Input
               placeholder="Sang"
               onChange={this.handleChange}
               value={this.state.guess}
@@ -101,9 +85,9 @@ class GuessDay extends React.Component {
               }}
             />
             <StyledButton type="submit">Svar</StyledButton>
-          </StyledGuessBox>
+          </FieldSet>
           <p>{this.state.status ? this.state.status : ""} </p>
-        </form>
+        </Form>
       );
     }
 
@@ -130,12 +114,12 @@ class GuessDay extends React.Component {
           formOrFeedback
         ) : (
           <>
-            <StyledGuessBox>
-              <StyledInput disabled placeholder="Sang" />
+            <FieldSet>
+              <Input disabled placeholder="Sang" />
               <StyledButton type="submit" disabled>
                 Svar
               </StyledButton>
-            </StyledGuessBox>
+            </FieldSet>
             <p>Logg inn for å besvare (se menyen)</p>
           </>
         )}

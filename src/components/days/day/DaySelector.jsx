@@ -14,7 +14,8 @@ const StyledDayWrapper = styled.div`
   text-align: center;
   padding-bottom: 2rem;
 
-  background-color: ${props => (props.today ? "#ff71719c" : "white")};
+  background-color: ${props => (props.today ? "#001023" : "white")};
+  color: ${props => (props.today ? "white" : "black")};
 
   @media screen and (max-width: 450px) {
     width: calc(100% - 10px);
@@ -23,8 +24,10 @@ const StyledDayWrapper = styled.div`
 
 class DaySelector extends React.Component {
   render() {
+    const today = this.props.day.revealDateAsString === this.props.date;
+
     let day = "";
-    if (this.props.day.revealDateAsString === this.props.date) {
+    if (today) {
       day = <SingleGuessDay />;
     } else if (this.props.day.solutionArtist !== null) {
       day = <PastDay day={this.props.day} />;
@@ -33,15 +36,15 @@ class DaySelector extends React.Component {
     }
 
     return (
-      <StyledDayWrapper
-        today={this.props.day.revealDateAsString === this.props.date}
-      >
+      <StyledDayWrapper today={today}>
         <DateHeader
           unixDate={this.props.day.revealDateAsString}
           style={{
             marginBottom: "1rem"
           }}
-        ></DateHeader>
+        >
+          {today && <span>: i dag</span>}
+        </DateHeader>
         {day}
       </StyledDayWrapper>
     );

@@ -15,3 +15,19 @@ export const StyledButton = styled.button`
   background-color: white;
   border: 0;
 `;
+
+export const StyledButtonSecondary = styled(StyledButton)`
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid black;
+  padding: 0.5rem;
+
+  &:hover {
+    border-color: #004494;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+`;

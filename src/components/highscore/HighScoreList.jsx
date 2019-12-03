@@ -3,7 +3,7 @@ import { HighScoreElement } from "./HighScoreElement";
 import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H2 } from "../lib/Heading";
-import { StyledButton } from "../lib/StyledButton";
+import { StyledButtonSecondary } from "../lib/StyledButton";
 
 export function HighScoreList() {
   const { topList, user } = useContext(DataContext);
@@ -49,14 +49,14 @@ export function HighScoreList() {
         }).length > 5 && (
           <div
             style={{
-              marginTop: "2rem",
+              marginTop: "1rem",
               display: "flex",
               justifyContent: "center"
             }}
           >
-            <StyledButton onClick={() => setShowAll(!showAll)}>
+            <StyledButtonSecondary onClick={() => setShowAll(!showAll)}>
               {showAll ? "Skjul alle" : "Vis alle"}
-            </StyledButton>
+            </StyledButtonSecondary>
           </div>
         )}
     </StyledMainBox>
