@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { contrastColor } from "../userresults/colors";
 
 export const StyledButton = styled.button`
   font-size: 1.2rem;
@@ -24,7 +25,7 @@ export const StyledButtonSecondary = styled(StyledButton)`
   padding: 0.5rem;
 
   &:hover {
-    border-color: #004494;
+    border-color: ${contrastColor};
   }
 
   &:focus {

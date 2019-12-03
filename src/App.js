@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./components/about/About";
 import { Login } from "./components/login/Login";
 import { createGlobalStyle, keyframes } from "styled-components";
+import { secondaryColor } from "./components/userresults/colors";
 
 const backgroundSnow = keyframes`
   0% {
@@ -35,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
       box-sizing: border-box;
-      background-color: #001023;
+      background-color: ${secondaryColor};
       background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
         url("/static/images/s3.png");
       z-index: 1;

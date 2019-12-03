@@ -76,6 +76,7 @@ class GuessDay extends React.Component {
         <Form onSubmit={this.submit}>
           <FieldSet>
             <Input
+              disabled={this.props.user == null}
               placeholder="Sang"
               onChange={this.handleChange}
               value={this.state.guess}
@@ -109,20 +110,8 @@ class GuessDay extends React.Component {
         <div style={{ marginBottom: "1rem" }}>
           <SongAudio link={this.props.day.link} />
         </div>
-
-        {this.props.user ? (
-          formOrFeedback
-        ) : (
-          <>
-            <FieldSet>
-              <Input disabled placeholder="Sang" />
-              <StyledButton type="submit" disabled>
-                Svar
-              </StyledButton>
-            </FieldSet>
-            <p>Logg inn for å besvare (se menyen)</p>
-          </>
-        )}
+        {formOrFeedback}
+        {this.props.user == null && <p>Logg inn for å besvare (se menyen)</p>}
       </div>
     );
   }

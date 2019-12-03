@@ -4,6 +4,7 @@ import React from "react";
 import { DateHeader } from "./../../DateHeader";
 import { PastDay } from "./PastDay";
 import { SingleGuessDay } from "./SingleGuessDay";
+import { secondaryColor } from "../../userresults/colors";
 
 const StyledDayWrapper = styled.div`
   padding: 1rem;
@@ -14,7 +15,7 @@ const StyledDayWrapper = styled.div`
   text-align: center;
   padding-bottom: 2rem;
 
-  background-color: ${props => (props.today ? "#001023" : "white")};
+  background-color: ${props => (props.today ? secondaryColor : "white")};
   color: ${props => (props.today ? "white" : "black")};
 
   @media screen and (max-width: 450px) {

@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
 import { ReactComponent as Spinner } from "./Loading.svg";
+import { secondaryColor } from "../userresults/colors";
 
 const rotate = keyframes`
 	0% {
@@ -23,7 +24,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #001023;
+  background-color: ${secondaryColor};
 `;
 
 const StyledSpinner = styled(Spinner)`

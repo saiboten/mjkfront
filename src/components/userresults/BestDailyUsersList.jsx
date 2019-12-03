@@ -47,7 +47,7 @@ function BestDailyUsersList(props) {
             }}
           >
             <StyledButtonSecondary onClick={() => setShowAll(!showAll)}>
-              {showAll ? "Skjul alle" : "Vis alle"}
+              {showAll ? "Skjul" : "Vis alle"}
             </StyledButtonSecondary>
           </div>
         )}
