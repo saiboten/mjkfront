@@ -73,7 +73,7 @@ class GuessDay extends React.Component {
       formOrFeedback = <p>Gratulerer, det var rett!</p>;
     } else {
       formOrFeedback = (
-        <Form id="today" onSubmit={this.submit}>
+        <Form onSubmit={this.submit}>
           <FieldSet>
             <Input
               disabled={this.props.user == null}
@@ -94,6 +94,7 @@ class GuessDay extends React.Component {
 
     return (
       <div
+        id="today"
         style={{
           maxWidth: "500px"
         }}

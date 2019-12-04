@@ -27,7 +27,7 @@ function BestDailyUsersList(props) {
 
     maybeempty = (
       <>
-        <ul>
+        <ol>
           {showAll
             ? userCopy.map((user, i) => {
                 return <BestDailyUser key={i} user={user} />;
@@ -37,7 +37,7 @@ function BestDailyUsersList(props) {
                 .map((user, i) => {
                   return <BestDailyUser key={i} user={user} />;
                 })}
-        </ul>
+        </ol>
         {userCopy.length > 5 && (
           <div
             style={{
@@ -59,7 +59,7 @@ function BestDailyUsersList(props) {
   return (
     <div>
       <p style={{ marginBottom: "1rem" }}>
-        Dette viser klokkeslettet oppgaven ble løst på per bruker
+        Dette viser klokkeslettet oppgaven ble løst på per bruker.
       </p>
       {maybeempty}
     </div>
