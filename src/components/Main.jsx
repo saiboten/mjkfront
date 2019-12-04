@@ -12,6 +12,7 @@ import { StyledLoader } from "./lib/StyledLoader";
 
 import { DataContext } from "../context/DataContext";
 import { fetchDays } from "../api/daysApi";
+import { GoToToday } from "./GoToToday";
 
 const moveBackAndForwards = keyframes`
   0% {
@@ -118,6 +119,7 @@ export function Main() {
             alt="Julenisse"
           />
         </StyledHeader>
+        <GoToToday />
         <StyledTwoColumns>
           <BestDailyUsers />
           <HighScoreList />

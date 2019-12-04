@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { useSpring } from "react-spring";
-
 import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H2 } from "../lib/Heading";
@@ -15,17 +13,6 @@ export function HighScoreList() {
   const { topList } = useContext(DataContext);
 
   const [showAll, setShowAll] = useState(false);
-
-  const [, setY] = useSpring(() => ({ y: 0 }));
-
-  function scrollReset() {
-    // setY({
-    //   y: 0,
-    //   reset: true,
-    //   from: { y: window.scrollY },
-    //   onFrame: props => window.scroll(0, props.y)
-    // });
-  }
 
   const scoresAboveZero = topList.filter(user => user.score > 0);
 
@@ -52,7 +39,6 @@ export function HighScoreList() {
           <StyledButtonSecondary
             onClick={() => {
               setShowAll(!showAll);
-              scrollReset();
             }}
           >
             {showAll ? "Skjul" : "Vis alle"}
