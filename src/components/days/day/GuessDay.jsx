@@ -11,7 +11,8 @@ class GuessDay extends React.Component {
   state = {
     guess: "",
     feedback: "",
-    correctAnswer: undefined
+    correctAnswer: undefined,
+    loading: false
   };
 
   constructor(props) {
@@ -23,6 +24,9 @@ class GuessDay extends React.Component {
 
   submit(e) {
     e.preventDefault();
+    this.setState({
+      loading: true
+    });
 
     answerApi(this.state.guess).then(({ correct, feedback }) => {
       if (correct) {
@@ -35,6 +39,9 @@ class GuessDay extends React.Component {
           status: feedback
         });
       }
+      this.setState({
+        loading: false
+      });
     });
   }
 
@@ -85,7 +92,9 @@ class GuessDay extends React.Component {
                 borderRadius: "5px"
               }}
             />
-            <StyledButton type="submit">Svar</StyledButton>
+            <StyledButton type="submit" disabled={this.state.loading}>
+              Svar
+            </StyledButton>
           </FieldSet>
           <p>{this.state.status ? this.state.status : ""} </p>
         </Form>
