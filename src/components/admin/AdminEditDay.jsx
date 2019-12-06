@@ -41,7 +41,9 @@ export class AdminEditDay extends React.Component {
       confirmDelete: false,
       file: {},
       feedback: "",
-      solutions: this.props.solutions
+      solutions: this.props.solutions,
+      difficulty: this.props.day.difficulty,
+      cooperator: this.props.day.cooperator
     };
 
     this.changeRevealDate = this.changeRevealDate.bind(this);
@@ -49,6 +51,8 @@ export class AdminEditDay extends React.Component {
     this.changeDescription = this.changeDescription.bind(this);
     this.changeSolutionArtist = this.changeSolutionArtist.bind(this);
     this.changeSolutionSong = this.changeSolutionSong.bind(this);
+    this.changeCooperator = this.changeCooperator.bind(this);
+    this.changeDifficulty = this.changeDifficulty.bind(this);
     this.changeLink = this.changeLink.bind(this);
     this.changeOptionalSolutionVideo = this.changeOptionalSolutionVideo.bind(
       this
@@ -83,6 +87,14 @@ export class AdminEditDay extends React.Component {
     this.setState({ solutionArtist: event.target.value });
   }
 
+  changeCooperator(event) {
+    this.setState({ cooperator: event.target.value });
+  }
+
+  changeDifficulty(event) {
+    this.setState({ difficulty: event.target.value });
+  }
+
   changeSolutionSong(event) {
     this.setState({ solutionSong: event.target.value });
   }
@@ -103,19 +115,23 @@ export class AdminEditDay extends React.Component {
       solutionArtist,
       solutionSong,
       revealDate,
-      solutionDate
+      solutionDate,
+      difficulty,
+      cooperator
     } = this.state;
 
     var saveObject = {
-      link: link,
-      description: description,
-      optionalSolutionVideo: optionalSolutionVideo,
-      solutionArtist: solutionArtist,
-      solutionSong: solutionSong,
+      link,
+      description,
+      optionalSolutionVideo,
+      solutionArtist,
+      solutionSong,
       revealDate: revealDate.valueOf(),
       solutionDate: solutionDate.valueOf(),
       revealDateAsString: moment(revealDate).format("YYYY-MM-DD"),
-      id: this.props.day.id
+      id: this.props.day.id,
+      difficulty: parseInt(difficulty, 10),
+      cooperator
     };
 
     updateDay(saveObject)
@@ -281,6 +297,35 @@ export class AdminEditDay extends React.Component {
                     onChange={this.changeSolutionSong}
                     value={this.state.solutionSong}
                   />
+                </td>
+              </tr>
+              <tr>
+                <td>Vanskelighetsgrad</td>
+                <td>
+                  <select
+                    onChange={this.changeDifficulty}
+                    value={this.state.difficulty}
+                  >
+                    <option value={1}>Lett</option>
+                    <option value={2}>Middels</option>
+                    <option value={3}>Vanskelig</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Bidragsyter</td>
+                <td>
+                  <select
+                    onChange={this.changeCooperator}
+                    value={this.state.cooperator}
+                  >
+                    <option value={"Skøyerfanden"}>Skøyerfanden</option>
+                    <option value={"Tomas"}>Tomas</option>
+                    <option value={"Bjarte"}>Bjarte</option>
+                    <option value={"Tobias"}>Tobias</option>
+                    <option value={"Kim"}>Kim</option>
+                    <option value={"Stein"}>Stein</option>
+                  </select>
                 </td>
               </tr>
               <tr>

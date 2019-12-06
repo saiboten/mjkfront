@@ -142,6 +142,8 @@
    "days":[
       {
          "id":189,
+         "difficulty": 1,
+         "cooperator": "Stein",
          "revealDateAsString":"2019-11-08",
          "image":null,
          "description":"Åttende november",
@@ -155,6 +157,8 @@
       },
       {
          "id":191,
+         "difficulty": 2,
+         "cooperator": "Stein",
          "revealDateAsString":"2019-11-09",
          "image":null,
          "description":"En beskrivelse",
@@ -168,6 +172,8 @@
       },
       {
          "id":193,
+         "difficulty": 3,
+         "cooperator": "Stein",
          "revealDateAsString":"2019-11-10",
          "image":null,
          "description":"Siste for nå",

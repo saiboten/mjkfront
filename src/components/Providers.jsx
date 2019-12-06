@@ -10,8 +10,6 @@ export const Providers = ({ children }) => {
   const [userResult, setUserResult] = useState(null);
   const [topList, setTopList] = useState([]);
 
-  console.log(user);
-
   const dataContextValue = {
     days,
     setDays,
