@@ -6,19 +6,6 @@ import { H1 } from "../lib/Heading";
 import { ReactComponent as Facebook } from "./Facebook.svg";
 import { ReactComponent as Google } from "./Google.svg";
 
-const StyledFacebook = styled(Facebook)`
-  margin-left: 1rem;
-  fill: #4267ae;
-  flex: 0 0 3.2rem;
-`;
-
-const StyledGoogle = styled(Google)`
-  margin-left: 1rem;
-  width: 3.2rem;
-  height: 3.2rem;
-  flex: 0 0 3.2rem;
-`;
-
 const StyledLoginWrapper = styled.div`
   text-align: center;
   padding: 1rem;
@@ -39,6 +26,28 @@ const StyledButtons = styled.div`
 const StyledLoginButton = styled(StyledButton)`
   margin-left: 2rem;
   margin-top: 2rem;
+  justify-content: space-around;
+`;
+
+const Text = styled.span`
+  @media screen and (max-width: 450px) {
+    padding-left: 2rem;
+  }
+`;
+
+const StyledFacebook = styled(Facebook)`
+  margin-left: 1rem;
+  fill: #4267ae;
+  flex: 0 0 3.2rem;
+  margin-right: 1rem;
+`;
+
+const StyledGoogle = styled(Google)`
+  margin-left: 1rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 3.2rem;
+  margin-right: 1rem;
 `;
 
 export function Login() {
@@ -50,13 +59,13 @@ export function Login() {
           <StyledLoginButton
             onClick={() => (window.location = "/login/google")}
           >
-            <span>Logg inn med Google</span>
+            <Text>Logg inn med Google</Text>
             <StyledGoogle />
           </StyledLoginButton>
           <StyledLoginButton
             onClick={() => (window.location = "/login/facebook")}
           >
-            <span>Logg inn med Facebook </span>
+            <Text>Logg inn med Facebook </Text>
             <StyledFacebook />
           </StyledLoginButton>
         </StyledButtons>
