@@ -6,6 +6,7 @@ import { StyledButton } from "../../lib/StyledButton";
 import { Form } from "../../lib/Form";
 import { Input } from "../../lib/Input";
 import { FieldSet } from "../../lib/FieldSet";
+import { StyledLinkAlternate } from "../../lib/StyledLink";
 
 class GuessDay extends React.Component {
   state = {
@@ -124,7 +125,12 @@ class GuessDay extends React.Component {
           <SongAudio link={this.props.day.link} />
         </div>
         {formOrFeedback}
-        {this.props.user == null && <p>Logg inn for å besvare (se menyen)</p>}
+        {this.props.user == null && (
+          <p>
+            <StyledLinkAlternate href="/login">Logg inn</StyledLinkAlternate>{" "}
+            for å besvare
+          </p>
+        )}
       </div>
     );
   }

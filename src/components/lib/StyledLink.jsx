@@ -16,3 +16,13 @@ export const StyledLink = styled.a`
     border-color: ${contrastColor};
   }
 `;
+
+export const StyledLinkAlternate = styled(StyledLink)`
+  &:visited,
+  &:link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  border-bottom: 2px solid #fff;
+`;
