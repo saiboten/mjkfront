@@ -92,7 +92,10 @@ class GuessDay extends React.Component {
                 borderRadius: "5px"
               }}
             />
-            <StyledButton type="submit" disabled={this.state.loading}>
+            <StyledButton
+              type="submit"
+              disabled={this.state.loading || this.props.user == null}
+            >
               Svar
             </StyledButton>
           </FieldSet>
