@@ -5,6 +5,9 @@ import React, { useState } from "react";
 
 import SongAudio from "./SongAudio";
 import { StyledButton } from "../../lib/StyledButton";
+import { Difficulty } from "../../lib/Difficulty";
+import { Cooperator } from "../../lib/Cooperator";
+import { DayMetadata } from "../../lib/DayMetadata";
 
 function createMarkup(text) {
   return { __html: text };
@@ -15,6 +18,10 @@ export function PastDay(props) {
 
   return (
     <>
+      <DayMetadata>
+        <Cooperator cooperator={props.day.cooperator} />
+        <Difficulty difficulty={props.day.difficulty} />
+      </DayMetadata>
       <div
         dangerouslySetInnerHTML={createMarkup(props.day.description)}
         style={{

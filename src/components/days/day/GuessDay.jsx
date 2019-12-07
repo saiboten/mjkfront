@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";
 import { StyledButton } from "../../lib/StyledButton";
@@ -7,6 +8,14 @@ import { Form } from "../../lib/Form";
 import { Input } from "../../lib/Input";
 import { FieldSet } from "../../lib/FieldSet";
 import { StyledLinkAlternate } from "../../lib/StyledLink";
+import { Difficulty } from "../../lib/Difficulty";
+import { Cooperator } from "../../lib/Cooperator";
+import { DayMetadata } from "../../lib/DayMetadata";
+
+const Description = styled.div`
+  margin-bottom: 2rem;
+  text-align: left;
+`;
 
 class GuessDay extends React.Component {
   state = {
@@ -112,15 +121,15 @@ class GuessDay extends React.Component {
           maxWidth: "500px"
         }}
       >
-        <p
-          style={{
-            marginBottom: "2rem",
-            textAlign: "left"
-          }}
+        <DayMetadata>
+          <Cooperator cooperator={this.props.day.cooperator} />
+          <Difficulty difficulty={this.props.day.difficulty} />
+        </DayMetadata>
+        <Description
           dangerouslySetInnerHTML={this.getDescription(
             this.props.day.description
           )}
-        ></p>
+        ></Description>
         <div style={{ marginBottom: "1rem" }}>
           <SongAudio link={this.props.day.link} />
         </div>

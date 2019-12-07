@@ -142,8 +142,6 @@
    "days":[
       {
          "id":189,
-         "difficulty": 1,
-         "cooperator": "Stein",
          "revealDateAsString":"2019-11-08",
          "image":null,
          "description":"Åttende november",
@@ -176,7 +174,7 @@
          "cooperator": "Stein",
          "revealDateAsString":"2019-11-10",
          "image":null,
-         "description":"Siste for nå",
+         "description":"Hei og velkommen til den siste oppgaven i  årets julekalender. I år skal vi finne svaret på mange rare spørsmål",
          "optionalSolutionVideo":"",
          "link":"",
          "solutionDate":"2019-11-10T23:00:00.000+0000",
@@ -202,7 +200,9 @@
          "id":195,
          "revealDateAsString":"2019-11-21",
          "image":null,
-         "description":null,
+         "cooperator": "Tobias",
+         "difficulty": 2,
+         "description":"Hei og velkommen til den siste oppgaven i  årets julekalender. I år skal vi finne svaret på mange rare spørsmål",
          "optionalSolutionVideo":null,
          "link":null,
          "solutionDate":"2019-11-21T23:00:00.000+0000",
