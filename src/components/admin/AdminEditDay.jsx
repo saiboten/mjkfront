@@ -25,6 +25,15 @@ const StyledInput = styled.input`
   width: 100%;
 `;
 
+const cooperators = [
+  "Skøyerfanden",
+  "Tomas",
+  "Bjarte",
+  "Tobias",
+  "Kim",
+  "Stein"
+];
+
 export class AdminEditDay extends React.Component {
   constructor(props) {
     super(props);
@@ -42,8 +51,8 @@ export class AdminEditDay extends React.Component {
       file: {},
       feedback: "",
       solutions: this.props.solutions,
-      difficulty: this.props.day.difficulty,
-      cooperator: this.props.day.cooperator
+      difficulty: this.props.day.difficulty || 1,
+      cooperator: this.props.day.cooperator || cooperators[0]
     };
 
     this.changeRevealDate = this.changeRevealDate.bind(this);
@@ -319,12 +328,9 @@ export class AdminEditDay extends React.Component {
                     onChange={this.changeCooperator}
                     value={this.state.cooperator}
                   >
-                    <option value={"Skøyerfanden"}>Skøyerfanden</option>
-                    <option value={"Tomas"}>Tomas</option>
-                    <option value={"Bjarte"}>Bjarte</option>
-                    <option value={"Tobias"}>Tobias</option>
-                    <option value={"Kim"}>Kim</option>
-                    <option value={"Stein"}>Stein</option>
+                    {cooperators.map(el => (
+                      <option value={el}>{el}</option>
+                    ))}
                   </select>
                 </td>
               </tr>
