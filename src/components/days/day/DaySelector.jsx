@@ -28,7 +28,9 @@ class DaySelector extends React.Component {
     const today = this.props.day.revealDateAsString === this.props.date;
 
     let day = "";
-    if (today) {
+    if (today && this.props.day.description == null) {
+      day = <p style={{ paddingTop: "5rem" }}>Luke åpner 09:00</p>;
+    } else if (today) {
       day = <SingleGuessDay />;
     } else if (this.props.day.solutionArtist !== null) {
       day = <PastDay day={this.props.day} />;
