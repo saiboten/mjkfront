@@ -2,10 +2,18 @@ import React, { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { StyledLink } from "../lib/Link";
 import styled from "styled-components";
+import { backgroundSnow } from "../lib/SnowAnimation";
 
 const StyledNav = styled.nav`
   max-width: 980px;
   margin: 10px auto;
+
+  @media screen and (max-width: 450px) {
+    background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
+      url("/static/images/s3.png");
+    z-index: 1;
+    animation: ${backgroundSnow} 10s linear infinite;
+  }
 `;
 
 const StyledHeaderFullscreen = styled.div`

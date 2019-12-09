@@ -6,20 +6,9 @@ import { Menu } from "./components/menu/Menu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./components/about/About";
 import { Login } from "./components/login/Login";
-import { createGlobalStyle, keyframes } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { secondaryColor } from "./components/userresults/colors";
-
-const backgroundSnow = keyframes`
-  0% {
-    background-position: 0px 0px, 0px 0px, 0px 0px;
-  }
-  50% {
-    background-position: 500px 500px, 100px 200px, -100px 150px;
-  }
-  100% {
-    background-position: 500px 1000px, 200px 400px, -100px 300px;
-  }
-`;
+import { backgroundSnow } from "./components/lib/SnowAnimation";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -42,6 +31,11 @@ const GlobalStyle = createGlobalStyle`
       z-index: 1;
       animation: ${backgroundSnow} 10s linear infinite;
       font-family: "Rubik", sans-serif;
+
+      @media screen and (max-width: 450px) {
+        animation: none;
+        background-image: none;
+      }
   }
 `;
 

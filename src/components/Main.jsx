@@ -13,6 +13,7 @@ import { StyledLoader } from "./lib/StyledLoader";
 import { DataContext } from "../context/DataContext";
 import { fetchDays } from "../api/daysApi";
 import { GoToToday } from "./GoToToday";
+import { backgroundSnow } from "./lib/SnowAnimation";
 
 const moveBackAndForwards = keyframes`
   0% {
@@ -53,6 +54,11 @@ const StyledHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+
+    background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
+      url("/static/images/s3.png");
+    z-index: 1;
+    animation: ${backgroundSnow} 10s linear infinite;
   }
 `;
 
