@@ -3,7 +3,7 @@ import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
 import { Wrapper } from "./lib/Wrapper";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { BestDailyUsers } from "./userresults/BestDailyUsers";
 import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
 import { HighScoreList } from "./highscore/HighScoreList";
@@ -14,22 +14,17 @@ import { DataContext } from "../context/DataContext";
 import { fetchDays } from "../api/daysApi";
 import { GoToToday } from "./GoToToday";
 import { backgroundSnow } from "./lib/SnowAnimation";
+import { HorisontalDraggable } from "./lib/HorisontalDraggable";
 
-const moveBackAndForwards = keyframes`
-  0% {
-    transform: translateX(0);
-  }
+const StyledSanta = styled.img`
+  height: 300px;
+  margin: 0 auto;
 
-  33% {
-    transform: translateX(20px);
-  }
-
-  66% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-20px);
+  @media screen and (max-width: 450px) {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
   }
 `;
 
@@ -59,21 +54,6 @@ const StyledHeader = styled.div`
       url("/static/images/s3.png");
     z-index: 1;
     animation: ${backgroundSnow} 10s linear infinite;
-  }
-`;
-
-const StyledSanta = styled.img`
-  height: 300px;
-  margin: 0 auto;
-  animation: ${moveBackAndForwards} 180s infinite;
-  animation-direction: alternate;
-
-  @media screen and (max-width: 450px) {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    border-radius: 50%;
-    animation: none;
   }
 `;
 
@@ -120,10 +100,13 @@ export function Main() {
       <Wrapper>
         <StyledHeader>
           <H1>Musikkjulekalender!</H1>
-          <StyledSanta
-            src="/static/images/julenissetransparent.png"
-            alt="Julenisse"
-          />
+          <HorisontalDraggable>
+            <StyledSanta
+              src="/static/images/julenissetransparent.png"
+              alt="Julenisse"
+              draggable={false}
+            />
+          </HorisontalDraggable>
         </StyledHeader>
         <GoToToday />
         <StyledTwoColumns>
