@@ -7,7 +7,12 @@ export function HorisontalDraggable({ children }) {
   const { x, bg, size } = useSpring({
     x: down ? delta[0] : 0,
     size: 1,
-    immediate: name => down && name === "x"
+    immediate: name => down && name === "x",
+    config: {
+      mass: 1,
+      tension: 180,
+      friction: 4
+    }
   });
   return (
     <animated.div {...bind()} style={{ background: bg }}>
