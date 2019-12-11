@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Confetti from "react-confetti";
 import SongAudio from "./SongAudio";
 import { answerApi } from "../../../api/answerApi";
 import { StyledButton } from "../../lib/StyledButton";
@@ -15,6 +16,11 @@ import { DayMetadata } from "../../lib/DayMetadata";
 const Description = styled.div`
   margin-bottom: 2rem;
   text-align: left;
+`;
+
+const StyledConfetti = styled(Confetti)`
+  width: 100%;
+  height: 100%;
 `;
 
 class GuessDay extends React.Component {
@@ -87,7 +93,12 @@ class GuessDay extends React.Component {
         </div>
       );
     } else if (this.state.guess && this.state.correctAnswer) {
-      formOrFeedback = <p>Gratulerer, det var rett!</p>;
+      formOrFeedback = (
+        <>
+          <StyledConfetti colors={["#fff", "#ce0000", "red", "#29ce00"]} />
+          <p>Gratulerer, det var rett!</p>
+        </>
+      );
     } else {
       formOrFeedback = (
         <Form onSubmit={this.submit}>
@@ -116,7 +127,6 @@ class GuessDay extends React.Component {
 
     return (
       <div
-        id="today"
         style={{
           maxWidth: "500px"
         }}

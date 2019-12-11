@@ -7266,6 +7266,12 @@ react-audio-player@^0.6.4:
   dependencies:
     prop-types "^15.5.8"
 
+react-confetti@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-confetti/-/react-confetti-5.0.1.tgz#3003570778cafad4db0ab5513018d4c10e9d1271"
+  dependencies:
+    tween-functions "^1.2.0"
+
 react-datepicker@^2.10.1:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-2.10.1.tgz#5db917a8e10af8b311715f4bdae8b8dfe64f9357"
@@ -8682,6 +8688,10 @@ tunnel-agent@^0.6.0:
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
   dependencies:
     safe-buffer "^5.0.1"
+
+tween-functions@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tween-functions/-/tween-functions-1.2.0.tgz#1ae3a50e7c60bb3def774eac707acbca73bbc3ff"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

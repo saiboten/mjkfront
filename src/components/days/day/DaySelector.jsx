@@ -14,6 +14,7 @@ const StyledDayWrapper = styled.div`
   margin: 5px;
   text-align: center;
   padding-bottom: 2rem;
+  position: relative;
 
   background-color: ${props => (props.today ? secondaryColor : "white")};
   color: ${props => (props.today ? "white" : "black")};
@@ -39,7 +40,7 @@ class DaySelector extends React.Component {
     }
 
     return (
-      <StyledDayWrapper today={today}>
+      <StyledDayWrapper today={today} id={today ? "today" : null}>
         <DateHeader
           unixDate={this.props.day.revealDateAsString}
           style={{
