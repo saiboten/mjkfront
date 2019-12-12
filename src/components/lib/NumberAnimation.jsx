@@ -15,7 +15,7 @@ export function NumberAnimation({ children }) {
     x: children
   });
 
-  return <animated.div>{x.interpolate(val => Math.floor(val))}</animated.div>;
+  return <animated.span>{x.interpolate(val => Math.floor(val))}</animated.span>;
 }
 
 NumberAnimation.propTypes = {
