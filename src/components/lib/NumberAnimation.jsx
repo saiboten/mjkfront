@@ -5,9 +5,10 @@ import { animated, useSpring } from "react-spring";
 export function NumberAnimation({ children }) {
   const { x } = useSpring({
     config: {
-      mass: 1000,
-      tension: 3000,
-      friction: 3000
+      mass: 20,
+      tension: 600,
+      friction: 200,
+      clamp: true
     },
     from: {
       x: 0
@@ -19,5 +20,9 @@ export function NumberAnimation({ children }) {
 }
 
 NumberAnimation.propTypes = {
+  number: number.isRequired
+};
+
+NumberAnimation.defaultProps = {
   number: number.isRequired
 };
