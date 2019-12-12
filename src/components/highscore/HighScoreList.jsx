@@ -4,6 +4,8 @@ import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H2 } from "../lib/Heading";
 import { StyledButtonSecondary } from "../lib/StyledButton";
+import { FadeInList } from "../lib/FadeInList";
+import { NumberAnimation } from "../lib/NumberAnimation";
 
 const StyledListElement = styled.li`
   padding-left: 0.5rem;
@@ -20,25 +22,29 @@ export function HighScoreList() {
   let tmpScore = Number.MAX_SAFE_INTEGER;
   let pos = 0;
 
+  var scores = scoresAboveZero
+    .filter((user, index) => index < 5 || showAll)
+    .map((topListUser, index) => {
+      if (topListUser.score < tmpScore) {
+        pos = index;
+        tmpScore = topListUser.score;
+      }
+
+      return (
+        <StyledListElement key={index}>
+          {pos + 1}: {topListUser.user}:{" "}
+          <strong>
+            <NumberAnimation>{topListUser.score}</NumberAnimation>
+          </strong>
+        </StyledListElement>
+      );
+    });
+
   return (
     <StyledMainBox>
       <H2>Toppscorelisten</H2>
       <ol>
-        {scoresAboveZero
-          .filter((user, index) => index < 5 || showAll)
-          .map((topListUser, index) => {
-            if (topListUser.score < tmpScore) {
-              pos = index;
-              tmpScore = topListUser.score;
-            }
-
-            return (
-              <StyledListElement key={index}>
-                {pos + 1}: {topListUser.user}:{" "}
-                <strong>{topListUser.score}</strong>
-              </StyledListElement>
-            );
-          })}
+        <FadeInList list={scores} />
       </ol>
       {scoresAboveZero.length > 5 && (
         <div

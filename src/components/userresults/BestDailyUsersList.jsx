@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { BestDailyUser } from "./BestDailyUser";
 import { StyledButtonSecondary } from "../lib/StyledButton";
+import { FadeInList } from "../lib/FadeInList";
 
 function BestDailyUsersList(props) {
   const [showAll, setShowAll] = useState(false);
@@ -28,15 +29,19 @@ function BestDailyUsersList(props) {
     maybeempty = (
       <>
         <ol>
-          {showAll
-            ? userCopy.map((user, i) => {
+          {showAll ? (
+            <FadeInList
+              list={userCopy.map((user, i) => {
+                return <BestDailyUser key={i} user={user} />;
+              })}
+            />
+          ) : (
+            userCopy
+              .filter((el, index) => index < 5)
+              .map((user, i) => {
                 return <BestDailyUser key={i} user={user} />;
               })
-            : userCopy
-                .filter((el, index) => index < 5)
-                .map((user, i) => {
-                  return <BestDailyUser key={i} user={user} />;
-                })}
+          )}
         </ol>
         {userCopy.length > 5 && (
           <div

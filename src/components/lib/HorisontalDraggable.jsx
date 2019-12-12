@@ -4,9 +4,8 @@ import { useGesture } from "react-with-gesture";
 
 export function HorisontalDraggable({ children }) {
   const [bind, { delta, down }] = useGesture();
-  const { x, bg, size } = useSpring({
+  const { x, bg } = useSpring({
     x: down ? delta[0] : 0,
-    size: 1,
     immediate: name => down && name === "x",
     config: {
       mass: 1,
@@ -18,7 +17,7 @@ export function HorisontalDraggable({ children }) {
     <animated.div {...bind()} style={{ background: bg }}>
       <animated.div
         style={{
-          transform: interpolate([x, size], (x, s) => `translate3d(${x}px,0,0)`)
+          transform: interpolate([x], x => `translate3d(${x}px,0,0)`)
         }}
       >
         {children}
