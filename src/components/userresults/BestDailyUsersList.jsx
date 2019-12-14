@@ -32,14 +32,14 @@ function BestDailyUsersList(props) {
           {showAll ? (
             <FadeInList
               list={userCopy.map((user, i) => {
-                return <BestDailyUser key={i} user={user} />;
+                return <BestDailyUser key={i} index={i} user={user} />;
               })}
             />
           ) : (
             userCopy
               .filter((el, index) => index < 5)
               .map((user, i) => {
-                return <BestDailyUser key={i} user={user} />;
+                return <BestDailyUser key={i} index={i} user={user} />;
               })
           )}
         </ol>

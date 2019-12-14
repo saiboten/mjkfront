@@ -13,7 +13,7 @@ const StyledListElement = styled.li`
 `;
 
 export function HighScoreList() {
-  const { topList } = useContext(DataContext);
+  const { topList, user } = useContext(DataContext);
 
   const [showAll, setShowAll] = useState(false);
 
@@ -32,7 +32,13 @@ export function HighScoreList() {
 
       return (
         <StyledListElement key={index}>
-          {pos + 1}: {topListUser.user}:{" "}
+          {pos + 1}:{" "}
+          {user && user.nickName === topListUser.user ? (
+            <strong>{topListUser.user}</strong>
+          ) : (
+            topListUser.user
+          )}{" "}
+          :{" "}
           <strong>
             <NumberAnimation>{topListUser.score}</NumberAnimation>
           </strong>
