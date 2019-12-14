@@ -15,7 +15,7 @@ export function BestDailyUser({ user, index }) {
   return (
     <StyledListElement>
       {index + 1}:{" "}
-      {user.name === userData.nickName ? (
+      {userData && user.name === userData.nickName ? (
         <strong>{user.name}</strong>
       ) : (
         user.name
