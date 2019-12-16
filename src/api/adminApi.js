@@ -1,5 +1,13 @@
 export const fetchAdminData = () => {
-  return fetch(`${process.env.REACT_APP_API_PATH}/admin/alldata`)
+  return fetch(`${process.env.REACT_APP_API_PATH}/admin/alldata.json`)
+    .then(data => {
+      return data.json();
+    })
+    .then(data => data);
+};
+
+export const getDayDetails = revealDate => {
+  return fetch(`${process.env.REACT_APP_API_PATH}/admin/day/${revealDate}.json`)
     .then(data => {
       return data.json();
     })

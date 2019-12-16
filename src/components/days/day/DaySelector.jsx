@@ -30,7 +30,7 @@ class DaySelector extends React.Component {
 
     let day = "";
     if (today && this.props.day.description == null) {
-      day = <p style={{ paddingTop: "5rem" }}>Luke åpner 09:00</p>;
+      day = <p style={{ paddingTop: "5rem" }}>Luke åpner 08:00</p>;
     } else if (today) {
       day = <SingleGuessDay />;
     } else if (this.props.day.solutionArtist !== null) {

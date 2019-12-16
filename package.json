@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "5to6-codemod": "^1.8.0",
+    "@elastic/datemath": "^5.0.2",
+    "@elastic/eui": "^17.1.2",
+    "formik": "^2.0.8",
     "moment": "^2.24.0",
     "promise": "^7.0.4",
     "react": "^16.11.0",
