@@ -1,21 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { array } from "prop-types";
 import moment from "moment";
-import DatePicker from "react-datepicker";
 import { DateHeader } from "../DateHeader";
 import SongAudio from "../days/day/SongAudio";
-import Dropzone from "react-dropzone";
 import request from "superagent";
 
-import "@elastic/eui/dist/eui_theme_light.css";
+// import "@elastic/eui/dist/eui_theme_light.css";
 
 import {
   EuiButton,
   EuiCheckboxGroup,
   EuiFieldText,
   EuiForm,
+  EuiTextArea,
   EuiFormRow,
-  EuiFilePicker,
+  EuiDatePicker,
   EuiLink,
   EuiRange,
   EuiSelect,
@@ -30,7 +29,8 @@ import {
   deleteDay,
   fetchAdminData,
   addSolution,
-  deleteSolution
+  deleteSolution,
+  getDayDetails
 } from "../../api/adminApi";
 import styled from "styled-components";
 import { useField, Formik } from "formik";
@@ -44,7 +44,7 @@ const cooperators = [
   "Stein"
 ];
 
-const MyTextField = ({ label, ...props }) => {
+const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <EuiFormRow label={label}>
@@ -58,19 +58,43 @@ const MyTextField = ({ label, ...props }) => {
   );
 };
 
-export function AdminEditDayHook({
-  day: {
-    link,
-    description,
-    revealDateAsString,
-    solutionArtist,
-    solutionSong,
-    optionalSolutionVideo,
-    revealDate,
-    solutionDate
-  }
-}) {
+const TextArea = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <EuiFormRow label={label}>
+      <>
+        <EuiTextArea {...field} {...props} />
+        {meta.touched && meta.error ? (
+          <div className="error">{meta.error}</div>
+        ) : null}
+      </>
+    </EuiFormRow>
+  );
+};
+
+const DatePicker = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <EuiFormRow label={label}>
+      <>
+        <EuiDatePicker selected={field.selected} {...field} {...props} />
+        {meta.touched && meta.error ? (
+          <div className="error">{meta.error}</div>
+        ) : null}
+      </>
+    </EuiFormRow>
+  );
+};
+
+export function AdminEditDayHook({ revealDateAsString }) {
   const [file, setFile] = useState(null);
+  const [day, setDay] = useState({});
+
+  useEffect(() => {
+    getDayDetails(revealDateAsString).then(day => {
+      setDay(day);
+    });
+  }, [day]);
 
   function onDrop(files) {
     // file: files[0]
@@ -97,15 +121,28 @@ export function AdminEditDayHook({
     </p>
   );
 
+  if (!day.description) {
+    return <div>Laster</div>;
+  }
+
+  const {
+    description,
+    link,
+    solutionSong,
+    solutionArtist,
+    optionalSolutionVideo,
+    revealDate,
+    solutionDate
+  } = day;
+
   return (
     <div>
-      Hei
       <Formik
         initialValues={{
-          description: description,
-          link: link,
-          artist: solutionArtist,
-          song: solutionSong,
+          description,
+          link,
+          solutionArtist,
+          solutionSong,
           revealDateAsString,
           optionalSolutionVideo,
           revealDate,
@@ -119,29 +156,33 @@ export function AdminEditDayHook({
         }}
         render={props => (
           <EuiForm onSubmit={props.handleSubmit}>
-            <MyTextField
+            <TextField
               name="revealDateAsString"
               type="text"
               label="Åpningsdato"
             />
-            <MyTextField name="description" type="text" label="Beskrivelse" />
-            <MyTextField name="artist" type="text" label="Artist/Gruppe" />
-            <MyTextField name="sang" type="text" label="Sang" />
-            <MyTextField
+            <TextArea name="description" type="text" label="Beskrivelse" />
+            <TextField
+              name="solutionArtist"
+              type="text"
+              label="Artist/Gruppe"
+            />
+            <TextField name="solutionSong" type="text" label="Sang" />
+            <TextField
               name="optionalSolutionVideo"
               type="text"
               label="Løsningsvideo"
             />
-            <MyTextField name="link" type="text" label="Link" />
-            <MyTextField name="revealDate" type="text" label="Luke åpner" />
-            <MyTextField name="solutionDate" type="text" label="Løsningsdato" />
-            <MyTextField
+            <TextField name="link" type="text" label="Link" />
+            <DatePicker name="revealDate" type="text" label="Luke åpner" />
+            <DatePicker name="solutionDate" type="text" label="Løsningsdato" />
+            <TextField
               name="difficulty"
               type="text"
               label="Vanskelighetsgrad"
             />
-            <MyTextField name="cooperator" type="text" label="Bidragsyter" />
-            <EuiButton type="submit">Submit</EuiButton>
+            <TextField name="cooperator" type="text" label="Bidragsyter" />
+            <EuiButton type="submit">Lagre</EuiButton>
           </EuiForm>
         )}
       />

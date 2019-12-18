@@ -3,7 +3,12 @@ import { useTrail, animated, config } from "react-spring";
 
 export function FadeInList({ list }) {
   const trail = useTrail(list.length, {
-    config: config.stiff,
+    config: {
+      mass: 1,
+      clamp: true,
+      tension: 2000,
+      friction: 50
+    },
     opacity: 1,
     from: { opacity: 0 }
   });

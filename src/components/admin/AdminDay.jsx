@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { AdminEditDay } from "./AdminEditDay";
 
+import { EuiTitle, EuiHorizontalRule, EuiSpacer, EuiCode } from "@elastic/eui";
+
 export function AdminDay(props) {
   const { day, solutions } = props;
 
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(true);
 
   function createMarkup(markup) {
     return { __html: markup };
   }
 
   if (edit) {
-    return (
-      <AdminEditDay
-        day={day}
-        solutions={solutions}
-        close={() => setEdit(false)}
-      />
-    );
+    return <AdminEditDay key={day.id} day={day} close={() => setEdit(false)} />;
   }
 
   const done = day.description !== "" && day.optionalSolutionVideo !== "";
@@ -28,7 +24,9 @@ export function AdminDay(props) {
         backgroundColor: done ? "white" : "#ffbbbb"
       }}
     >
-      <h1>{day.revealDateAsString}</h1>
+      <EuiTitle size="l">
+        <h2>{day.revealDateAsString}</h2>
+      </EuiTitle>
       <p>
         {day.solutionArtist} - {day.solutionSong}
       </p>
