@@ -4,7 +4,6 @@ import * as serviceWorker from "./serviceWorker";
 
 import moment from "moment";
 import { App } from "./App";
-import AdminOverview from "./components/admin/AdminOverview";
 
 moment.defineLocale("nb", {
   months: "januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember".split(
@@ -61,10 +60,6 @@ moment.locale("nb");
 
 if (document.getElementById("root")) {
   ReactDOM.render(<App />, document.getElementById("root"));
-}
-
-if (document.getElementById("admin")) {
-  ReactDOM.render(<AdminOverview />, document.getElementById("admin"));
 }
 
 // If you want your app to work offline and load faster, you can change

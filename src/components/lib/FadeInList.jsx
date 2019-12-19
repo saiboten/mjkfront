@@ -1,5 +1,5 @@
 import React from "react";
-import { useTrail, animated, config } from "react-spring";
+import { useTrail, animated } from "react-spring";
 
 export function FadeInList({ list }) {
   const trail = useTrail(list.length, {
