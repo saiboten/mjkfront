@@ -16,9 +16,10 @@ function BestDailyUsersList(props) {
   }
 
   var maybeempty = "";
-  if (userList && userList.users && userList.users.length > 0) {
+
+  if (userList?.users?.length > 0) {
     var userCopy = [...userList.users];
-    userCopy.sort(function(a, b) {
+    userCopy.sort(function (a, b) {
       if (a.time > b.time) {
         return 1;
       } else {
@@ -48,7 +49,7 @@ function BestDailyUsersList(props) {
             style={{
               marginTop: "1rem",
               display: "flex",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <StyledButtonSecondary onClick={() => setShowAll(!showAll)}>

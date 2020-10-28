@@ -2,9 +2,12 @@ import ReactAudioPlayer from "react-audio-player";
 
 import React from "react";
 
-class SongAudio extends React.Component {
-  render() {
-    /* var audioProps = {
+interface Props {
+  link: string;
+}
+
+const SongAudio = (props: Props) => {
+  /* var audioProps = {
             src: this.props.link,
             preload: "none",
             controls: "yes"
@@ -14,16 +17,15 @@ class SongAudio extends React.Component {
         <a href={this.props.link}>Last ned låt</a>
         </Block> */
 
-    return (
-      <ReactAudioPlayer
-        src={this.props.link}
-        controls
-        style={{
-          width: "100%"
-        }}
-      />
-    );
-  }
-}
+  return (
+    <ReactAudioPlayer
+      src={props.link}
+      controls
+      style={{
+        width: "100%",
+      }}
+    />
+  );
+};
 
 export default SongAudio;

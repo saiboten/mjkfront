@@ -7,7 +7,7 @@ import { H2 } from "../lib/Heading";
 export function BestDailyUsers() {
   const { days, today, userResult } = useContext(DataContext);
 
-  const theDay = days.filter((day, i) => day.id === today);
+  const theDay = days.filter((day) => day.id === today);
 
   return (
     <StyledMainBox>

@@ -1,7 +1,7 @@
-export const fetchDays = () => {
+export const fetchDays = async () => {
   return fetch(`${process.env.REACT_APP_API_PATH}/alldata`)
-    .then(data => {
+    .then((data) => {
       return data.json();
     })
-    .then(data => data);
+    .then((data) => data);
 };

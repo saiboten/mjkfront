@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import moment from "moment";
 import styled from "styled-components";
 import { DataContext } from "../../context/DataContext";
+import { format } from "date-fns";
+import { nb } from "date-fns/locale";
 
 const StyledListElement = styled.li`
   list-style-type: none;
@@ -9,8 +10,6 @@ const StyledListElement = styled.li`
 
 export function BestDailyUser({ user, index }) {
   const { user: userData } = useContext(DataContext);
-
-  var momentTime = moment(user.time).format("HH:mm");
 
   return (
     <StyledListElement>
@@ -20,7 +19,7 @@ export function BestDailyUser({ user, index }) {
       ) : (
         user.name
       )}
-      : {momentTime}
+      : {format(new Date(user.time), "hh:mm:ss", { locale: nb })}
     </StyledListElement>
   );
 }

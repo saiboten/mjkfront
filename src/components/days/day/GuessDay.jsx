@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Confetti from "react-confetti";
 import SongAudio from "./SongAudio";
@@ -23,136 +23,112 @@ const StyledConfetti = styled(Confetti)`
   height: 100%;
 `;
 
-class GuessDay extends React.Component {
-  state = {
-    guess: "",
-    feedback: "",
-    correctAnswer: undefined,
-    loading: false
-  };
+const GuessDay = (props) => {
+  const [guess, setGuess] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.submit = this.submit.bind(this);
-  }
-
-  submit(e) {
+  function submit(e) {
     e.preventDefault();
-    this.setState({
-      loading: true
-    });
+    setLoading(true);
 
-    answerApi(this.state.guess).then(({ correct, feedback }) => {
+    answerApi(guess).then(({ correct, feedback }) => {
       if (correct) {
-        this.setState({
-          correctAnswer: true,
-          status: feedback
-        });
+        setCorrectAnswer(true);
+        setFeedback(feedback);
       } else {
-        this.setState({
-          status: feedback
-        });
+        setFeedback(feedback);
       }
-      this.setState({
-        loading: false
-      });
+      setLoading(false);
     });
   }
 
-  handleChange(event) {
-    this.setState({ guess: event.target.value });
+  function handleChange(event) {
+    setGuess(event.target.value);
   }
 
-  getDescription(description) {
+  function getDescription(description) {
     return {
-      __html: description
+      __html: description,
     };
   }
 
-  render() {
-    var answerThisDay = undefined;
-    if (this.props.answers) {
-      answerThisDay = this.props.answers.find(function(el) {
-        return el.correctSongAnswer && el.day === this.props.today;
-      }, this);
-    }
+  var answerThisDay = undefined;
+  if (props.answers) {
+    answerThisDay = props.answers.find(function (el) {
+      return el.correctSongAnswer && el.day === props.today;
+    });
+  }
 
-    var formOrFeedback = "";
+  var formOrFeedback = "";
 
-    if (answerThisDay && answerThisDay.correctSongAnswer) {
-      formOrFeedback = (
-        <div>
-          <p style={{ marginBottom: "1rem" }}>
-            Du har allerede svart rett på denne oppgaven!
-          </p>
-          <p>
-            Svaret var: <strong>{answerThisDay.guessedSong}</strong>
-          </p>
-        </div>
-      );
-    } else if (this.state.guess && this.state.correctAnswer) {
-      formOrFeedback = (
-        <>
-          <StyledConfetti colors={["#fff", "#ce0000", "red", "#29ce00"]} />
-          <p>Gratulerer, det var rett!</p>
-        </>
-      );
-    } else {
-      formOrFeedback = (
-        <Form onSubmit={this.submit}>
-          <FieldSet>
-            <Input
-              disabled={this.props.user == null}
-              placeholder="Sang"
-              onChange={this.handleChange}
-              value={this.state.guess}
-              style={{
-                marginRight: "1rem",
-                borderRadius: "5px"
-              }}
-            />
-            <StyledButton
-              type="submit"
-              disabled={this.state.loading || this.props.user == null}
-            >
-              Svar
-            </StyledButton>
-          </FieldSet>
-          <p>{this.state.status ? this.state.status : ""} </p>
-        </Form>
-      );
-    }
-
-    return (
-      <div
-        style={{
-          maxWidth: "500px"
-        }}
-      >
-        <DayMetadata>
-          <Cooperator cooperator={this.props.day.cooperator} />
-          <Difficulty difficulty={this.props.day.difficulty} />
-        </DayMetadata>
-        <Description
-          dangerouslySetInnerHTML={this.getDescription(
-            this.props.day.description
-          )}
-        ></Description>
-        <div style={{ marginBottom: "1rem" }}>
-          <SongAudio link={this.props.day.link} />
-        </div>
-        {formOrFeedback}
-        {this.props.user == null && (
-          <p>
-            <StyledLinkAlternate href="/login">Logg inn</StyledLinkAlternate>{" "}
-            for å besvare
-          </p>
-        )}
+  if (answerThisDay && answerThisDay.correctSongAnswer) {
+    formOrFeedback = (
+      <div>
+        <p style={{ marginBottom: "1rem" }}>
+          Du har allerede svart rett på denne oppgaven!
+        </p>
+        <p>
+          Svaret var: <strong>{answerThisDay.guessedSong}</strong>
+        </p>
       </div>
     );
+  } else if (guess && correctAnswer) {
+    formOrFeedback = (
+      <>
+        <StyledConfetti colors={["#fff", "#ce0000", "red", "#29ce00"]} />
+        <p>Gratulerer, det var rett!</p>
+      </>
+    );
+  } else {
+    formOrFeedback = (
+      <Form onSubmit={submit}>
+        <FieldSet>
+          <Input
+            disabled={props.user == null}
+            placeholder="Sang"
+            onChange={handleChange}
+            value={guess}
+            style={{
+              marginRight: "1rem",
+              borderRadius: "5px",
+            }}
+          />
+          <StyledButton type="submit" disabled={loading || props.user == null}>
+            Svar
+          </StyledButton>
+        </FieldSet>
+        <p>{feedback ? feedback : ""} </p>
+      </Form>
+    );
   }
-}
+
+  return (
+    <div
+      style={{
+        maxWidth: "500px",
+      }}
+    >
+      <DayMetadata>
+        <Cooperator cooperator={props.day.cooperator} />
+        <Difficulty difficulty={props.day.difficulty} />
+      </DayMetadata>
+      <Description
+        dangerouslySetInnerHTML={getDescription(props.day.description)}
+      ></Description>
+      <div style={{ marginBottom: "1rem" }}>
+        <SongAudio link={props.day.link} />
+      </div>
+      {formOrFeedback}
+      {props.user == null && (
+        <p>
+          <StyledLinkAlternate href="/login">Logg inn</StyledLinkAlternate> for
+          å besvare
+        </p>
+      )}
+    </div>
+  );
+};
 
 export default GuessDay;

@@ -1,7 +1,7 @@
-export const setNickName = nickName => {
+export const setNickName = async (nickName: string) => {
   return fetch(`${process.env.REACT_APP_API_PATH}/setnickname/${nickName}`)
-    .then(data => {
+    .then((data) => {
       return data.json();
     })
-    .then(data => data);
+    .then((data) => data);
 };

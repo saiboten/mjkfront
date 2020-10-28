@@ -16,43 +16,41 @@ const StyledDayWrapper = styled.div`
   padding-bottom: 2rem;
   position: relative;
 
-  background-color: ${props => (props.today ? secondaryColor : "white")};
-  color: ${props => (props.today ? "white" : "black")};
+  background-color: ${(props) => (props.today ? secondaryColor : "white")};
+  color: ${(props) => (props.today ? "white" : "black")};
 
   @media screen and (max-width: 450px) {
     width: calc(100% - 10px);
   }
 `;
 
-class DaySelector extends React.Component {
-  render() {
-    const today = this.props.day.revealDateAsString === this.props.date;
+const DaySelector = (props) => {
+  const today = props.day.revealDateAsString === props.date;
 
-    let day = "";
-    if (today && this.props.day.description == null) {
-      day = <p style={{ paddingTop: "5rem" }}>Luke åpner 08:00</p>;
-    } else if (today) {
-      day = <SingleGuessDay />;
-    } else if (this.props.day.solutionArtist !== null) {
-      day = <PastDay day={this.props.day} />;
-    } else {
-      day = <p style={{ paddingTop: "5rem" }}>Luke ikke åpnet</p>;
-    }
-
-    return (
-      <StyledDayWrapper today={today} id={today ? "today" : null}>
-        <DateHeader
-          unixDate={this.props.day.revealDateAsString}
-          style={{
-            marginBottom: "1rem"
-          }}
-        >
-          {today && <span>: i dag</span>}
-        </DateHeader>
-        {day}
-      </StyledDayWrapper>
-    );
+  let day = "";
+  if (today && props.day.description == null) {
+    day = <p style={{ paddingTop: "5rem" }}>Luke åpner 08:00</p>;
+  } else if (today) {
+    day = <SingleGuessDay />;
+  } else if (props.day.solutionArtist !== null) {
+    day = <PastDay day={props.day} />;
+  } else {
+    day = <p style={{ paddingTop: "5rem" }}>Luke ikke åpnet</p>;
   }
-}
+
+  return (
+    <StyledDayWrapper today={today} id={today ? "today" : null}>
+      <DateHeader
+        unixDate={props.day.revealDateAsString}
+        style={{
+          marginBottom: "1rem",
+        }}
+      >
+        {today && <span>: i dag</span>}
+      </DateHeader>
+      {day}
+    </StyledDayWrapper>
+  );
+};
 
 export default DaySelector;
