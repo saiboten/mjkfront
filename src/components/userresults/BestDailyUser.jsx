@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { DataContext } from "../../context/DataContext";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
+import { useDays } from "../../hooks/useData";
 
 const StyledListElement = styled.li`
   list-style-type: none;
 `;
 
 export function BestDailyUser({ user, index }) {
-  const { user: userData } = useContext(DataContext);
+  const { user: userData } = useDays();
 
   return (
     <StyledListElement>

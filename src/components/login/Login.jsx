@@ -17,7 +17,7 @@ const StyledButtons = styled.div`
   justify-content: center;
   margin-top: 7rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 45rem) {
     flex-direction: column;
     margin-top: 2rem;
   }
@@ -30,7 +30,7 @@ const StyledLoginButton = styled(StyledButton)`
 `;
 
 const Text = styled.span`
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 45rem) {
     padding-left: 2rem;
   }
 `;

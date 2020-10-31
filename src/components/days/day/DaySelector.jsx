@@ -9,7 +9,6 @@ import { secondaryColor } from "../../userresults/colors";
 const StyledDayWrapper = styled.div`
   padding: 1rem;
   box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.5);
-  width: calc(50% - 10px);
   min-height: 20rem;
   margin: 5px;
   text-align: center;
@@ -18,10 +17,6 @@ const StyledDayWrapper = styled.div`
 
   background-color: ${(props) => (props.today ? secondaryColor : "white")};
   color: ${(props) => (props.today ? "white" : "black")};
-
-  @media screen and (max-width: 450px) {
-    width: calc(100% - 10px);
-  }
 `;
 
 const DaySelector = (props) => {

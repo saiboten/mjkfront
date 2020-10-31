@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Days } from "./days/Days";
 import { Footer } from "./footer/Footer";
 import { Facebook } from "./facebook/Facebook";
@@ -9,21 +9,19 @@ import { CurrentUserStatistics } from "./user/CurrentUserStatistics";
 import { HighScoreList } from "./highscore/HighScoreList";
 import { H1 } from "./lib/Heading";
 import { StyledLoader } from "./lib/StyledLoader";
-
-import { DataContext } from "../context/DataContext";
-import { fetchDays } from "../api/daysApi";
 import { GoToToday } from "./GoToToday";
 import { backgroundSnow } from "./lib/SnowAnimation";
 import { HorisontalDraggable } from "./lib/HorisontalDraggable";
+import { useDays } from "../hooks/useData";
 
 const StyledSanta = styled.img`
-  height: 300px;
+  height: 30rem;
   margin: 0 auto;
 
-  @media screen and (max-width: 450px) {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  @media screen and (max-width: 45rem) {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
     border-radius: 50%;
   }
 `;
@@ -33,7 +31,7 @@ const StyledTwoColumns = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 45rem) {
     flex-direction: column;
   }
 `;
@@ -44,11 +42,11 @@ const StyledHeader = styled.div`
   color: #fff;
   display: flex;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 45rem) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 0.5rem;
 
     background-image: url("/static/images/s1.png"), url("/static/images/s2.png"),
       url("/static/images/s3.png");
@@ -58,38 +56,15 @@ const StyledHeader = styled.div`
 `;
 
 export function Main() {
-  const {
-    setDays,
-    setAnswers,
-    date,
-    setDate,
-    setToday,
-    setUser,
-    setUserResult,
-    setTopList
-  } = useContext(DataContext);
+  const { date, isLoading, isError } = useDays();
 
-  useEffect(() => {
-    fetchDays().then(
-      ({ days, date, user, answers, today, userResult, topList }) => {
-        setDays(days);
-        setDate(date);
-        setUser(user);
-        setAnswers(answers);
-        setToday(today);
-        setUserResult(userResult);
-        setTopList(topList);
-      }
-    );
-  }, [
-    setAnswers,
-    setDate,
-    setDays,
-    setToday,
-    setUser,
-    setUserResult,
-    setTopList
-  ]);
+  if (isLoading) {
+    return "Laster...";
+  }
+
+  if (isError) {
+    return "Noe har gått fryktelig galt";
+  }
 
   if (date === "") {
     return <StyledLoader />;

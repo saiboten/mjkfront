@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import CurrentUserResultDay from "./CurrentUserResultDay.jsx";
-import { DataContext } from "../../context/DataContext.js";
 import { StyledMainBox } from "../lib/MainBox.jsx";
 import { H2 } from "../lib/Heading.jsx";
 import { AddNickName } from "./AddNickName.jsx";
+import { useDays } from "../../hooks/useData.js";
 
 export function CurrentUserStatistics() {
-  const { days, user, answers, today } = useContext(DataContext);
+  const { days, user, answers, today } = useDays();
 
   var userstat = days.map((day, i) => {
     if (day.solutionArtist || day.revealDateAsString === today) {

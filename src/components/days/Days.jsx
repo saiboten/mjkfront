@@ -1,29 +1,25 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import DaySelector from "./day/DaySelector";
-import { DataContext } from "../../context/DataContext";
 import { H2 } from "../lib/Heading";
 import { StyledMainBox } from "../lib/MainBox";
+import { useDays } from "../../hooks/useData";
 
-const StyledDaysContainer = styled(StyledMainBox)`
-  width: calc(100% - 10px);
+const StyledDays = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 2rem;
 `;
 
-export const Days = function() {
-  const { days, answers, date, today, user } = useContext(DataContext);
+export const Days = function () {
+  const { days, answers, date, today, user } = useDays();
 
   return (
-    <StyledDaysContainer>
+    <StyledMainBox>
       <H2>Luker</H2>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap"
-        }}
-      >
+      <StyledDays>
         {days
-          .filter(day => day.realDate !== new Date(date).getDate().toString())
+          .filter((day) => day.realDate !== new Date(date).getDate().toString())
           .map((day, i) => (
             <DaySelector
               key={day.id}
@@ -34,7 +30,7 @@ export const Days = function() {
               day={day}
             />
           ))}
-      </div>
-    </StyledDaysContainer>
+      </StyledDays>
+    </StyledMainBox>
   );
 };

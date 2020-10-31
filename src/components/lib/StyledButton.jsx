@@ -3,8 +3,8 @@ import { contrastColor } from "../userresults/colors";
 
 export const StyledButton = styled.button`
   font-size: 1.2rem;
-  padding: 10px;
-  min-width: 75px;
+  padding: 1rem;
+  min-width: 7.5rem;
   justify-content: center;
   align-items: center;
   display: flex;

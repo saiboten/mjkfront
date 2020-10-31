@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import BestDailyUsersList from "./BestDailyUsersList";
-import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H2 } from "../lib/Heading";
+import { useDays } from "../../hooks/useData";
 
 export function BestDailyUsers() {
-  const { days, today, userResult } = useContext(DataContext);
+  const { days, today, userResult } = useDays();
 
   const theDay = days.filter((day) => day.id === today);
 

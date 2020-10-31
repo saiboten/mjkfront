@@ -29,8 +29,8 @@ const StyledWrapper = styled.div`
 
 const StyledSpinner = styled(Spinner)`
   animation: ${rotate} 1s infinite linear;
-  height: 96px;
-  width: 96px;
+  height: 9.6rem;
+  width: 9.6rem;
   fill: white;
 `;
 

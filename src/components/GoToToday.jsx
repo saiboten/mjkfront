@@ -9,7 +9,7 @@ const Styled = styled.div`
   text-align: center;
   margin: 0.5rem;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 45rem) {
     margin: 0;
     border-radius: 0;
   }

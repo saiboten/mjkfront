@@ -1,5 +1,4 @@
 import React from "react";
-import { Providers } from "./components/Providers";
 import { Main } from "./components/Main";
 import { Menu } from "./components/menu/Menu";
 
@@ -32,31 +31,29 @@ const GlobalStyle = createGlobalStyle`
       /* animation: ${backgroundSnow} 10s linear infinite; */
       font-family: "Rubik", sans-serif;
 
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 45rem) {
         animation: none;
         background-image: none;
       }
   }
 `;
 
-export const App = function() {
+export const App = function () {
   return (
-    <Providers>
+    <Router>
       <GlobalStyle whiteColor />
-      <Router>
-        <Menu isLogged={false} />
-        <Switch>
-          <Route path="/om">
-            <About />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Main />
-          </Route>
-        </Switch>
-      </Router>
-    </Providers>
+      <Menu isLogged={false} />
+      <Switch>
+        <Route path="/om">
+          <About />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <Main />
+        </Route>
+      </Switch>
+    </Router>
   );
 };

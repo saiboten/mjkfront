@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { DataContext } from "../../context/DataContext";
+import React, { useState } from "react";
 import { InputLabel } from "../lib/InputLabel";
 import { Input } from "../lib/Input";
 import { Form } from "../lib/Form";
@@ -8,6 +7,7 @@ import { setNickName as setNickNameAPI } from "../../api/userApi";
 import { StyledButton } from "../lib/StyledButton";
 import { ReactComponent as EditIcon } from "./edit.svg";
 import styled from "styled-components";
+import { useDays } from "../../hooks/useData";
 
 const StyledEditIcon = styled(EditIcon)`
   fill: "blue";
@@ -17,7 +17,7 @@ const StyledEditIcon = styled(EditIcon)`
 `;
 
 export function AddNickName() {
-  const { user, setUser } = useContext(DataContext);
+  const { user, setUser } = useDays();
 
   const [edit, setEdit] = useState(false);
   const [nickName, setNickName] = useState("");
@@ -33,13 +33,13 @@ export function AddNickName() {
     e.preventDefault();
 
     setNickNameAPI(nickName)
-      .then(data => {
+      .then((data) => {
         if (data.success) {
           setFeedback("Brukernavn oppdatert");
           setEdit(false);
           setUser({
             ...user,
-            nickName
+            nickName,
           });
         } else {
           setFeedback("Klarte ikke å oppdatere brukernavn. Prøv igjen senere.");
@@ -53,7 +53,7 @@ export function AddNickName() {
   return (
     <div
       style={{
-        marginBottom: "1rem"
+        marginBottom: "1rem",
       }}
     >
       {isLoggedIn && (
@@ -73,7 +73,7 @@ export function AddNickName() {
             <InputLabel htmlFor="nickname">Endre brukernavn</InputLabel>
             <Input
               id="nickname"
-              onChange={e => setNickName(e.target.value)}
+              onChange={(e) => setNickName(e.target.value)}
               type="text"
             ></Input>
           </FieldSet>
@@ -86,7 +86,7 @@ export function AddNickName() {
       )}
       <div
         style={{
-          marginTop: "1rem"
+          marginTop: "1rem",
         }}
       >
         {feedback}

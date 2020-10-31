@@ -4,5 +4,5 @@ export const Wrapper = styled.div`
   display: block;
   border-radius: 5px;
   margin: 0px auto;
-  max-width: 980px;
+  max-width: 120rem;
 `;

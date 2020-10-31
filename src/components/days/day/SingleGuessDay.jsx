@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import GuessDay from "./GuessDay";
-import { DataContext } from "../../../context/DataContext";
+import { useDays } from "../../../hooks/useData";
 
 export function SingleGuessDay() {
-  const { days, date, today, answers, user } = useContext(DataContext);
+  const { days, date, today, answers, user } = useDays();
 
-  const todayDetails = days.filter(day => day.revealDateAsString === date);
+  const todayDetails = days.filter((day) => day.revealDateAsString === date);
 
   const quizTodayExists = todayDetails.length === 1;
 

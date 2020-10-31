@@ -107,7 +107,7 @@ const GuessDay = (props) => {
   return (
     <div
       style={{
-        maxWidth: "500px",
+        maxWidth: "50rem",
       }}
     >
       <DayMetadata>

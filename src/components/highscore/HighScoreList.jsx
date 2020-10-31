@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { DataContext } from "../../context/DataContext";
 import { StyledMainBox } from "../lib/MainBox";
 import { H2 } from "../lib/Heading";
 import { StyledButtonSecondary } from "../lib/StyledButton";
 import { FadeInList } from "../lib/FadeInList";
 import { NumberAnimation } from "../lib/NumberAnimation";
+import { useDays } from "../../hooks/useData";
 
 const StyledListElement = styled.li`
   padding-left: 0.5rem;
@@ -13,11 +13,11 @@ const StyledListElement = styled.li`
 `;
 
 export function HighScoreList() {
-  const { topList, user } = useContext(DataContext);
+  const { topList, user } = useDays();
 
   const [showAll, setShowAll] = useState(false);
 
-  const scoresAboveZero = topList.filter(user => user.score > 0);
+  const scoresAboveZero = topList.filter((user) => user.score > 0);
 
   let tmpScore = Number.MAX_SAFE_INTEGER;
   let pos = 0;
@@ -57,7 +57,7 @@ export function HighScoreList() {
           style={{
             marginTop: "1rem",
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <StyledButtonSecondary

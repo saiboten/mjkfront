@@ -16,7 +16,7 @@ const initialState = {
   topList: [],
   setTopList: () => [],
   solutions: [],
-  setSolutions: () => []
+  setSolutions: () => [],
 };
 
 export const AdminDataContext = React.createContext(initialState);
