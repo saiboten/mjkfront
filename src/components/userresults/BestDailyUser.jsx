@@ -19,7 +19,7 @@ export function BestDailyUser({ user, index }) {
       ) : (
         user.name
       )}
-      : {format(new Date(user.time), "hh:mm:ss", { locale: nb })}
+      : {format(new Date(user.time), "HH:mm:ss", { locale: nb })}
     </StyledListElement>
   );
 }

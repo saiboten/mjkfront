@@ -8,6 +8,7 @@ import { StyledButton } from "../lib/StyledButton";
 import { ReactComponent as EditIcon } from "./edit.svg";
 import styled from "styled-components";
 import { useDays } from "../../hooks/useData";
+import { mutate } from "swr";
 
 const StyledEditIcon = styled(EditIcon)`
   fill: "blue";
@@ -17,7 +18,7 @@ const StyledEditIcon = styled(EditIcon)`
 `;
 
 export function AddNickName() {
-  const { user, setUser } = useDays();
+  const { user } = useDays();
 
   const [edit, setEdit] = useState(false);
   const [nickName, setNickName] = useState("");
@@ -37,10 +38,7 @@ export function AddNickName() {
         if (data.success) {
           setFeedback("Brukernavn oppdatert");
           setEdit(false);
-          setUser({
-            ...user,
-            nickName,
-          });
+          mutate(`${process.env.REACT_APP_API_PATH}/alldata`);
         } else {
           setFeedback("Klarte ikke å oppdatere brukernavn. Prøv igjen senere.");
         }
